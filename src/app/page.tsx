@@ -43,7 +43,7 @@ export default function Home() {
         }}
       >
         <div className="flex items-center gap-3">
-          <Image src="/Waste-be-minerals-Logo-600x195.webp" alt="Waste Be Minerals" width={200} height={65} className="h-8 w-auto object-contain" />
+          <Image src="/WBM/Waste-be-minerals-Logo-600x195.webp" alt="Waste Be Minerals" width={200} height={65} className="h-8 w-auto object-contain" />
         </div>
 
         <div className="hidden md:flex items-center gap-5">

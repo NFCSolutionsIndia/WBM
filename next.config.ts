@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+
+  basePath: "/WBM",
+  assetPrefix: "/WBM/",
+
+  images: {
+    unoptimized: true,   // ✅ VERY IMPORTANT
+  },
 };
 
 export default nextConfig;

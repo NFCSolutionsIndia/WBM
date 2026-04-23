@@ -148,7 +148,7 @@ export default function ImpactPurpose() {
           <motion.div style={{ scale: videoScale }} className="w-full h-full">
             <video
               ref={videoRef}
-              src="/media/WhatweDo.mp4"
+              src="/WBM/media/WhatweDo.mp4"
               playsInline
               className="w-full h-full object-cover"
               onClick={togglePlay}

@@ -11,7 +11,7 @@ const steps = [
     title: "Waste Collection",
     desc: "We partner with corporations, municipalities, and data centres to collect e-waste, batteries, and rare earth magnets. Our logistics network ensures secure, certified pickup with chain-of-custody documentation.",
     tags: ["Electronics", "Batteries", "Magnets", "Data Centres"],
-    img: "/media/Step1.png",
+    img: "/WBM/media/Step1.png",
   },
   {
     num: "02",
@@ -19,7 +19,7 @@ const steps = [
     title: "AI Sorting",
     desc: "Our proprietary AI vision systems scan, classify, and sort every piece of waste in real-time. Robotic arms work alongside our technicians with 98.7% material identification accuracy.",
     tags: ["Computer Vision", "Robotics", "Real-time", "Human-AI"],
-    img: "/media/Step2.jpg",
+    img: "/WBM/media/Step2.jpg",
   },
   {
     num: "03",
@@ -27,7 +27,7 @@ const steps = [
     title: "Extraction Process",
     desc: "Using hydrometallurgical and pyrometallurgical processes, we extract precious and critical minerals. Zero liquid discharge technology ensures we're environmentally compliant at every stage.",
     tags: ["Hydrometallurgy", "Pyrometallurgy", "Zero Discharge", "ISO Certified"],
-    img: "/media/Step3.jpg",
+    img: "/WBM/media/Step3.jpg",
   },
   {
     num: "04",
@@ -35,7 +35,7 @@ const steps = [
     title: "Mineral Formation",
     desc: "Extracted materials are refined to industry-grade purity. Lithium, cobalt, copper, gold, and 40+ other critical minerals are processed and certified for immediate industrial use.",
     tags: ["Lithium", "Cobalt", "Copper", "Gold", "Neodymium"],
-    img: "/media/Step4.png",
+    img: "/WBM/media/Step4.png",
   },
   {
     num: "05",
@@ -43,7 +43,7 @@ const steps = [
     title: "Global Distribution",
     desc: "Certified minerals are distributed to EV manufacturers, semiconductor companies, defence contractors, and AI infrastructure providers globally through our smart marketplace.",
     tags: ["EV Manufacturers", "Chip Makers", "Defence", "AI Infrastructure"],
-    img: "/media/Step5.jpg",
+    img: "/WBM/media/Step5.jpg",
   },
 ];
 

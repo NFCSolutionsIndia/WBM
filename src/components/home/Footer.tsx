@@ -167,11 +167,10 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-1">
           <div className="mb-4">
             <Image
-              src="/Waste-be-minerals-Logo-600x195.webp"
+              src="/WBM/Waste-be-minerals-Logo-600x195.webp"
               alt="Waste BE Minerals"
               width={160}
               height={52}
-              className="object-contain brightness-0 invert"
             />
           </div>
           <p className="font-sans text-xs text-white/30 leading-relaxed max-w-[200px]">

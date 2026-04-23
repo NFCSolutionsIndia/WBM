@@ -116,7 +116,7 @@ export default function NumbersThatSpeak() {
         {/* Background image — flipped horizontally */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/media/BackgroundImgHero.png"
+            src="/WBM/media/BackgroundImgHero.png"
             alt="Facility background"
             fill
             className="object-cover"

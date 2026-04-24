@@ -163,16 +163,15 @@ export default function Footer() {
       {/* ── Footer bottom bar ──────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-12 border-b border-white/5">
 
-        {/* Logo + tagline */}
+        {/* Tagline / Socials */}
         <div className="col-span-2 md:col-span-1">
-          <div className="mb-4">
-            <Image
-              src="/WBM/Waste-be-minerals-Logo-600x195.webp"
-              alt="Waste BE Minerals"
-              width={160}
-              height={52}
-            />
-          </div>
+          <Image 
+            src="/WBM/WBMLogoWhiteText.png" 
+            alt="Waste BE Minerals" 
+            width={180} 
+            height={60} 
+            className="w-auto h-12 mb-6" 
+          />
           <p className="font-sans text-xs text-white/30 leading-relaxed max-w-[200px]">
             Transforming e-waste into critical minerals for tomorrow&apos;s industries.
           </p>

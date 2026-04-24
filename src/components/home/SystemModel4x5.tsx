@@ -145,7 +145,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           <span className="font-sans font-bold text-xs uppercase tracking-[0.25em]" style={{ color: fg2 }}>Revenue Model</span>
         </div>
         <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-[clamp(32px,5vw,60px)]" style={{ color: fg }}>
-          How We <span style={{ color: "#C1FF00" }}>Generate Revenue</span>
+          How We <span style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>Generate Revenue</span>
         </h2>
         <p className="font-sans text-base mt-3 max-w-xl mx-auto" style={{ color: fg2 }}>
           Hover any offering to reveal its connected revenue streams and output minerals.
@@ -186,7 +186,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── LEFT: Offerings ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: "#C1FF00" }}>4 Offerings</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>4 Offerings</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Three waste streams. One AI orchestration layer.</p>
             </div>
             <div className="flex flex-col gap-3">
@@ -216,7 +216,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── MIDDLE: Revenue Streams ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: "#C1FF00" }}>5 Revenue Streams</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>5 Revenue Streams</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Each offering compounds across multiple lines.</p>
             </div>
             <div className="flex flex-col gap-3">
@@ -243,7 +243,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── RIGHT: Minerals ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: "#C1FF00" }}>11 Minerals</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>11 Minerals</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>From 118 — these are the ones that matter.</p>
             </div>
 

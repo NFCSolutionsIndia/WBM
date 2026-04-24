@@ -1,10 +1,8 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-
-const rotatingWords = ["Treasure.", "Compute.", "Power.", "Value."];
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -86,7 +84,7 @@ export default function HeroSection() {
                 transition={{ delay: 0.6, duration: 0.7 }}
                 className="mt-8 font-sans text-white/60 text-lg md:text-xl max-w-xl leading-relaxed"
               >
-                The world&apos;s only AI-native platform extracting 11 critical minerals from e-waste, batteries, and rare-earth magnets.
+                The world's only AI-native platform extracting 11 critical minerals from e-waste, batteries, and rare-earth magnets.
               </motion.p>
 
               {/* CTA */}
@@ -100,17 +98,20 @@ export default function HeroSection() {
                   href="#system"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className="font-sans font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-full text-black"
-                  style={{ background: "#C1FF00" }}
+                  className="relative overflow-hidden font-sans font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-full group bg-[#C1FF00] border border-[#C1FF00]"
                 >
-                  Take Charge Of Your Supply
+                  <div className="absolute inset-0 w-full h-full bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                  <span className="relative z-10 text-black">Take Charge Of Your Supply</span>
                 </motion.a>
+                
                 <motion.a
                   href="#system"
-                  whileHover={{ scale: 1.03 }}
-                  className="font-sans font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-full text-white border border-white/20 backdrop-blur-sm"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative overflow-hidden font-sans font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-full group border border-white/20 backdrop-blur-sm"
                 >
-                  See How It Works ↓
+                  <div className="absolute inset-0 w-full h-full bg-[#C1FF00] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                  <span className="relative z-10 text-white group-hover:text-black transition-colors duration-300">See How It Works ↓</span>
                 </motion.a>
               </motion.div>
             </motion.div>

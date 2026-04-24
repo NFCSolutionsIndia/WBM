@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Amatic_SC, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import Navbar from "@/components/ui/Navbar";
+import AIAgentChat from "@/components/ui/AIAgentChat";
+import CustomCursor from "@/components/ui/CustomCursor";
+import Footer from "@/components/home/Footer";
 
 const amaticSC = Amatic_SC({
   variable: "--font-amatic",
@@ -24,8 +28,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${amaticSC.variable} ${dmSans.variable}`} suppressHydrationWarning>
-      <body className="antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="antialiased bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-300">
+        <ThemeProvider>
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
+          <AIAgentChat />
+        </ThemeProvider>
       </body>
     </html>
   );

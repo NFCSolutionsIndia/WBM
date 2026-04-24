@@ -102,12 +102,15 @@ export default function ReadyToCollaborate() {
                   <textarea rows={4} placeholder="Describe the partnership opportunity — distribution, research, government, or other..." className="w-full bg-[rgba(255,255,255,0.02)] border border-[var(--c-border)] rounded-xl px-4 py-3 text-[var(--c-fg)] font-sans focus:outline-none focus:border-[var(--color-lime)] transition-colors resize-none"></textarea>
                 </div>
 
-                <button 
+                <motion.button 
                   type="submit"
-                  className="w-full py-4 mt-2 rounded-xl font-sans font-bold text-sm uppercase tracking-widest text-black bg-[var(--color-lime)] transition-transform hover:scale-[1.02] active:scale-95"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="relative overflow-hidden w-full py-4 mt-2 rounded-xl font-sans font-bold text-sm uppercase tracking-widest text-black group bg-[var(--color-lime)]"
                 >
-                  Send Message
-                </button>
+                  <div className="absolute inset-0 w-full h-full bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                  <span className="relative z-10 text-black">Send Message</span>
+                </motion.button>
               </form>
             </div>
           </motion.div>

@@ -240,13 +240,18 @@ export default function ChooseYourPath() {
                     </div>
 
                     {/* Button */}
-                    <button 
-                      className="w-full py-4 rounded-xl font-sans font-bold text-sm uppercase tracking-widest text-black transition-transform hover:scale-[1.02] active:scale-95"
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="relative overflow-hidden w-full py-4 rounded-xl font-sans font-bold text-sm uppercase tracking-widest text-black group"
                       style={{ background: activePath.accent }}
                       data-cursor="view"
                     >
-                      {activeContent.buttonText}
-                    </button>
+                      <div className="absolute inset-0 w-full h-full bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+                      <span className="relative z-10 text-black flex items-center justify-center gap-2">
+                        {activeContent.buttonText}
+                      </span>
+                    </motion.button>
 
                   </motion.div>
                 </AnimatePresence>

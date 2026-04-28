@@ -170,7 +170,6 @@ export default function ScrollStory() {
                       animate={{ x: [0, 4, 0] }}
                       transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
                     >
-                      →
                     </motion.span>
                   </motion.div>
                 </div>

@@ -124,13 +124,13 @@ export default function Footer() {
       </svg>
 
       {/* ── Top CTA block ──────────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 md:py-24 border-b border-white/5">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 md:py-12 border-b border-white/5">
         
         {/* Decorative rounded rectangles (like the reference) */}
-        <div className="absolute top-10 left-10 w-32 h-20 rounded-2xl border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute top-16 right-16 w-24 h-16 rounded-xl border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-24 left-20 w-16 h-24 rounded-xl border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-20 right-12 w-28 h-20 rounded-2xl border border-white/5 pointer-events-none hidden lg:block" />
+        <div className="absolute top-10 left-10 w-32 h-20 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
+        <div className="absolute top-16 right-16 w-24 h-16 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
+        <div className="absolute bottom-24 left-20 w-16 h-24 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
+        <div className="absolute bottom-20 right-12 w-28 h-20 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -219,7 +219,7 @@ export default function Footer() {
             href="#contact"
             className="inline-flex items-center gap-2 font-sans font-bold text-xs uppercase tracking-widest text-[#C1FF00] hover:gap-3 transition-all duration-200"
           >
-            Get in touch <span>→</span>
+            Get in touch
           </a>
           <div className="mt-6 space-y-2">
             <div className="font-sans text-xs text-white/30">hello@wastebeminerals.com</div>

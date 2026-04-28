@@ -130,15 +130,15 @@ export default function EwasteSequence() {
   const y90 = useTransform(scrollYProgress, [0.8, 0.9], [30, 0]);
 
   return (
-    <section ref={containerRef} className="relative w-full font-sans tracking-tight bg-[#080808] text-white" style={{ height: "400vh" }}>
+    <section ref={containerRef} className="relative w-full font-sans tracking-tight bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-300" style={{ height: "400vh" }}>
       
-      <div className="sticky top-0 w-full h-screen overflow-hidden bg-[#080808]">
+      <div className="sticky top-0 w-full h-screen overflow-hidden bg-[var(--c-bg)]">
         
         {/* Loading State */}
         {loadedCount < totalFrames && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-50 bg-[#080808]">
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-50 bg-[var(--c-bg)]">
             <div className="w-8 h-8 border-2 border-white/20 border-t-white/80 rounded-full animate-spin mb-4" />
-            <p className="text-white/60 text-sm font-medium tracking-tight">
+            <p className="text-[var(--c-fg2)] text-sm font-medium tracking-tight">
               Loading sequence... {Math.round((loadedCount / totalFrames) * 100)}%
             </p>
           </div>
@@ -159,10 +159,10 @@ export default function EwasteSequence() {
             style={{ opacity: opacity0, y: y0 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center"
           >
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white drop-shadow-xl">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--c-fg)] drop-shadow-xl">
               Extraction Sequence.
             </h2>
-            <p className="mt-4 text-xl md:text-2xl font-medium text-[#C1FF00] tracking-tight">
+            <p className="mt-4 text-xl md:text-2xl font-medium text-[var(--c-highlight)] tracking-tight">
               Watch the process unfold.
             </p>
           </motion.div>
@@ -172,10 +172,10 @@ export default function EwasteSequence() {
             style={{ opacity: opacity25, y: y25 }}
             className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-24 max-w-2xl"
           >
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white drop-shadow-xl">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--c-fg)] drop-shadow-xl">
               Precision Breakdown.
             </h2>
-            <p className="mt-4 text-xl font-medium text-white/80 tracking-tight">
+            <p className="mt-4 text-xl font-medium text-[var(--c-fg2)] tracking-tight">
               Every detail, measured.
             </p>
           </motion.div>
@@ -186,10 +186,10 @@ export default function EwasteSequence() {
             className="absolute inset-0 flex flex-col items-end justify-center text-right px-6 md:px-24"
           >
             <div className="max-w-xl">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white drop-shadow-xl">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--c-fg)] drop-shadow-xl">
                 Layered Engineering.
               </h2>
-              <p className="mt-4 text-xl font-medium text-white/80 tracking-tight">
+              <p className="mt-4 text-xl font-medium text-[var(--c-fg2)] tracking-tight">
                 See what's inside.
               </p>
             </div>
@@ -200,10 +200,10 @@ export default function EwasteSequence() {
             style={{ opacity: opacity90, y: y90 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center"
           >
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white drop-shadow-xl">
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-[var(--c-fg)] drop-shadow-xl">
               Minerals Recovered.
             </h2>
-            <p className="mt-4 text-xl md:text-2xl font-medium text-[#C1FF00] tracking-tight">
+            <p className="mt-4 text-xl md:text-2xl font-medium text-[var(--c-highlight)] tracking-tight">
               Scroll back to replay.
             </p>
           </motion.div>

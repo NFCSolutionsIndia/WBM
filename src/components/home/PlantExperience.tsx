@@ -5,7 +5,7 @@ import { PlayCircle } from "lucide-react";
 
 export default function PlantExperience() {
   return (
-    <section className="py-24 bg-slate-900 text-white relative">
+    <section className="py-12 bg-slate-900 text-white relative">
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-t from-primary to-transparent opacity-50" />
       </div>
@@ -39,7 +39,7 @@ export default function PlantExperience() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="aspect-video bg-black/50 border border-white/20 rounded-2xl overflow-hidden relative flex items-center justify-center shadow-2xl shadow-cyan/20 cursor-pointer group"
+              className="aspect-video bg-black/50 border border-white/20 rounded-[10px] overflow-hidden relative flex items-center justify-center shadow-2xl shadow-cyan/20 cursor-pointer group"
             >
               <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all" />
               <div className="text-center z-10 p-6">

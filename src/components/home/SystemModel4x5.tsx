@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── Data & Connections ───────────────────────────────────────────────────── */
 const OFFERINGS = [
-  { id: "ewaste",  label: "E-Waste",         short: "EW",    accent: "#C1FF00", icon: "♻", desc: "PCBs, chips, laptops, servers — extracted under one roof." },
-  { id: "bwaste",  label: "B-Waste",         short: "BW",    accent: "#FF6B35", icon: "⚡", desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry." },
+  { id: "ewaste",  label: "E-Waste",         short: "EW",    accent: "#78B933", icon: "♻", desc: "PCBs, chips, laptops, servers — extracted under one roof." },
+  { id: "bwaste",  label: "B-Waste",         short: "BW",    accent: "#78B933", icon: "⚡", desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry." },
   { id: "ree",     label: "REE Magnets",     short: "REE",   accent: "#7ECCD6", icon: "🧲", desc: "Rare-earth magnets from MRIs, wind turbines, decommissioned units." },
-  { id: "aidc",    label: "AI Data Centres", short: "AI-DC", accent: "#C1FF00", icon: "🖥", desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime." },
+  { id: "aidc",    label: "AI Data Centres", short: "AI-DC", accent: "#78B933", icon: "🖥", desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime." },
 ];
 
 const REVENUES = [
@@ -58,16 +58,35 @@ function getActive(hoveredOffering: string | null) {
 }
 
 /* ─── Animated SVG curved connection lines ────────────────────────────────── */
-interface LineProps { from: DOMRect | null; to: DOMRect | null; color: string; container: DOMRect | null; }
-function CurvedLine({ from, to, color, container }: LineProps) {
+interface LineProps { from: DOMRect | null; to: DOMRect | null; color: string; container: DOMRect | null; isVertical?: boolean; }
+function CurvedLine({ from, to, color, container, isVertical }: LineProps) {
   if (!from || !to || !container) return null;
-  const x1 = from.right  - container.left;
-  const y1 = from.top    + from.height / 2 - container.top;
-  const x2 = to.left     - container.left;
-  const y2 = to.top      + to.height / 2 - container.top;
-  const cx1 = x1 + (x2 - x1) * 0.4;
-  const cx2 = x1 + (x2 - x1) * 0.6;
-  const d   = `M${x1},${y1} C${cx1},${y1} ${cx2},${y2} ${x2},${y2}`;
+
+  let x1, y1, x2, y2, cx1, cy1, cx2, cy2;
+
+  if (isVertical) {
+    // Top-to-bottom connection
+    x1 = from.left + from.width / 2 - container.left;
+    y1 = from.bottom - container.top;
+    x2 = to.left + to.width / 2 - container.left;
+    y2 = to.top - container.top;
+    cx1 = x1;
+    cy1 = y1 + (y2 - y1) * 0.5;
+    cx2 = x2;
+    cy2 = y1 + (y2 - y1) * 0.5;
+  } else {
+    // Left-to-right connection
+    x1 = from.right - container.left;
+    y1 = from.top + from.height / 2 - container.top;
+    x2 = to.left - container.left;
+    y2 = to.top + to.height / 2 - container.top;
+    cx1 = x1 + (x2 - x1) * 0.4;
+    cy1 = y1;
+    cx2 = x1 + (x2 - x1) * 0.6;
+    cy2 = y2;
+  }
+
+  const d = `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`;
   return (
     <motion.path
       d={d} fill="none" stroke={color}
@@ -92,6 +111,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
   const revenueRefs   = useRef<Record<string, HTMLDivElement | null>>({});
   const mineralRefs   = useRef<Record<string, HTMLDivElement | null>>({});
   const [rects, setRects] = useState<{ offerings: Record<string, DOMRect>; revenues: Record<string, DOMRect>; minerals: Record<string, DOMRect>; container: DOMRect | null }>({ offerings: {}, revenues: {}, minerals: {}, container: null });
+  const [isVertical, setIsVertical] = useState(false);
 
   const measureRects = useCallback(() => {
     if (!containerRef.current) return;
@@ -103,13 +123,18 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
     Object.entries(revenueRefs.current).forEach(([k, el])  => { if (el) revenues[k]  = el.getBoundingClientRect(); });
     Object.entries(mineralRefs.current).forEach(([k, el])  => { if (el) minerals[k]  = el.getBoundingClientRect(); });
     setRects({ offerings, revenues, minerals, container });
+    setIsVertical(window.innerWidth < 1024);
   }, []);
 
-  useLayoutEffect(() => { measureRects(); }, [measureRects]);
+  useLayoutEffect(() => {
+    measureRects();
+    window.addEventListener("resize", measureRects);
+    return () => window.removeEventListener("resize", measureRects);
+  }, [measureRects]);
 
   /* Active offering accent color */
   const activeOffering = OFFERINGS.find(o => o.id === hovered);
-  const lineColor = activeOffering?.accent ?? "#C1FF00";
+  const lineColor = activeOffering?.accent ?? "#78B933";
 
   /* Opacity helpers */
   const offOp  = (id: string) => !hovered || hovered === id ? 1 : 0.2;
@@ -127,7 +152,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
   const cardStyle = (opacity: number, glow?: boolean, accent?: string) => ({
     background: card,
     border: `1px solid ${glow && accent ? accent + "60" : border}`,
-    borderRadius: 14,
+    borderRadius: 10,
     opacity,
     transition: "opacity 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease",
     boxShadow: glow && accent ? `0 0 18px ${accent}30` : isDark ? "0 2px 12px rgba(0,0,0,0.3)" : "0 2px 12px rgba(0,0,0,0.07)",
@@ -141,11 +166,11 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
         <div className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full" style={{ border: `1px solid ${border}`, background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)" }}>
-          <div className="w-2 h-2 rounded-full bg-[#C1FF00] animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-[#78B933] animate-pulse" />
           <span className="font-sans font-bold text-xs uppercase tracking-[0.25em]" style={{ color: fg2 }}>Revenue Model</span>
         </div>
         <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-[clamp(32px,5vw,60px)]" style={{ color: fg }}>
-          How We <span style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>Generate Revenue</span>
+          How We <span style={{ color: isDark ? "#78B933" : "#1A4D2E" }}>Generate Revenue</span>
         </h2>
         <p className="font-sans text-base mt-3 max-w-xl mx-auto" style={{ color: fg2 }}>
           Hover any offering to reveal its connected revenue streams and output minerals.
@@ -165,6 +190,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
                 to={rects.revenues[revId] ?? null}
                 color={lineColor}
                 container={rects.container ?? null}
+                isVertical={isVertical}
               />
             ))}
             {hovered && OFF_TO_REV[hovered]?.map(revId =>
@@ -175,18 +201,19 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
                   to={rects.minerals[minId] ?? null}
                   color={lineColor}
                   container={rects.container ?? null}
+                  isVertical={isVertical}
                 />
               ))
             )}
           </AnimatePresence>
         </svg>
 
-        <div className="grid grid-cols-3 gap-8 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 relative z-20">
 
           {/* ── LEFT: Offerings ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>4 Offerings</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#78B933" : "#1A4D2E" }}>4 Offerings</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Three waste streams. One AI orchestration layer.</p>
             </div>
             <div className="flex flex-col gap-3">
@@ -201,7 +228,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
                   onMouseLeave={() => setHovered(null)}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
+                    <div className="w-9 h-9 rounded-[10px] flex items-center justify-center text-lg flex-shrink-0"
                       style={{ background: off.accent + "20", border: `1px solid ${off.accent}40` }}>
                       {off.icon}
                     </div>
@@ -216,7 +243,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── MIDDLE: Revenue Streams ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>5 Revenue Streams</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#78B933" : "#1A4D2E" }}>5 Revenue Streams</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Each offering compounds across multiple lines.</p>
             </div>
             <div className="flex flex-col gap-3">
@@ -243,14 +270,14 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── RIGHT: Minerals ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#C1FF00" : "#1A4D2E" }}>11 Minerals</span>
+              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#78B933" : "#1A4D2E" }}>11 Minerals</span>
               <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>From 118 — these are the ones that matter.</p>
             </div>
 
             {/* Precious Metals */}
             <div className="mb-5">
               <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Precious Metals</span>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "precious").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}
                     style={cardStyle(minOp(m.id), activeMins.has(m.id), lineColor)}
@@ -267,7 +294,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
             {/* Critical Minerals */}
             <div className="mb-5">
               <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Critical Minerals</span>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "critical").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}
                     style={cardStyle(minOp(m.id), activeMins.has(m.id), lineColor)}
@@ -284,7 +311,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
             {/* REE */}
             <div>
               <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Rare-Earth Elements</span>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "ree").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}
                     style={cardStyle(minOp(m.id), activeMins.has(m.id), lineColor)}

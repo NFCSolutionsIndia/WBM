@@ -29,7 +29,7 @@ function Counter({ target, suffix = "" }: { target: number, suffix?: string }) {
 
 export default function SustainabilityImpact() {
   return (
-    <section className="relative py-32 overflow-hidden bg-[#050505]">
+    <section className="relative py-12 overflow-hidden bg-[#050505]">
       {/* Background slow wave motion and glowing orbs */}
       <motion.div 
         className="absolute inset-0 opacity-40 pointer-events-none"
@@ -50,7 +50,7 @@ export default function SustainabilityImpact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12"
         >
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-[#C1FF00] animate-pulse" />
@@ -63,7 +63,7 @@ export default function SustainabilityImpact() {
             Our processes reduce landfill waste, lower emissions, and support a circular economy by transforming waste into valuable resources.
           </p>
           <button className="px-8 py-4 bg-[#FF6B35] text-white font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#C1FF00] hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(255,107,53,0.3)] hover:shadow-[0_0_30px_rgba(193,255,0,0.4)]">
-            Learn More →
+            Learn More
           </button>
         </motion.div>
 
@@ -79,7 +79,7 @@ export default function SustainabilityImpact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-10 rounded-3xl bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors"
+              className="p-10 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors"
             >
               <div className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#C1FF00] to-[#FF6B35] tracking-tighter mb-4 drop-shadow-[0_0_15px_rgba(193,255,0,0.2)]">
                 <Counter target={stat.value} suffix={stat.suffix} />

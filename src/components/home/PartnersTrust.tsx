@@ -14,11 +14,11 @@ const partners = [
 
 export default function PartnersTrust() {
   return (
-    <section className="relative py-32 bg-[#050505] overflow-hidden">
+    <section className="relative py-12 bg-[#050505] overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 text-center mb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export default function PartnersTrust() {
             Collaborating for global impact. We work with manufacturers, recyclers, and technology partners to create a sustainable and scalable supply chain for critical materials.
           </p>
           <button className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(193,255,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-            Become a Partner →
+            Become a Partner
           </button>
         </motion.div>
       </div>
@@ -54,7 +54,7 @@ export default function PartnersTrust() {
           {[...partners, ...partners, ...partners, ...partners].map((partner, i) => (
             <div 
               key={i} 
-              className="relative flex flex-col justify-center px-10 py-8 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-xl hover:border-[#C1FF00]/50 hover:bg-black/60 transition-all duration-300 cursor-pointer min-w-[280px] group/card hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(193,255,0,0.1)]"
+              className="relative flex flex-col justify-center px-10 py-8 rounded-[10px] bg-black/40 border border-white/10 backdrop-blur-xl hover:border-[#C1FF00]/50 hover:bg-black/60 transition-all duration-300 cursor-pointer min-w-[280px] group/card hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(193,255,0,0.1)]"
             >
               <span className="text-3xl md:text-4xl font-black tracking-tighter text-white/80 uppercase group-hover/card:text-white transition-colors duration-300">
                 {partner.name}

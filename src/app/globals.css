@@ -19,12 +19,14 @@
   --c-fg3: rgba(42, 51, 38, 0.4);
   --c-border: rgba(42, 51, 38, 0.08);
   --c-glass: rgba(255, 255, 255, 0.6);
-  --c-shadow: rgba(42, 51, 38, 0.06);
+  --c-shadow: rgba(0, 0, 0, 0.05);
   --c-nav: rgba(248, 245, 241, 0.92);
   --c-card: rgba(255, 255, 255, 0.8);
+  --radius-card: 10px;
   --c-lime: #839470;
   --c-orange: #BFA98A;
   --c-ice: #92A39E;
+  --c-highlight: #78B933;
 }
 
 /* ─── Dark Theme (Terminal Industries Style) ─── */
@@ -37,12 +39,14 @@
   --c-fg3: rgba(255, 255, 255, 0.4);
   --c-border: rgba(255, 255, 255, 0.1);
   --c-glass: rgba(255, 255, 255, 0.03);
-  --c-shadow: rgba(0, 0, 0, 0.8);
+  --c-shadow: rgba(0, 0, 0, 0.2);
   --c-nav: rgba(10, 10, 10, 0.85);
   --c-card: #121212;
+  --radius-card: 10px;
   --c-lime: #C1FF00;
   --c-orange: #FF6B35;
   --c-ice: #00E5FF;
+  --c-highlight: #78B933;
 }
 
 *,

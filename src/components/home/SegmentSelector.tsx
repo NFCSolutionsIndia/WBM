@@ -14,10 +14,10 @@ const segments = [
 
 export default function SegmentSelector() {
   return (
-    <section className="py-32 w-full bg-[var(--c-bg)]">
+    <section className="py-12 w-full bg-[var(--c-bg)]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex items-center gap-4 mb-6">
               <div className="w-8 h-px bg-[var(--color-ice)]" />
@@ -56,7 +56,7 @@ export default function SegmentSelector() {
 
                 {/* Icon */}
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-8 transition-all duration-300 group-hover:scale-110 shadow-sm"
+                  className="w-14 h-14 rounded-[10px] flex items-center justify-center text-2xl mb-8 transition-all duration-300 group-hover:scale-110 shadow-sm"
                   style={{ background: `var(--c-bg2)`, border: `1px solid var(--c-border)`, color: seg.accent }}
                 >
                   {seg.icon}
@@ -72,7 +72,6 @@ export default function SegmentSelector() {
                   style={{ color: seg.accent }}
                 >
                   <span>Explore</span>
-                  <span>→</span>
                 </div>
               </motion.div>
             </TiltCard>

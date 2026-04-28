@@ -1,36 +1,70 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, LucideIcon } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 interface ButtonProps {
   children: React.ReactNode;
-  icon?: LucideIcon;
-  variant?: "primary" | "secondary";
   onClick?: () => void;
+  href?: string;
   className?: string;
+  variant?: 'primary' | 'outline' | 'ghost';
+  showArrow?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export default function Button({ children, icon: Icon = ArrowRight, variant = "primary", onClick, className = "" }: ButtonProps) {
-  const isPrimary = variant === "primary";
+export default function Button({ 
+  children, 
+  onClick, 
+  href,
+  className = "", 
+  variant = 'primary',
+  showArrow = false,
+  size = 'md'
+}: ButtonProps) {
+  const sizeClasses = {
+    sm: "h-10 px-4 text-[11px]",
+    md: "h-12 px-6 text-[13px]",
+    lg: "h-14 px-8 text-[15px]"
+  };
 
-  return (
+  const arrowSize = size === 'sm' ? 10 : 12;
+  const arrowBgSize = size === 'sm' ? "w-5 h-5" : "w-6 h-6";
+
+  const buttonContent = (
     <motion.button
+      onClick={onClick}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      onClick={onClick}
-      className={`relative inline-flex items-center gap-4 rounded-full pl-6 pr-2 py-2 font-bold tracking-wide uppercase transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_rgba(0,0,0,1)] text-sm md:text-base ${
-        isPrimary 
-          ? "bg-primary text-white border-2 border-primary" 
-          : "bg-white text-primary border-2 border-primary"
-      } ${className}`}
+      className={`relative overflow-hidden rounded-[10px] shadow-[0_0_15px_rgba(193,255,0,0.1)] group border border-[var(--c-border)] ${variant === 'primary' ? 'bg-[var(--c-fg)]' : 'bg-[var(--c-bg)]'} flex items-center justify-center transition-all duration-300 ${sizeClasses[size]} ${className}`}
     >
-      <span>{children}</span>
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-transform ${
-        isPrimary ? "bg-lime text-primary" : "bg-lime text-primary border-2 border-primary"
-      }`}>
-        <Icon size={18} strokeWidth={3} />
+      <div className="absolute inset-0 w-full h-full bg-[var(--c-lime)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+      
+      <div className="relative z-10 flex items-center gap-3">
+        <span className={`font-bold uppercase tracking-[0.15em] ${variant === 'primary' ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]'} group-hover:text-black transition-colors duration-300`}>
+          {children}
+        </span>
+        
+        {showArrow && (
+          <motion.div 
+            className={`${arrowBgSize} rounded-full bg-[var(--c-fg)]/10 flex items-center justify-center group-hover:bg-black/10 transition-colors`}
+            animate={{ x: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <svg width={arrowSize} height={arrowSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--c-fg)] group-hover:text-black transition-colors">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </motion.div>
+        )}
       </div>
     </motion.button>
   );
+
+  if (href) {
+    return <Link href={href}>{buttonContent}</Link>;
+  }
+
+  return buttonContent;
 }

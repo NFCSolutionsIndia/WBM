@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function CustomerSection() {
   return (
-    <section className="relative w-full py-24 px-[50px] md:px-[90px] border-y border-[var(--c-border)]">
+    <section className="relative w-full py-12 px-[50px] md:px-[90px] border-y border-[var(--c-border)]">
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function CustomerSection() {
         
         <div className="flex-1 grid grid-cols-2 gap-4 w-full">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="aspect-square rounded-3xl glass flex items-center justify-center p-6 text-center card-hover">
+            <div key={i} className="aspect-square rounded-[10px] glass flex items-center justify-center p-6 text-center card-hover">
               <span className="font-bold text-[var(--c-fg3)]">Partner Logo {i}</span>
             </div>
           ))}

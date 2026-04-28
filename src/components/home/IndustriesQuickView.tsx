@@ -3,34 +3,39 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const industries = [
-  { name: "Electric Vehicles", img: "/WBM/media/DistributionProcess.png" },
-  { name: "AI Infrastructure", img: "/WBM/media/BackgroundImgHero.png" },
-  { name: "Aerospace", img: "/WBM/media/outsideWarehouse1.png" },
-  { name: "Consumer Electronics", img: "/WBM/media/Industies.jpg" }
+  { name: "Electric Vehicles", img: "/WBM/media/ElectricVehicles.jpg" },
+  { name: "AI Infrastructure", img: "/WBM/media/DataCentersAI.jpg" },
+  { name: "Aerospace", img: "/WBM/media/AerospaceDefense.jpg" },
+  { name: "Consumer Electronics", img: "/WBM/media/ConsumerElectronics.jpg" },
+  { name: "Energy & Power", img: "/WBM/media/EnergyPower.jpg" }
 ];
 
 export default function IndustriesQuickView() {
   return (
-    <section className="py-32 bg-[#F5F7F6] text-black">
+    <section className="py-12 bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
-            Powering the World's<br/>Most Critical Industries
+          <span className="text-[var(--c-lime)] font-bold uppercase tracking-[0.3em] text-xs mb-4 block">• INDUSTRY</span>
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-[var(--c-fg)]">
+            Powering the World's<br/><span className="text-[var(--c-lime)]">Most Critical Industries</span>
           </h2>
-          <p className="text-black/60 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-[var(--c-fg)]/60 text-lg max-w-2xl mx-auto mb-10">
             Supplying essential materials across sectors. Our recovered materials support industries enabling sustainable and reliable production at scale.
           </p>
-          <button className="px-8 py-4 bg-black text-white font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#C1FF00] hover:text-black transition-colors duration-300">
-            View Industries →
+          <button 
+            onClick={() => window.location.href = '/WBM/industries'}
+            className="px-8 py-4 bg-[var(--c-fg)] text-[var(--c-bg)] font-bold uppercase tracking-widest text-sm rounded-[10px] hover:bg-[var(--c-lime)] hover:text-black transition-colors duration-300"
+          >
+            View Industries
           </button>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {industries.map((ind, i) => (
             <motion.div
               key={ind.name}
@@ -38,7 +43,7 @@ export default function IndustriesQuickView() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer"
+              className="relative h-96 rounded-[10px] overflow-hidden group cursor-pointer border border-gray-100 dark:border-white/10 shadow-sm"
             >
               <Image 
                 src={ind.img} 

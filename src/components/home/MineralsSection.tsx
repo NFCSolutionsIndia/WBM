@@ -52,15 +52,15 @@ export default function MineralsSection() {
     <section className="relative w-full py-12 bg-[var(--c-bg)] border-t border-[var(--c-border)]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="w-8 h-px bg-[var(--color-ice)]" />
-            <span className="font-sans font-bold text-xs tracking-[0.3em] uppercase text-[var(--color-ice)]">
+            <div className="w-8 h-px bg-[var(--c-highlight)]" />
+            <span className="font-sans font-bold text-xs tracking-[0.3em] uppercase text-[var(--c-highlight)]">
               Recovered Minerals
             </span>
           </motion.div>
@@ -72,7 +72,7 @@ export default function MineralsSection() {
               className="font-sans font-black tracking-tighter leading-[0.9] text-[clamp(36px,6vw,80px)] text-[var(--c-fg)] uppercase max-w-3xl"
             >
               Remember the{" "}
-              <span className="text-[var(--color-ice)]">Periodic Table?</span>
+              <span className="text-[var(--c-highlight)]">Periodic Table?</span>
               <br />
               We Extract 11 of Them.
             </motion.h2>
@@ -97,7 +97,7 @@ export default function MineralsSection() {
         </div>
 
         {/* WBM Minerals Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3 mb-20">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3 mb-12">
           {wbmMinerals.map((m, i) => (
             <motion.div
               key={m.symbol}
@@ -106,17 +106,17 @@ export default function MineralsSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.04 }}
               whileHover={{ scale: 1.1, y: -4 }}
-              className="aspect-square rounded-2xl flex flex-col items-center justify-center p-2 border cursor-pointer"
+              className="aspect-square rounded-[10px] flex flex-col items-center justify-center p-2 border cursor-pointer"
               style={{
                 background: "var(--c-bg2)",
                 borderColor: "var(--color-lime)",
-                boxShadow: "0 0 20px rgba(193, 255, 0, 0.08)",
+                boxShadow: "0 0 20px rgba(120, 185, 51, 0.08)",
               }}
             >
               <div className="font-sans font-black text-xs text-[var(--c-fg3)]">{m.num}</div>
               <div
                 className="font-sans font-black text-xl leading-none"
-                style={{ color: "var(--color-lime)" }}
+                style={{ color: "var(--c-highlight)" }}
               >
                 {m.symbol}
               </div>
@@ -146,7 +146,7 @@ export default function MineralsSection() {
               title: "Defence & Energy",
               minerals: ["Nd", "Dy", "Ti", "Pb"],
               desc: "Neodymium and dysprosium from end-of-life turbines and MRI machines. Titanium and lead recovered from defence electronics.",
-              accent: "var(--color-ice)",
+              accent: "var(--color-lime)",
             },
           ].map((card, i) => (
             <motion.div
@@ -155,7 +155,7 @@ export default function MineralsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-[32px] border border-[var(--c-border)] bg-[var(--c-bg2)] card-hover"
+              className="p-8 rounded-[10px] border border-[var(--c-border)] bg-[var(--c-bg2)] card-hover"
             >
               <div className="flex gap-2 mb-6 flex-wrap">
                 {card.minerals.map((sym) => (
@@ -169,7 +169,7 @@ export default function MineralsSection() {
                 ))}
               </div>
               <h3 className="font-sans font-black text-xl uppercase tracking-tight text-[var(--c-fg)] mb-3">
-                {card.title}
+                {card.title.split(' ').slice(0, -1).join(' ')} <span className="text-[var(--c-highlight)]">{card.title.split(' ').slice(-1)}</span>
               </h3>
               <p className="font-sans text-sm text-[var(--c-fg2)] leading-relaxed">{card.desc}</p>
             </motion.div>

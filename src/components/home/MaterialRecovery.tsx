@@ -22,7 +22,7 @@ const metrics = [
 
 export default function MaterialRecovery() {
   return (
-    <section className="py-32 w-full" style={{ background: "#090909" }}>
+    <section className="py-12 w-full" style={{ background: "#090909" }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="flex items-center gap-4 mb-6">
@@ -30,7 +30,7 @@ export default function MaterialRecovery() {
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "#FF6B35" }}>Five-Step Process</span>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-20 mb-24">
+        <div className="grid md:grid-cols-2 gap-20 mb-12">
           {/* Process steps horizontal */}
           <div>
             <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} className="font-display font-bold text-[clamp(40px,6vw,80px)] text-text-primary leading-none mb-12">
@@ -43,7 +43,7 @@ export default function MaterialRecovery() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="group flex items-center gap-5 px-5 py-4 rounded-2xl border border-white/5 cursor-pointer hover:border-white/15 transition-colors duration-300"
+                    className="group flex items-center gap-5 px-5 py-4 rounded-[10px] border border-white/5 cursor-pointer hover:border-white/15 transition-colors duration-300"
                     style={{ background: "rgba(255,255,255,0.02)" }}
                   >
                     <span className="font-mono text-xs w-8" style={{ color: s.accent }}>{s.num}</span>
@@ -52,7 +52,6 @@ export default function MaterialRecovery() {
                       <div className="font-sans font-bold text-text-primary group-hover:text-lime transition-colors">{s.title}</div>
                       <div className="font-sans text-xs mt-0.5" style={{ color: "rgba(245,245,240,0.35)" }}>{s.desc}</div>
                     </div>
-                    <span className="font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: s.accent }}>→</span>
                   </motion.div>
                 </TiltCard>
               ))}
@@ -61,7 +60,7 @@ export default function MaterialRecovery() {
 
           {/* Recovery rates */}
           <div>
-            <h3 className="font-display font-bold text-4xl text-text-primary mb-10">Recovery Efficiency</h3>
+            <h3 className="font-display font-bold text-4xl text-text-primary mb-10">Recovery <span style={{ color: "#C7F53E" }}>Efficiency</span></h3>
             <div className="space-y-6">
               {metrics.map((m, idx) => (
                 <motion.div
@@ -96,7 +95,7 @@ export default function MaterialRecovery() {
                 <motion.div
                   key={k.label}
                   whileHover={{ scale: 1.04 }}
-                  className="rounded-2xl p-5 border text-center"
+                  className="rounded-[10px] p-5 border text-center"
                   style={{ background: `${k.accent}08`, borderColor: `${k.accent}25` }}
                 >
                   <div className="font-display font-bold text-4xl mb-1" style={{ color: k.accent, textShadow: `0 0 20px ${k.accent}50` }}>{k.val}</div>

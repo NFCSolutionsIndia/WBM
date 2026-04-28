@@ -56,7 +56,7 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
 
   // Whenever this block crosses the center of the viewport, we set it as active
   useEffect(() => {
-    return scrollYProgress.onChange((v) => {
+    return scrollYProgress.on("change", (v) => {
       if (v > 0 && v < 1) {
         setActiveStep(index);
       }
@@ -90,7 +90,7 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
         </div>
 
         {/* Mobile image (only visible on small screens) */}
-        <div className="block lg:hidden mt-12 w-full aspect-square relative rounded-2xl overflow-hidden border border-[var(--c-border)]">
+        <div className="block lg:hidden mt-12 w-full aspect-square relative rounded-[10px] overflow-hidden border border-[var(--c-border)]">
           <Image 
             src={step.img}
             alt={step.title}

@@ -32,7 +32,7 @@ function Block({ block, index }: { block: typeof BLOCKS[0]; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="flex flex-col p-8 rounded-3xl border transition-all hover:-translate-y-1 hover:shadow-xl"
+      className="flex flex-col p-8 rounded-[10px] border transition-all hover:-translate-y-1 hover:shadow-xl"
       style={{
         background: "var(--c-bg2)",
         borderColor: "var(--c-border)",
@@ -104,7 +104,7 @@ export default function ImpactPurpose() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] overflow-hidden py-12">
 
       {/* ── TOP: Heading ───────────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-10 text-center">
@@ -134,7 +134,7 @@ export default function ImpactPurpose() {
       </div>
 
       {/* ── MIDDLE: Grid Cards ─────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {BLOCKS.map((block, i) => (
             <Block key={block.num} block={block} index={i} />
@@ -149,13 +149,27 @@ export default function ImpactPurpose() {
             <video
               ref={videoRef}
               src="/WBM/media/WhatweDo.mp4"
+              poster="/WBM/media/ThumbnailImg.png"
               playsInline
               className="w-full h-full object-cover"
               onClick={togglePlay}
             />
-            {/* Edge vignette */}
-            <div className="absolute inset-0 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)" }} />
+            {/* Center Play Button Overlay */}
+            {!isPlaying && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
+              >
+                <div 
+                  className="w-20 h-20 md:w-28 md:h-28 bg-[var(--color-lime)]/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl cursor-pointer pointer-events-auto hover:scale-110 transition-transform group/play"
+                  onClick={togglePlay}
+                >
+                  <Play className="w-10 h-10 md:w-14 md:h-14 fill-black text-black ml-2" />
+                </div>
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Custom Controls */}

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function TechnologySnapshot() {
   return (
-    <section className="py-32 bg-[#080808] text-white overflow-hidden relative">
+    <section className="py-12 bg-[#080808] text-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
         
         {/* Left: Text */}
@@ -26,7 +26,7 @@ export default function TechnologySnapshot() {
               Precision systems designed for efficiency and scale. Our technology integrates intelligent sorting, automated dismantling, and advanced extraction processes. Combined with AI-driven optimization, it ensures maximum material recovery with minimal environmental impact.
             </p>
             <button className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300">
-              Explore Technology →
+              Explore Technology
             </button>
           </motion.div>
         </div>
@@ -38,7 +38,7 @@ export default function TechnologySnapshot() {
             whileInView={{ opacity: 1, scale: 1, clipPath: "circle(100% at 50% 50%)" }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full h-full relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(193,255,0,0.1)]"
+            className="w-full h-full relative rounded-[10px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(193,255,0,0.1)]"
           >
             <video
               src="/WBM/media/BackgroundVideoHero.mp4"
@@ -49,7 +49,7 @@ export default function TechnologySnapshot() {
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/60 to-transparent" />
-            <div className="absolute bottom-8 left-8 p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10">
+            <div className="absolute bottom-8 left-8 p-6 rounded-[10px] bg-black/40 backdrop-blur-md border border-white/10">
               <div className="flex items-center gap-4 mb-2">
                 <div className="w-3 h-3 rounded-full bg-[#C1FF00] animate-pulse" />
                 <span className="text-white font-bold tracking-widest text-xs uppercase">AI System Active</span>

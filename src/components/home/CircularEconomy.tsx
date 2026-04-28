@@ -21,7 +21,7 @@ export default function CircularEconomy() {
   ];
 
   return (
-    <section ref={containerRef} className="py-32 w-full overflow-hidden theme-bg bg-[var(--c-bg)] relative">
+    <section ref={containerRef} className="py-12 w-full overflow-hidden theme-bg bg-[var(--c-bg)] relative">
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: "radial-gradient(circle at right center, rgba(0,229,255,0.1) 0%, transparent 50%)" }} />
       <div className="max-w-7xl mx-auto px-[50px] md:px-[90px] relative z-10">
         
@@ -30,7 +30,7 @@ export default function CircularEconomy() {
           <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "#C7F53E" }}>Circular Economy</span>
         </motion.div>
         
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-display font-bold text-[clamp(48px,7vw,96px)] text-[var(--c-fg)] leading-none mb-20">
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-display font-bold text-[clamp(48px,7vw,96px)] text-[var(--c-fg)] leading-none mb-12">
           Three Layers of<br /><span style={{ color: "#C7F53E" }}>Closed Loops</span>
         </motion.h2>
 
@@ -44,7 +44,7 @@ export default function CircularEconomy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
-              className="group relative glass rounded-3xl p-8 border border-[var(--c-border)] card-hover overflow-hidden transition-all duration-300 bg-[var(--c-bg2)]"
+              className="group relative glass rounded-[10px] p-8 border border-[var(--c-border)] card-hover overflow-hidden transition-all duration-300 bg-[var(--c-bg2)]"
             >
               {/* Top colored line */}
               <div className="absolute top-0 left-8 right-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${l.accent}, transparent)` }} />

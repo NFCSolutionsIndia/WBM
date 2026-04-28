@@ -5,7 +5,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function CTASection() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--c-bg)] mt-32 border-t border-[var(--c-border)]">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--c-bg)] mt-12 border-t border-[var(--c-border)]">
       
       {/* Animated gradient blobs */}
       <motion.div
@@ -69,10 +69,10 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-32"
+          className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12"
         >
           <MagneticButton variant="lime" className="text-lg px-12 py-5 font-bold uppercase tracking-wider bg-[var(--color-lime)] text-black rounded-full hover:scale-105 transition-transform">
-            Partner With Us →
+            Partner With Us
           </MagneticButton>
           <MagneticButton variant="ghost" className="text-lg px-12 py-5 font-bold uppercase tracking-wider text-[var(--c-fg)] border border-[var(--c-border)] rounded-full hover:bg-[var(--c-fg)] hover:text-[var(--c-bg)] transition-colors">
             View Pitch Deck

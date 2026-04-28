@@ -22,7 +22,7 @@ const paths = [
         "ESG-compliant portfolio asset",
         "Carbon credit revenue share",
       ],
-      buttonText: "View Investment Deck →",
+      buttonText: "View Investment Deck",
     },
     accent: "var(--color-orange)",
   },
@@ -31,7 +31,7 @@ const paths = [
     title: "Customer",
     subtitle: "Buy Certified Minerals",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
     ),
     content: {
       title: "CUSTOMER",
@@ -43,7 +43,7 @@ const paths = [
         "Long-term off-take agreements",
         "Reduced geopolitical supply risk",
       ],
-      buttonText: "Request Spec Sheets →",
+      buttonText: "Request Spec Sheets",
     },
     accent: "var(--color-ice)",
   },
@@ -64,7 +64,7 @@ const paths = [
         "Secure data destruction",
         "Complete chain of custody",
       ],
-      buttonText: "Become a Supplier →",
+      buttonText: "Become a Supplier",
     },
     accent: "var(--color-lime)",
   },
@@ -85,7 +85,7 @@ const paths = [
         "Landfill diversion metrics",
         "Aligns with strategic mineral acts",
       ],
-      buttonText: "Explore Partnerships →",
+      buttonText: "Explore Partnerships",
     },
     accent: "var(--color-orange)",
   },
@@ -106,7 +106,7 @@ const paths = [
         "Internship & pipeline programs",
         "Real-world lab testing",
       ],
-      buttonText: "Collaborate With Us →",
+      buttonText: "Collaborate With Us",
     },
     accent: "var(--color-ice)",
   },
@@ -123,7 +123,7 @@ export default function ChooseYourPath() {
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Header */}
-        <div className="mb-16 text-center max-w-2xl mx-auto">
+        <div className="mb-12 text-center max-w-2xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export default function ChooseYourPath() {
                     {/* Header */}
                     <div className="flex items-center gap-6 mb-8">
                       <div 
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-black"
+                        className="w-16 h-16 rounded-[10px] flex items-center justify-center text-black"
                         style={{ background: activePath.accent }}
                       >
                         {activePath.icon}
@@ -243,7 +243,7 @@ export default function ChooseYourPath() {
                     <motion.button 
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="relative overflow-hidden w-full py-4 rounded-xl font-sans font-bold text-sm uppercase tracking-widest text-black group"
+                      className="relative overflow-hidden w-full py-4 rounded-[10px] font-sans font-bold text-sm uppercase tracking-widest text-black group"
                       style={{ background: activePath.accent }}
                       data-cursor="view"
                     >

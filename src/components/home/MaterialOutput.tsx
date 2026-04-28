@@ -17,7 +17,7 @@ export default function MaterialOutput() {
   const router = useRouter();
 
   return (
-    <section className="relative py-32 overflow-hidden bg-[#050505]">
+    <section className="relative py-12 overflow-hidden bg-[#050505]">
       {/* Background Particles */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         {[...Array(20)].map((_, i) => (
@@ -46,7 +46,7 @@ export default function MaterialOutput() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12"
         >
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Material Output Showcase</span>
@@ -58,7 +58,7 @@ export default function MaterialOutput() {
             onClick={() => router.push('/materials')}
             className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(193,255,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
           >
-            Explore Materials →
+            Explore Materials
           </button>
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function MaterialOutput() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="relative p-8 rounded-3xl bg-black/40 border border-white/5 backdrop-blur-xl group overflow-hidden cursor-pointer hover:border-white/20 transition-all duration-300"
+              className="relative p-8 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl group overflow-hidden cursor-pointer hover:border-white/20 transition-all duration-300"
             >
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"

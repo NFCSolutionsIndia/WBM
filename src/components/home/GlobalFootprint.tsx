@@ -2,6 +2,7 @@
 
 import { useState, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Recycle } from "lucide-react";
 
 const LOCS = [
   { id: "india",  city: "Pune",          country: "India",         status: "operational", x: 72, y: 45, color: "#78B933", capacity: "30,000 t/yr intake",   footprint: "100,000 sq ft", desc: "India's flagship AI-powered e-waste facility serving major tech hubs across South Asia." },
@@ -17,7 +18,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
   useLayoutEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 640) setScale(0.4);
+      if (width < 640) setScale(0.75);
       else if (width < 768) setScale(0.6);
       else if (width < 1024) setScale(0.8);
       else setScale(1);
@@ -49,16 +50,18 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-[#78B933] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#78B933]">Global Distribution</span>
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#78B933]">Our Footprint</span>
           </div>
-          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-[clamp(36px,5vw,64px)] mb-3 text-white">
-            Our <span className="text-[#78B933]">Network</span>
+          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-3xl md:text-[52px] mb-3 text-white">
+            A semi-circle of allies.<br />
+            Not a straight line <span className="text-[#78B933]">through Beijing.</span>
           </h2>
-          <p className="font-sans text-base max-w-md mx-auto text-white/60">
-            Hover a location pin to explore full operational details and facility metrics.
+          <p className="font-sans text-base max-w-2xl mx-auto text-white/60">
+            Four countries. Eight plants. Zero exposure to the geographies that hold the West hostage. By design, not by default. WBM does not operate in non-allied parts of Asia. Our semi-circle of allied geographies is the bypass route.
           </p>
         </motion.div>
       </div>
+
 
       {/* ── ISOMETRIC 3D MAP ── */}
       <div className="relative z-0 flex-1 min-h-[50vh] md:min-h-[60vh] flex items-center justify-center -mt-10 lg:-mt-12 perspective-[1200px] overflow-hidden">
@@ -100,8 +103,8 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
               
               {/* Interactive Node */}
               <div className="relative flex items-center justify-center cursor-pointer transition-transform duration-300 group-hover:scale-125">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.2)] text-black font-bold text-[10px]" style={{ background: loc.color }}>
-                  ♻
+                <div className="w-6 h-6 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.2)] text-black font-bold" style={{ background: loc.color }}>
+                  <Recycle size={14} />
                 </div>
                 <div className="absolute inset-0 rounded-full animate-ping opacity-40 pointer-events-none" style={{ background: loc.color }} />
               </div>
@@ -160,7 +163,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
             transition={{ delay: i * 0.08 }}
             onMouseEnter={() => setHovered(loc)}
             onMouseLeave={() => setHovered(null)}
-            className={`rounded-[10px] p-5 border backdrop-blur-xl transition-all duration-300 cursor-pointer shadow-xl ${hovered?.id === loc.id ? 'scale-105 border-white/30' : 'border-white/10 hover:border-white/20'}`}
+            className={`rounded-[10px] p-5 border backdrop-blur-xl transition-all duration-300 cursor-pointer shadow-xl card-theme ${hovered?.id === loc.id ? 'scale-105 border-white/30' : 'border-white/10 hover:border-white/20'}`}
             style={{ background: cardBg }}
           >
             <div className="flex items-center gap-2 mb-2">

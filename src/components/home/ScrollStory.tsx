@@ -1,50 +1,42 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import TiltCard from "@/components/ui/TiltCard";
+import { CircuitBoard, Battery, Magnet, Database } from "lucide-react";
 
 const chapters = [
   {
     num: "01",
-    title: "Lithium-Ion Batteries",
-    desc: "Lithium, cobalt, nickel — recovered from EV and grid storage waste. Lithium-ion only. No acid-filled. Closed-loop chemistry.",
-    tag: "B-WASTE",
-    accent: "var(--color-orange)",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14"><rect x="15" y="20" width="50" height="30" rx="6" stroke="currentColor" strokeWidth="2.5" fill="none"/><rect x="65" y="30" width="6" height="10" rx="2" fill="currentColor"/><path d="M25 35 L35 35 M32 28 L32 42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/><circle cx="55" cy="35" r="5" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="2"/></svg>
-    ),
+    title: "E-Waste Extraction",
+    desc: "PCBs, chips, laptops, servers — extracted under one roof.",
+    tag: "E-WASTE",
+    accent: "var(--color-lime)",
+    icon: <CircuitBoard className="w-6 h-6" />,
   },
   {
     num: "02",
-    title: "Rare-Earth Magnets",
-    desc: "Neodymium, dysprosium — extracted from end-of-life turbines, MRI machines, and decommissioned motors.",
-    tag: "REE MAGNETS",
-    accent: "var(--color-ice)",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14"><path d="M20 15 L40 40 L60 15" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round"/><path d="M15 15 L30 15 L30 45 Q30 60 40 62 Q50 60 50 45 L50 15 L65 15" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round"/><circle cx="40" cy="40" r="8" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5"/></svg>
-    ),
+    title: "B-Waste Recycling",
+    desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry.",
+    tag: "B-WASTE",
+    accent: "var(--color-orange)",
+    icon: <Battery className="w-6 h-6" />,
   },
   {
     num: "03",
-    title: "PCBs & Electronics",
-    desc: "Gold, silver, palladium, copper — refined from circuit boards, chips, laptops, and decommissioned servers.",
-    tag: "E-WASTE",
-    accent: "var(--color-lime)",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14"><rect x="10" y="20" width="60" height="40" rx="4" stroke="currentColor" strokeWidth="2" fill="none"/><rect x="20" y="28" width="12" height="12" rx="2" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/><rect x="40" y="28" width="20" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.5"/><rect x="40" y="38" width="20" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.5"/><line x1="10" y1="50" x2="70" y2="50" stroke="currentColor" strokeWidth="1" strokeOpacity="0.4"/></svg>
-    ),
+    title: "REE Magnets",
+    desc: "Rare-earth magnets from MRIs, wind turbines, decommissioned units.",
+    tag: "REE MAGNETS",
+    accent: "var(--color-ice)",
+    icon: <Magnet className="w-6 h-6" />,
   },
   {
     num: "04",
     title: "AI Data Centres",
-    desc: "The orchestration layer. Co-located on 100,000 sq ft. Multi-tenant, 15-year leases, 6-layer encryption, 100% uptime.",
+    desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime.",
     tag: "AI-DC",
     accent: "var(--color-lime)",
-    icon: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14">{[10,22,34,46].map(y => <rect key={y} x="10" y={y} width="60" height="10" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none"/>)}<circle cx="60" cy="15" r="3" fill="currentColor"/><circle cx="60" cy="27" r="3" fill="currentColor"/><circle cx="60" cy="39" r="3" fill="currentColor"/><circle cx="60" cy="51" r="3" fill="currentColor"/></svg>
-    ),
+    icon: <Database className="w-6 h-6" />,
   },
 ];
+
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50, scale: 0.96 },
@@ -71,19 +63,12 @@ export default function ScrollStory() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-4 mb-6"
+            className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm mx-auto"
           >
-            <motion.div
-              animate={{ scaleX: [0, 1] }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-12 h-px bg-[var(--c-fg3)]"
-            />
-            <span className="font-sans text-xs font-bold tracking-[0.3em] text-[var(--c-fg2)] uppercase">Core Capabilities</span>
-            <motion.div
-              animate={{ scaleX: [0, 1] }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-12 h-px bg-[var(--c-fg3)]"
-            />
+            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+              Core Capabilities
+            </span>
           </motion.div>
 
           <div className="overflow-hidden">
@@ -92,7 +77,7 @@ export default function ScrollStory() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="font-sans font-black uppercase tracking-tighter text-[clamp(36px,6vw,86px)] text-[var(--c-fg)] leading-[0.9]"
+              className="font-sans font-black uppercase tracking-tighter text-3xl md:text-[52px] text-[var(--c-fg)] leading-[1.1]"
             >
               Three Waste Streams.<br />
               <span className="text-[var(--color-lime)]">One AI Roof.</span>

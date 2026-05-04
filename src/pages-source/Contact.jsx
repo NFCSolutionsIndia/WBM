@@ -57,13 +57,12 @@ const Contact = () => {
               <div className="w-2 h-2 bg-[#8bc34a] rounded-full shadow-[0_0_10px_#8bc34a]"></div> Get in touch
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6 md:mb-10 uppercase">
-              Let's build a <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">sustainable</span> future
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.05] tracking-tight mb-6 md:mb-10 uppercase">
+              Ready When <span className="text-[var(--c-lime)]">You Are.</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-3xl mx-auto">
-              Our team of recovery specialists and supply chain experts is ready to help you transform your waste management strategy.
+              Whether you want to partner, invest, or supply feedstock — we're ready.
             </p>
           </motion.div>
         </div>
@@ -99,7 +98,7 @@ const Contact = () => {
                 
                 <div className="grid grid-cols-1 gap-6 md:gap-8">
                   <div className="flex items-center gap-4 md:gap-5 group">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-white transition-all duration-300 flex-shrink-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
                       <Mail size={20} className="md:w-6 md:h-6" />
                     </div>
                     <div>
@@ -109,7 +108,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-center gap-4 md:gap-5 group">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-white transition-all duration-300 flex-shrink-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
                       <Phone size={20} className="md:w-6 md:h-6" />
                     </div>
                     <div>
@@ -263,9 +262,9 @@ const Contact = () => {
                 <Globe size={28} className="text-[var(--c-lime)] mx-auto mb-5" />
                 <h3 className="text-lg font-bold text-[var(--c-fg)] mb-2 uppercase tracking-tight">Global Network</h3>
                 <div className="flex justify-center gap-3 mt-6">
-                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-white transition-all cursor-pointer"><Globe size={16} /></div>
-                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-white transition-all cursor-pointer"><MessageCircle size={16} /></div>
-                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-white transition-all cursor-pointer"><Mail size={16} /></div>
+                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-[var(--c-bg)] transition-all cursor-pointer"><Globe size={16} /></div>
+                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-[var(--c-bg)] transition-all cursor-pointer"><MessageCircle size={16} /></div>
+                   <div className="w-10 h-10 rounded-xl bg-[var(--c-fg)]/5 flex items-center justify-center hover:bg-[var(--c-lime)] hover:text-[var(--c-bg)] transition-all cursor-pointer"><Mail size={16} /></div>
                 </div>
              </div>
           </div>

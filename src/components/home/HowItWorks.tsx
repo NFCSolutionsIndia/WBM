@@ -7,42 +7,42 @@ import Image from "next/image";
 const steps = [
   {
     num: "01",
-    metric: "10,000+ tonnes/yr capacity",
-    title: "Waste Collection",
-    desc: "We partner with corporations, municipalities, and data centres to collect e-waste, batteries, and rare earth magnets. Our logistics network ensures secure, certified pickup with chain-of-custody documentation.",
-    tags: ["Electronics", "Batteries", "Magnets", "Data Centres"],
+    metric: "Global Feedstock",
+    title: "Feedstock Intake",
+    desc: "We accept B-waste (lithium-ion), E-waste (PCBs), and REE magnets from OEMs, recyclers, and government agencies. Chain-of-custody starts the moment it enters our robot-assisted facility.",
+    tags: ["OEM Partners", "Recyclers", "Gov Agencies", "Secure Intake"],
     img: "/WBM/media/Step1.png",
   },
   {
     num: "02",
-    metric: "98.7% AI accuracy rate",
-    title: "AI Sorting",
-    desc: "Our proprietary AI vision systems scan, classify, and sort every piece of waste in real-time. Robotic arms work alongside our technicians with 98.7% material identification accuracy.",
-    tags: ["Computer Vision", "Robotics", "Real-time", "Human-AI"],
+    metric: "AI Orchestration",
+    title: "Robot-Assisted Sorting",
+    desc: "Our proprietary AI orchestration layer identifies, scans, and sorts mixed waste streams with 99.9% accuracy. Robotic arms prepare the feedstock for the LiBERT™ engine.",
+    tags: ["AI Vision", "Robotics", "Mixed Streams", "High Precision"],
     img: "/WBM/media/Step2.jpg",
   },
   {
     num: "03",
-    metric: "Zero liquid discharge",
-    title: "Extraction Process",
-    desc: "Using hydrometallurgical and pyrometallurgical processes, we extract precious and critical minerals. Zero liquid discharge technology ensures we're environmentally compliant at every stage.",
-    tags: ["Hydrometallurgy", "Pyrometallurgy", "Zero Discharge", "ISO Certified"],
+    metric: "LiBERT™ Engine",
+    title: "Proprietary Extraction",
+    desc: "The only difference is who touches it. We extract lithium, cobalt, nickel, and precious metals simultaneously under one roof—with energy savings of 30-40% over traditional mining.",
+    tags: ["Hydrometallurgy", "Closed-loop", "Energy Efficient", "Patented"],
     img: "/WBM/media/Step3.jpg",
   },
   {
     num: "04",
-    metric: "99.9% purity grade",
+    metric: "11/118 Elements",
     title: "Mineral Formation",
-    desc: "Extracted materials are refined to industry-grade purity. Lithium, cobalt, copper, gold, and 40+ other critical minerals are processed and certified for immediate industrial use.",
-    tags: ["Lithium", "Cobalt", "Copper", "Gold", "Neodymium"],
+    desc: "Extracted minerals are refined to battery-grade purity. Neodymium, dysprosium, gold, and silver are stabilized for the world's most critical supply chains.",
+    tags: ["High Purity", "Battery-grade", "Critical Minerals", "REE Recovery"],
     img: "/WBM/media/Step4.png",
   },
   {
     num: "05",
-    metric: "40+ countries served",
-    title: "Global Distribution",
-    desc: "Certified minerals are distributed to EV manufacturers, semiconductor companies, defence contractors, and AI infrastructure providers globally through our smart marketplace.",
-    tags: ["EV Manufacturers", "Chip Makers", "Defence", "AI Infrastructure"],
+    metric: "World Engine Supply",
+    title: "Closed-loop Distribution",
+    desc: "From waste to world engines. We supply the minerals that power the next decade of AI chips, EV batteries, and defence platforms, completing the circular economy.",
+    tags: ["AI Chips", "EV Batteries", "Defence", "Circular Economy"],
     img: "/WBM/media/Step5.jpg",
   },
 ];
@@ -70,7 +70,7 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ margin: "-10%" }}
         transition={{ duration: 0.6 }}
-        className="pr-10 relative group"
+        className="lg:pr-10 pr-0 relative group"
       >
         <h3 className="font-sans font-medium text-4xl md:text-5xl text-[var(--c-fg)] mb-6 tracking-tight leading-[1.1]">
           {step.title}
@@ -117,20 +117,20 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-4 mb-6">
-            <div className="w-8 h-px bg-[var(--color-lime)]" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--color-lime)]">
-              How It Works
+          <div className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+              The orchestration layer
             </span>
-            <div className="w-8 h-px bg-[var(--color-lime)]" />
           </div>
-          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-[clamp(40px,6vw,72px)] text-[var(--c-fg)] mb-6">
+          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-3xl md:text-[52px] text-[var(--c-fg)] mb-6">
             From Waste to <br/>
-            <span className="text-[var(--color-lime)]">World-Class Materials</span>
+            <span className="text-[var(--color-lime)]">World Engines.</span>
           </h2>
           <p className="font-sans text-[var(--c-fg2)] text-lg">
-            A five-step AI-powered journey that transforms discarded electronics into critical minerals for tomorrow&apos;s industries.
+            PCBs, chips, laptops, servers—everything identified and processed under one AI-native roof.
           </p>
+
         </motion.div>
       </div>
 

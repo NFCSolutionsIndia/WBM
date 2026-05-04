@@ -7,39 +7,100 @@ const Industries = () => {
   // ... (industries remains the same)
   const industries = [
     {
-      title: <>Electric <span className="text-[var(--c-lime)]">Vehicles</span></>,
-      icon: <Car size={32} className="text-[var(--c-lime)]" />,
+      title: "Agribusiness",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/Agribusiness.jpg",
+      desc: "Precision-ag electronics and farm robotics depend on rare-earth motors and PCB-grade copper. We close the loop on decommissioned hardware.",
+      tags: ["Cu", "Nd", "Al"],
+      link: "/industries/agribusiness"
+    },
+    {
+      title: "Advanced Manufacturing",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/AdvancedManufacturing.jpg",
+      desc: "Industrial robotics and CNC tooling consume permanent magnets and high-purity copper at scale. We supply OEM-grade powders and cathodes.",
+      tags: ["Cu", "Nd", "Dy", "Ti"],
+      link: "/industries/manufacturing"
+    },
+    {
+      title: "Automotive & Mobility",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
       image: "/WBM/media/ElectricVehicles.jpg",
-      desc: "Supplying battery-grade Lithium, Cobalt, and Nickel recovered from end-of-life battery packs to support the global shift to sustainable mobility.",
-      benefits: ["High-purity material refinement", "Battery-grade standards", "Circular supply integration"]
+      desc: "Every EV cell and traction motor passes through our supply chain logic. We reclaim Li-Co-Ni-Mn cathodes and Nd-Dy magnets.",
+      tags: ["Li", "Co", "Ni", "Nd"],
+      link: "/industries/automotive"
     },
     {
-      title: <>Data Centers & <span className="text-[var(--c-lime)]">AI</span></>,
-      icon: <Database size={32} className="text-[var(--c-lime)]" />,
-      image: "/WBM/media/DataCentersAI.jpg",
-      desc: "Secure decommissioning and material recovery for high-density compute infrastructure, GPUs, and enterprise storage systems.",
-      benefits: ["Certified data destruction", "Precious metal recovery", "Infrastructure asset recovery"]
+      title: "Financial Services",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/FinancialServices.jpg",
+      desc: "Lenders and insurers use our published recovery KPIs and Battery Passport data to model risk and validate ESG claims.",
+      tags: ["Au", "Ag"],
+      link: "/industries/finance"
     },
     {
-      title: <>Aerospace & <span className="text-[var(--c-lime)]">Defense</span></>,
-      icon: <Plane size={32} className="text-[var(--c-lime)]" />,
-      image: "/WBM/media/AerospaceDefense.jpg",
-      desc: "Precision extraction of critical alloys and rare earth elements for high-performance applications requiring absolute traceability.",
-      benefits: ["Strategic mineral security", "Aerospace-grade purity", "Full lifecycle tracking"]
+      title: "Healthcare & Life Sciences",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/Healthcare.jpg",
+      desc: "MRI machines, surgical robots, and implantable devices use rare-earth magnets and titanium. We recover magnet assemblies.",
+      tags: ["Nd", "Dy", "Ti", "Pd"],
+      link: "/industries/healthcare"
     },
     {
-      title: <>Consumer <span className="text-[var(--c-lime)]">Electronics</span></>,
-      icon: <Smartphone size={32} className="text-[var(--c-lime)]" />,
-      image: "/WBM/media/ConsumerElectronics.jpg",
-      desc: "Large-scale recovery programs for smartphone, laptop, and wearable manufacturers to meet environmental targets.",
-      benefits: ["Zero-waste manufacturing", "Closed-loop programs", "Scalable collection networks"]
-    },
-    {
-      title: <>Energy & <span className="text-[var(--c-lime)]">Power</span></>,
-      icon: <Zap size={32} className="text-[var(--c-lime)]" />,
+      title: "Energy & Natural Resources",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
       image: "/WBM/media/EnergyPower.jpg",
-      desc: "Recovering critical conductors and storage materials from grid-scale infrastructure and renewable energy systems.",
-      benefits: ["Grid-scale material recovery", "Copper & conductor extraction", "Renewable supply support"]
+      desc: "Wind turbines, grid-scale storage, and solar inverters draw on every mineral category we touch. Second-life supply for green-energy.",
+      tags: ["Nd", "Dy", "Cu", "Ag", "Li"],
+      link: "/industries/energy"
+    },
+    {
+      title: "Media & Entertainment",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/MediaEntertainment.jpg",
+      desc: "Studios and broadcasters retire petabytes of HDD and broadcast hardware annually. We extract Nd magnets and PCB-grade Au, Ag, Pd.",
+      tags: ["Au", "Ag", "Pd"],
+      link: "/industries/media"
+    },
+    {
+      title: "Telecommunications",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/Telecommunications.jpg",
+      desc: "5G base stations, fibre transceivers, and end-of-life handsets are dense with copper, gold, and palladium.",
+      tags: ["Cu", "Au", "Pd"],
+      link: "/industries/telecom"
+    },
+    {
+      title: "Technology Services",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/DataCentersAI.jpg",
+      desc: "Hyperscalers refresh server fleets every 3–5 years. We integrate with their asset-disposition programs with chain-of-custody.",
+      tags: ["Au", "Ag", "Cu", "Pd"],
+      link: "/industries/tech-services"
+    },
+    {
+      title: "Social & Public Sector",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/PublicSector.jpg",
+      desc: "Federal, state, and municipal IT modernisation generates secure-disposal e-waste at scale. We deliver compliant recovery.",
+      tags: ["Au", "Ag", "Cu"],
+      link: "/industries/public-sector"
+    },
+    {
+      title: "Forest Products",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/ForestProducts.jpg",
+      desc: "Sawmill electrification and biomass-energy plants run on rugged drives and inverters. Circular path for power-electronics.",
+      tags: ["Cu", "Al"],
+      link: "/industries/forest"
+    },
+    {
+      title: "Aerospace & Defense",
+      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      image: "/WBM/media/AerospaceDefense.jpg",
+      desc: "Strategic mineral security and aerospace-grade purity for high-performance applications requiring absolute traceability.",
+      tags: ["Nd", "Dy", "Ti", "Co"],
+      link: "/industries/aerospace"
     }
   ];
 
@@ -70,63 +131,69 @@ const Industries = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Sector Expertise</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
-              Solutions for <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">mission-critical</span> industries
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+              Industries.
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              We provide the critical minerals and material intelligence that power the world's most innovative sectors.
+              Securing the supply chain for global manufacturing. WBM provides a semi-circle of allied geographies, bypassing non-allied supply chain risks.
             </p>
 
           </motion.div>
         </div>
       </section>
 
-      {/* Industries Grid */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-24">
+      {/* Industries Infographic Grid */}
+      <section className="py-24 bg-[var(--c-bg)] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+             <h2 className="text-3xl md:text-5xl font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">The Allied <span className="text-[var(--c-lime)]">Sectors.</span></h2>
+             <p className="text-lg text-[var(--c-fg3)] font-medium max-w-2xl mx-auto">Providing mission-critical mineral security across 12 strategic industry layers.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((ind, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center`}
+                transition={{ delay: idx * 0.05 }}
+                className="group relative rounded-[32px] bg-[var(--c-bg2)] border border-[var(--c-border)] hover:border-[var(--c-lime)]/50 transition-all duration-500 overflow-hidden flex flex-col h-[480px]"
               >
-                <div className="lg:w-1/2 relative">
-                  <div className="rounded-[10px] overflow-hidden shadow-2xl aspect-[4/3]">
-                    <img src={ind.image} alt={ind.title} className="w-full h-full object-cover" />
-                  </div>
-                  {/* Floating Icon Box */}
-                  <div className={`absolute ${idx % 2 === 1 ? '-left-8' : '-right-8'} top-1/2 -translate-y-1/2 bg-[var(--c-bg)] p-8 rounded-[10px] shadow-2xl hidden md:block border border-[var(--c-border)]`}>
-                    <div className="w-16 h-16 bg-[var(--c-fg)]/5 rounded-[10px] flex items-center justify-center mb-4">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                   <img src={ind.image} alt={ind.title} className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--c-bg2)] via-[var(--c-bg2)]/80 to-transparent" />
+                </div>
+
+                <div className="relative z-10 p-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shadow-inner group-hover:bg-[var(--c-lime)] group-hover:text-black transition-all duration-500">
                       {ind.icon}
                     </div>
-                    <div className="text-sm font-bold text-[var(--c-fg)] uppercase tracking-widest">Industry Leader</div>
+                    <div className="text-[10px] font-black text-[var(--c-lime)] uppercase tracking-widest opacity-60">Layer 0{idx+1}</div>
                   </div>
-                </div>
-                
-                <div className="lg:w-1/2">
-                  <h2 className="text-4xl font-bold text-[var(--c-fg)] mb-6 tracking-tight">{ind.title}</h2>
-                  <p className="text-xl text-gray-500 font-medium leading-relaxed mb-10">
+
+                  <h3 className="text-2xl font-black text-[var(--c-fg)] tracking-tight uppercase mb-4 leading-tight">
+                    {ind.title}
+                  </h3>
+
+                  <p className="text-[var(--c-fg3)] font-medium leading-relaxed mb-8 text-sm flex-1">
                     {ind.desc}
                   </p>
-                  <div className="space-y-4 mb-10">
-                    {ind.benefits.map((benefit, i) => (
-                      <div key={i} className="flex items-center gap-4">
-                        <CheckCircle2 size={24} className="text-[#8bc34a]" />
-                        <span className="text-lg text-[var(--c-fg)] font-bold">{benefit}</span>
-                      </div>
+                  
+                  <div className="flex flex-wrap gap-2 mb-10">
+                    {ind.tags.map(tag => (
+                      <span key={tag} className="px-2.5 py-1 rounded bg-[var(--c-fg)]/5 text-[9px] font-black text-[var(--c-lime)] uppercase tracking-widest border border-[var(--c-lime)]/20 backdrop-blur-sm">
+                        {tag}
+                      </span>
                     ))}
                   </div>
-                  <Button 
-                    href="/contact"
-                    className="flex items-center gap-3"
-                  >
-                    Learn about {ind.title}
-                  </Button>
+
+                  <a href={ind.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--c-lime)] hover:gap-3 transition-all">
+                    Strategic Details <ArrowRight size={14} />
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -179,7 +246,7 @@ const Industries = () => {
             <Button href="/contact" size="lg">
               Consult With Our Experts
             </Button>
-            <Button href="/contact" size="lg" variant="outline">
+            <Button size="lg" variant="outline">
               Request Industry Specs
             </Button>
           </div>

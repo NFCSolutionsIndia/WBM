@@ -14,7 +14,7 @@ const partners = [
 
 export default function PartnersTrust() {
   return (
-    <section className="relative py-12 bg-[#050505] overflow-hidden">
+    <section className="relative pt-5 md:pt-10 pb-12 bg-[#050505] overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
@@ -52,9 +52,13 @@ export default function PartnersTrust() {
         >
           {/* Duplicate the list for seamless loop */}
           {[...partners, ...partners, ...partners, ...partners].map((partner, i) => (
-            <div 
+            <motion.div 
               key={i} 
-              className="relative flex flex-col justify-center px-10 py-8 rounded-[10px] bg-black/40 border border-white/10 backdrop-blur-xl hover:border-[#C1FF00]/50 hover:bg-black/60 transition-all duration-300 cursor-pointer min-w-[280px] group/card hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(193,255,0,0.1)]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="relative flex flex-col justify-center px-10 py-8 rounded-[10px] bg-black/40 border border-white/10 backdrop-blur-xl hover:border-[#C1FF00]/50 hover:bg-black/60 transition-all duration-300 cursor-pointer min-w-[280px] group/card hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(193,255,0,0.1)] card-theme"
             >
               <span className="text-3xl md:text-4xl font-black tracking-tighter text-white/80 uppercase group-hover/card:text-white transition-colors duration-300">
                 {partner.name}
@@ -62,7 +66,7 @@ export default function PartnersTrust() {
               <span className="mt-2 text-xs font-bold uppercase tracking-widest text-[#C1FF00]/60 group-hover/card:text-[#C1FF00] transition-colors duration-300">
                 {partner.tag}
               </span>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

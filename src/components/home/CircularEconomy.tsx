@@ -25,9 +25,9 @@ export default function CircularEconomy() {
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: "radial-gradient(circle at right center, rgba(0,229,255,0.1) 0%, transparent 50%)" }} />
       <div className="max-w-7xl mx-auto px-[50px] md:px-[90px] relative z-10">
         
-        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-px" style={{ background: "#C7F53E" }} />
-          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "#C7F53E" }}>Circular Economy</span>
+        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
+          <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+          <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">Circular Economy</span>
         </motion.div>
         
         <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-display font-bold text-[clamp(48px,7vw,96px)] text-[var(--c-fg)] leading-none mb-12">

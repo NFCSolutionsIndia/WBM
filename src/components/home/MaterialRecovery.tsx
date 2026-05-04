@@ -25,9 +25,9 @@ export default function MaterialRecovery() {
     <section className="py-12 w-full" style={{ background: "#090909" }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-px bg-orange" style={{ background: "#FF6B35" }} />
-          <span className="font-mono text-xs tracking-[0.3em] uppercase" style={{ color: "#FF6B35" }}>Five-Step Process</span>
+        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
+          <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+          <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">Five-Step Process</span>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-20 mb-12">

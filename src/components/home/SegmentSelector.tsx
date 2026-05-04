@@ -19,9 +19,9 @@ export default function SegmentSelector() {
         {/* Header */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-px bg-[var(--color-ice)]" />
-              <span className="font-sans font-bold text-xs tracking-[0.3em] uppercase text-[var(--color-ice)]">Personalized Intelligence</span>
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
+              <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+              <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">Personalized Intelligence</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}

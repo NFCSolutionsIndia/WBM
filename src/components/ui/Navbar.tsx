@@ -35,6 +35,7 @@ export default function Navbar() {
       title: 'Company',
       links: [
         { name: 'About', href: '/about' },
+        { name: 'What We Recover', href: '/what-we-do' },
         { name: 'Technology', href: '/technology' },
         { name: 'Process', href: '/process' },
       ]
@@ -43,8 +44,9 @@ export default function Navbar() {
       title: 'Solutions',
       links: [
         { name: 'Industries', href: '/industries' },
-        { name: 'Materials', href: '/materials' },
-        { name: 'Data Centers', href: '/data-centers' },
+        { name: 'Minerals', href: '/materials' },
+        { name: 'Circular Economy', href: '/circular-economy' },
+        { name: 'AI Data Centers', href: '/data-centers' },
       ]
     },
     {
@@ -84,6 +86,7 @@ export default function Navbar() {
                 width={140} 
                 height={35} 
                 className="h-[28px] md:h-[34px] w-auto object-contain transition-opacity" 
+                style={{ width: 'auto' }}
                 priority 
               />
             </div>
@@ -170,6 +173,7 @@ export default function Navbar() {
                 width={120} 
                 height={30} 
                 className="h-9 w-auto object-contain" 
+                style={{ width: 'auto' }}
               />
               <button 
                 onClick={() => setMobileMenuOpen(false)}

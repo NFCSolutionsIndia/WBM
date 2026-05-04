@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { Check, X, ArrowRight, FileText, Leaf } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
@@ -52,7 +52,7 @@ export default function HeroSection() {
           {/* ── Hero Text (visible by default) ── */}
           {mounted && (
             <motion.div
-              className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center pt-20"
+              className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center pt-10"
             >
               {/* Pill badge */}
               <motion.div
@@ -63,7 +63,7 @@ export default function HeroSection() {
               >
                 <span className="w-2 h-2 rounded-full bg-[var(--c-highlight)] shadow-[0_0_10px_var(--c-highlight)] animate-pulse" />
                 <span className="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-white/90 uppercase">
-                  AI-Native Mineral Extraction
+                  FIRST & ONLY OF ITS KIND — WORLDWIDE
                 </span>
               </motion.div>
 
@@ -72,46 +72,73 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="font-sans font-black uppercase tracking-tighter leading-[0.85] text-white drop-shadow-lg mb-2"
-                style={{ fontSize: "clamp(32px, 10vw, 150px)" }}
+                className="font-sans font-black uppercase tracking-tighter leading-[1.1] text-white drop-shadow-lg mb-2 text-3xl md:text-[64px]"
               >
-                Trash To <br className="sm:hidden" />
-                <span className="text-[var(--c-highlight)]" style={{ textShadow: "0 0 60px rgba(120,185,51,0.5)" }}>Treasure.</span>
+                TRASH to <br className="sm:hidden" />
+                <span className="text-[var(--c-highlight)]" style={{ textShadow: "0 0 60px rgba(120,185,51,0.5)" }}>treasure.</span>
               </motion.h1>
 
               {/* Subtitle */}
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.7 }}
-                className="mt-6 md:mt-8 font-sans text-white/60 text-base md:text-xl max-w-xl leading-relaxed"
+                className="mt-6 md:mt-8 flex flex-col items-center"
               >
-                The world's only AI-native platform extracting 11 critical minerals from e-waste, batteries, and rare-earth magnets.
-              </motion.p>
+                <h2 className="font-sans text-white text-xl md:text-2xl font-bold mb-4">
+                  Recover. Reuse. Reimagine.
+                </h2>
+                <p className="font-sans text-white/60 text-base md:text-lg max-w-2xl leading-relaxed">
+                  We're the only company on Earth extracting 11 critical minerals from batteries, magnets, AND PCBs—under one AI-native roof.
+                </p>
+              </motion.div>
+
+              {/* Tags */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.7 }}
+                className="mt-8 flex flex-wrap justify-center gap-3"
+              >
+                <div className="px-3 py-1 rounded-full border border-[var(--c-highlight)]/30 bg-[var(--c-highlight)]/10 text-[var(--c-highlight)] text-[10px] font-bold uppercase tracking-wider">
+                  98% recovery
+                </div>
+                <div className="px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-[10px] font-bold uppercase tracking-wider">
+                  30–40% energy savings
+                </div>
+                <div className="px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Leaf size={10} /> Zero NOx
+                </div>
+                <div className="px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">
+                  LiBERT™ patented
+                </div>
+              </motion.div>
 
               {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.75, duration: 0.7 }}
+                transition={{ delay: 0.8, duration: 0.7 }}
                 className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full max-w-[320px] sm:max-w-none justify-center"
               >
                 <Button 
-                  href="/contact"
+                  href="/what-we-do"
                   variant="primary"
                   className="w-full sm:w-auto justify-center"
+                  showArrow
                 >
-                  Take Charge Of Your Supply
+                  See How We Do It
                 </Button>
                 
                 <Button 
-                  href="/about"
+                  href="/pitch-deck"
                   variant="outline"
                   className="w-full sm:w-auto justify-center"
                 >
-                  Learn About WBM
+                  Request Pitch Deck
                 </Button>
               </motion.div>
+
             </motion.div>
           )}
 
@@ -121,7 +148,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
             >
               <span className="font-sans text-xs uppercase tracking-[0.3em] text-white/40">Scroll</span>
               <motion.div
@@ -131,6 +158,8 @@ export default function HeroSection() {
               />
             </motion.div>
           )}
+
+
         </motion.div>
       </div>
     </section>

@@ -16,18 +16,19 @@ export default function TechnologySnapshot() {
             transition={{ duration: 0.7 }}
           >
             <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5">
-              <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Technology Snapshot</span>
+              <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">The LiBERT Engine</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
-              Built on Advanced<br/>
-              <span className="text-[#C1FF00]">Recovery Technology</span>
+            <h2 className="text-4xl md:text-[52px] font-black uppercase tracking-tighter mb-6 leading-tight">
+              The Only Difference is<br/>
+              <span className="text-[#C1FF00]">Who Touches It</span>
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-10">
-              Precision systems designed for efficiency and scale. Our technology integrates intelligent sorting, automated dismantling, and advanced extraction processes. Combined with AI-driven optimization, it ensures maximum material recovery with minimal environmental impact.
+              100,000 sq ft of robot-assisted, AI-orchestrated extraction. Our proprietary LiBERT™ technology recovers 11 critical minerals from three integrated waste streams — a feat no other single-stream specialist can match.
             </p>
             <button className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300">
-              Explore Technology
+              Inside the Plant
             </button>
+
           </motion.div>
         </div>
 

@@ -229,10 +229,22 @@ export default function LineWaves({
       gl.canvas.addEventListener('mouseleave', handleMouseLeave);
     }
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
+
     let animationFrameId: number;
 
     function update(time: number) {
       animationFrameId = requestAnimationFrame(update);
+      
+      if (!isVisible) return;
+
       program.uniforms.uTime.value = time * 0.001;
 
       if (enableMouseInteraction) {
@@ -252,6 +264,7 @@ export default function LineWaves({
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
+      observer.disconnect();
       if (enableMouseInteraction) {
         gl.canvas.removeEventListener('mousemove', handleMouseMove);
         gl.canvas.removeEventListener('mouseleave', handleMouseLeave);

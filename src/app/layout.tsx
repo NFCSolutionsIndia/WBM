@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${amaticSC.variable} ${dmSans.variable}`} suppressHydrationWarning>
-      <body className="antialiased bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-300">
+    <html lang="en" className={`${amaticSC.variable} ${dmSans.variable}`} suppressHydrationWarning data-scroll-behavior="smooth">
+      <body className="antialiased bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-300 relative">
         <ThemeProvider>
           <CustomCursor />
           <Navbar />

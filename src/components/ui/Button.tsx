@@ -42,17 +42,17 @@ export default function Button({
       <div className="absolute inset-0 w-full h-full bg-[var(--c-lime)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
       
       <div className="relative z-10 flex items-center gap-3">
-        <span className={`font-bold uppercase tracking-[0.15em] ${variant === 'primary' ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]'} group-hover:text-black transition-colors duration-300`}>
+        <span className={`font-bold uppercase tracking-[0.15em] ${variant === 'primary' ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]'} group-hover:text-[var(--c-bg)] transition-colors duration-300`}>
           {children}
         </span>
         
         {showArrow && (
           <motion.div 
-            className={`${arrowBgSize} rounded-full bg-[var(--c-fg)]/10 flex items-center justify-center group-hover:bg-black/10 transition-colors`}
+            className={`${arrowBgSize} rounded-full bg-[var(--c-fg)]/10 flex items-center justify-center group-hover:bg-[var(--c-bg)]/20 transition-colors`}
             animate={{ x: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           >
-            <svg width={arrowSize} height={arrowSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--c-fg)] group-hover:text-black transition-colors">
+            <svg width={arrowSize} height={arrowSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--c-fg)] group-hover:text-[var(--c-bg)] transition-colors">
               <path d="M5 12h14"></path>
               <path d="m12 5 7 7-7 7"></path>
             </svg>

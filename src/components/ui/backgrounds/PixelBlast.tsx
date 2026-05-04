@@ -178,7 +178,7 @@ float Bayer2(vec2 a) {
 #define Bayer4(a) (Bayer2(.5*(a))*0.25 + Bayer2(a))
 #define Bayer8(a) (Bayer4(.5*(a))*0.25 + Bayer2(a))
 
-#define FBM_OCTAVES     5
+#define FBM_OCTAVES     2
 #define FBM_LACUNARITY  1.25
 #define FBM_GAIN        1.0
 
@@ -366,6 +366,21 @@ const PixelBlast = ({
 
   const threeRef = useRef<any>(null);
   const prevConfigRef = useRef<any>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visibilityRef.current.visible = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;

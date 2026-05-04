@@ -3,45 +3,42 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TiltCard from "@/components/ui/TiltCard";
+import { TrendingUp, User, Truck, Server, Building2, GraduationCap, CheckCircle2 } from "lucide-react";
 
 const paths = [
   {
     id: "investor",
     title: "Investor",
-    subtitle: "Capital & Returns",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-    ),
+    subtitle: "Unit Economics & TAM",
+    icon: <TrendingUp className="w-5 h-5" />,
     content: {
       title: "INVESTOR",
-      subtitle: "Capital & Returns",
-      description: "Join a high-growth circular economy company with multiple revenue streams, proven technology, and global expansion strategy.",
+      subtitle: "Unit Economics & Moat",
+      description: "Join a high-growth circular economy company with multiple revenue streams, proven technology, and unit economics no single-stream specialist can match.",
       bullets: [
         "Pre-revenue equity opportunities",
-        "Projected 3.4× annual growth",
-        "ESG-compliant portfolio asset",
-        "Carbon credit revenue share",
+        "Significant Total Addressable Market",
+        "Unique LiBERT™ technology moat",
+        "5 distinct revenue streams",
       ],
-      buttonText: "View Investment Deck",
+      buttonText: "Request Pitch Deck",
     },
     accent: "var(--color-orange)",
   },
   {
     id: "customer",
-    title: "Customer",
-    subtitle: "Buy Certified Minerals",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-    ),
+    title: "Customer / OEM",
+    subtitle: "Mineral Off-take",
+    icon: <User className="w-5 h-5" />,
     content: {
-      title: "CUSTOMER",
-      subtitle: "Buy Certified Minerals",
-      description: "Secure a domestic, sustainable supply chain of 11 critical minerals purified to industry-grade specifications.",
+      title: "CUSTOMER / OEM",
+      subtitle: "Spec Sheets & Supply",
+      description: "Secure a domestic, sustainable supply chain of 11 critical minerals purified to industry-grade specifications for AI, EV, and defense platforms.",
       bullets: [
-        "99.9% purity guaranteed",
-        "Transparent ESG reporting",
+        "11 of 118 elements available",
+        "Battery-grade purity levels",
         "Long-term off-take agreements",
-        "Reduced geopolitical supply risk",
+        "Verified ESG compliance",
       ],
       buttonText: "Request Spec Sheets",
     },
@@ -50,67 +47,82 @@ const paths = [
   {
     id: "supplier",
     title: "Supplier",
-    subtitle: "Sell or Donate E-Waste",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-    ),
+    subtitle: "Waste Feedstock",
+    icon: <Truck className="w-5 h-5" />,
     content: {
-      title: "SUPPLIER",
-      subtitle: "Feedstock Partnership",
-      description: "Monetize your electronic waste, spent batteries, and decommissioned infrastructure with our efficient tipping models.",
+      title: "FEEDSTOCK SUPPLIER",
+      subtitle: "Sell Your Waste",
+      description: "Monetize your electronic waste, lithium-ion batteries, and rare-earth magnets through our high-efficiency tipping models.",
       bullets: [
-        "Competitive tipping fees paid",
+        "Government-paid intake fees",
         "Zero-landfill certification",
-        "Secure data destruction",
-        "Complete chain of custody",
+        "Mixed waste stream integration",
+        "Secure chain of custody",
       ],
-      buttonText: "Become a Supplier",
+      buttonText: "Partner With Us",
     },
     accent: "var(--color-lime)",
   },
   {
-    id: "government",
-    title: "Government",
-    subtitle: "Policy & Partnerships",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M3 21h18"></path><path d="M4 21V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13"></path><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path><path d="M12 2v4"></path><path d="M10 4h4"></path></svg>
-    ),
+    id: "tenant",
+    title: "Data Centre Tenant",
+    subtitle: "Co-located Compute",
+    icon: <Server className="w-5 h-5" />,
     content: {
-      title: "GOVERNMENT",
-      subtitle: "Policy & Partnerships",
-      description: "Partner with us to build sovereign supply chains, drive local job creation, and achieve national net-zero targets.",
+      title: "AI DATA CENTRE TENANT",
+      subtitle: "Low-cost, Low-latency",
+      description: "Access co-located compute infrastructure with 100% uptime and 6-layer encryption, directly sharing the energy savings of our extraction plant.",
       bullets: [
-        "Sovereign supply chain security",
-        "High-tech job creation",
-        "Landfill diversion metrics",
-        "Aligns with strategic mineral acts",
+        "15-year lease options",
+        "NVIDIA/Cisco/Juniper ready",
+        "Shared infrastructure savings",
+        "Enterprise-grade security",
       ],
-      buttonText: "Explore Partnerships",
+      buttonText: "Leasing Info",
     },
     accent: "var(--color-orange)",
   },
   {
-    id: "academia",
-    title: "Academia",
-    subtitle: "Research & Innovation",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-    ),
+    id: "government",
+    title: "Government",
+    subtitle: "Jobs & Sovereignty",
+    icon: <Building2 className="w-5 h-5" />,
     content: {
-      title: "ACADEMIA",
-      subtitle: "Research & Innovation",
-      description: "Collaborate on advanced metallurgy, AI sorting models, and the next generation of clean extraction chemistry.",
+      title: "GOVERNMENT",
+      subtitle: "Strategic Security",
+      description: "Partner to build sovereign supply chains and drive high-tech job creation while bypassing non-allied mineral choke points.",
       bullets: [
-        "Access to processing datasets",
-        "Joint grant opportunities",
-        "Internship & pipeline programs",
-        "Real-world lab testing",
+        "Allied semi-circle geography",
+        "Strategic mineral security",
+        "Net-zero compliance targets",
+        "High-tech employment growth",
       ],
-      buttonText: "Collaborate With Us",
+      buttonText: "Explore Collaboration",
     },
     accent: "var(--color-ice)",
   },
+  {
+    id: "academia",
+    title: "Academia",
+    subtitle: "Research & Data",
+    icon: <GraduationCap className="w-5 h-5" />,
+    content: {
+      title: "ACADEMIA",
+      subtitle: "Innovation & Datasets",
+      description: "Collaborate on advanced metallurgy and AI sorting models using real-world datasets from our 100,000 sq ft operational facility.",
+      bullets: [
+        "Processing dataset access",
+        "Joint R&D collaboration",
+        "Internship pipeline programs",
+        "Sustainable metallurgy research",
+      ],
+      buttonText: "Connect With Us",
+    },
+    accent: "var(--color-lime)",
+  },
 ];
+
+
 
 export default function ChooseYourPath() {
   const [activeTab, setActiveTab] = useState(paths[0].id);
@@ -124,11 +136,22 @@ export default function ChooseYourPath() {
         
         {/* Header */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm mx-auto"
+          >
+            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+              Partnerships
+            </span>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sans font-black uppercase tracking-tighter text-[clamp(40px,6vw,72px)] text-[var(--c-fg)] leading-[0.9] mb-6"
+            className="font-sans font-black uppercase tracking-tighter text-3xl md:text-[52px] text-[var(--c-fg)] leading-[0.9] mb-6"
           >
             Choose Your <span className="text-[var(--color-lime)]">Path</span>
           </motion.h2>
@@ -145,15 +168,15 @@ export default function ChooseYourPath() {
 
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 min-h-[500px]">
           
-          {/* Left Tabs */}
-          <div className="w-full md:w-1/3 flex flex-col gap-3">
+          {/* Left Tabs - Row of icons on mobile, stack on desktop */}
+          <div className="w-full md:w-1/3 flex flex-row md:flex-col gap-2 md:gap-3 justify-center md:justify-start mb-8 md:mb-0">
             {paths.map((path) => {
               const isActive = activeTab === path.id;
               return (
                 <button
                   key={path.id}
                   onClick={() => setActiveTab(path.id)}
-                  className={`w-full flex items-center gap-4 p-5 rounded-[20px] transition-all duration-300 text-left border ${
+                  className={`flex-shrink-0 w-14 h-14 md:w-full md:h-auto flex items-center justify-center md:justify-start gap-4 p-0 md:p-5 rounded-full md:rounded-[20px] transition-all duration-300 border ${
                     isActive 
                       ? "bg-[rgba(255,255,255,0.05)] border-[var(--color-lime)] shadow-[0_0_20px_rgba(193,255,0,0.1)]" 
                       : "bg-transparent border-[var(--c-border)] hover:bg-[rgba(255,255,255,0.02)] hover:border-[var(--c-fg3)]"
@@ -161,11 +184,11 @@ export default function ChooseYourPath() {
                   data-cursor="view"
                 >
                   <div 
-                    className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 ${isActive ? "bg-[var(--color-lime)] text-black" : "bg-[var(--c-bg3)] text-[var(--c-fg3)]"}`}
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors duration-300 ${isActive ? "bg-[var(--color-lime)] text-black" : "bg-[var(--c-bg3)] text-[var(--c-fg3)]"}`}
                   >
                     {path.icon}
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 hidden md:block text-left">
                     <div className={`font-sans font-bold text-lg mb-0.5 transition-colors ${isActive ? "text-[var(--c-fg)]" : "text-[var(--c-fg2)]"}`}>
                       {path.title}
                     </div>
@@ -174,7 +197,7 @@ export default function ChooseYourPath() {
                     </div>
                   </div>
                   {isActive && (
-                    <motion.div layoutId="arrow" className="text-[var(--color-lime)]">
+                    <motion.div layoutId="arrow" className="text-[var(--color-lime)] hidden md:block">
                       →
                     </motion.div>
                   )}
@@ -230,14 +253,12 @@ export default function ChooseYourPath() {
                     <div className="space-y-4 mb-12 flex-1">
                       {activeContent.bullets.map((bullet, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: activePath.accent }}>
-                            <path d="M10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10zm-1-14.586l-3.707 3.707 1.414 1.414L10 7.414l5.293 5.293 1.414-1.414L10 4.414l-1 1z" fill="currentColor" opacity="0.2" transform="rotate(180 10 10)"/>
-                            <path d="M8.5 14.5l-4-4 1.5-1.5 2.5 2.5 6-6 1.5 1.5-7.5 7.5z" fill="currentColor"/>
-                          </svg>
+                          <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: activePath.accent }} />
                           <span className="font-sans text-[var(--c-fg2)]">{bullet}</span>
                         </div>
                       ))}
                     </div>
+
 
                     {/* Button */}
                     <motion.button 

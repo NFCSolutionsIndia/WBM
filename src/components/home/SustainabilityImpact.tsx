@@ -54,24 +54,24 @@ export default function SustainabilityImpact() {
         >
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-[#C1FF00] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Sustainability in Action</span>
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Circular Economy</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-6">
-            Measurable impact across<br/>every operation
+          <h2 className="text-3xl md:text-[52px] font-black uppercase tracking-tighter text-white mb-6">
+            From your dump yard<br/>back to your devices
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
-            Our processes reduce landfill waste, lower emissions, and support a circular economy by transforming waste into valuable resources.
+            Three layers of closed loops. We're the only company on Earth extracting 11 critical minerals from batteries, magnets, AND PCBs—under one AI-native roof.
           </p>
-          <button className="px-8 py-4 bg-[#FF6B35] text-white font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#C1FF00] hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(255,107,53,0.3)] hover:shadow-[0_0_30px_rgba(193,255,0,0.4)]">
-            Learn More
+          <button className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300">
+            Our Closed-Loop Journey
           </button>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { value: 50000, label: "Tons of Waste Reduced", suffix: "+" },
-            { value: 99, label: "Material Recovery Rate", suffix: "%" },
-            { value: 12000, label: "Carbon Credits Generated", suffix: "" }
+            { value: 98, label: "Material Recovery Rate", suffix: "%" },
+            { value: 11, label: "Minerals Extracted", suffix: "/118" },
+            { value: 100, label: "Plant Uptime Guarantee", suffix: "%" }
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -79,7 +79,7 @@ export default function SustainabilityImpact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-10 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors"
+              className="p-10 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors card-theme"
             >
               <div className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#C1FF00] to-[#FF6B35] tracking-tighter mb-4 drop-shadow-[0_0_15px_rgba(193,255,0,0.2)]">
                 <Counter target={stat.value} suffix={stat.suffix} />
@@ -89,6 +89,7 @@ export default function SustainabilityImpact() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

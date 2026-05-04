@@ -2,13 +2,14 @@
 
 import { useState, useRef, useLayoutEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CircuitBoard, Battery, Magnet, Database } from "lucide-react";
 
 /* ─── Data & Connections ───────────────────────────────────────────────────── */
 const OFFERINGS = [
-  { id: "ewaste",  label: "E-Waste",         short: "EW",    accent: "#78B933", icon: "♻", desc: "PCBs, chips, laptops, servers — extracted under one roof." },
-  { id: "bwaste",  label: "B-Waste",         short: "BW",    accent: "#78B933", icon: "⚡", desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry." },
-  { id: "ree",     label: "REE Magnets",     short: "REE",   accent: "#7ECCD6", icon: "🧲", desc: "Rare-earth magnets from MRIs, wind turbines, decommissioned units." },
-  { id: "aidc",    label: "AI Data Centres", short: "AI-DC", accent: "#78B933", icon: "🖥", desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime." },
+  { id: "ewaste",  label: "E-Waste",         short: "EW",    accent: "#78B933", icon: <CircuitBoard size={20} />, desc: "PCBs, chips, laptops, servers — extracted under one roof." },
+  { id: "bwaste",  label: "B-Waste",         short: "BW",    accent: "#78B933", icon: <Battery size={20} />, desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry." },
+  { id: "ree",     label: "REE Magnets",     short: "REE",   accent: "#7ECCD6", icon: <Magnet size={20} />, desc: "Rare-earth magnets from MRIs, wind turbines, decommissioned units." },
+  { id: "aidc",    label: "AI Data Centres", short: "AI-DC", accent: "#78B933", icon: <Database size={20} />, desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime." },
 ];
 
 const REVENUES = [
@@ -167,15 +168,17 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
         <div className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full" style={{ border: `1px solid ${border}`, background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)" }}>
           <div className="w-2 h-2 rounded-full bg-[#78B933] animate-pulse" />
-          <span className="font-sans font-bold text-xs uppercase tracking-[0.25em]" style={{ color: fg2 }}>Revenue Model</span>
+          <span className="font-sans font-bold text-xs uppercase tracking-[0.25em]" style={{ color: fg2 }}>Our Model</span>
         </div>
         <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-[clamp(32px,5vw,60px)]" style={{ color: fg }}>
-          How We <span style={{ color: isDark ? "#78B933" : "#1A4D2E" }}>Generate Revenue</span>
+          4 Offerings × 5 Revenue Streams.<br/>
+          <span style={{ color: "#839470" }}>Same Roof. Same AI.</span>
         </h2>
         <p className="font-sans text-base mt-3 max-w-xl mx-auto" style={{ color: fg2 }}>
-          Hover any offering to reveal its connected revenue streams and output minerals.
+          Hover a node to see the connections. The lines between offerings, revenue, and minerals are revenue every single-stream competitor leaves on the table.
         </p>
       </div>
+
 
       {/* 3-column interactive grid */}
       <div ref={containerRef} className="relative max-w-7xl mx-auto px-6">
@@ -228,7 +231,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
                   onMouseLeave={() => setHovered(null)}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-[10px] flex items-center justify-center text-lg flex-shrink-0"
+                    <div className="w-9 h-9 rounded-[10px] flex items-center justify-center text-[#78B933] flex-shrink-0"
                       style={{ background: off.accent + "20", border: `1px solid ${off.accent}40` }}>
                       {off.icon}
                     </div>

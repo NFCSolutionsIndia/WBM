@@ -71,7 +71,7 @@ export default function MaterialOutput() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="relative p-8 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl group overflow-hidden cursor-pointer hover:border-white/20 transition-all duration-300"
+              className="relative p-8 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl group overflow-hidden cursor-pointer hover:border-white/20 transition-all duration-300 card-theme"
             >
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"

@@ -15,10 +15,13 @@ export default function Sustainability() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold text-white uppercase"
+          className="text-3xl md:text-[64px] font-bold text-white uppercase"
         >
-          Sustainable by <span className="text-[#C1FF00]">Design</span>
+          The <span className="text-[#C1FF00]">Circular Economy.</span>
         </motion.h1>
+        <p className="text-xl text-white/60 mt-6 max-w-2xl mx-auto">
+          From your dump yard back to your devices—three layers of closed loops.
+        </p>
       </section>
 
       <section className="px-6 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">

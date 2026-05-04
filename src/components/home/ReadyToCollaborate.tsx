@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, TrendingUp, Recycle } from "lucide-react";
 import TiltCard from "@/components/ui/TiltCard";
 
 export default function ReadyToCollaborate() {
@@ -11,7 +11,7 @@ export default function ReadyToCollaborate() {
   return (
     <section className="py-12 w-full bg-[var(--c-bg)] relative overflow-hidden" id="contact">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
           <motion.div
@@ -23,16 +23,16 @@ export default function ReadyToCollaborate() {
             <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
             <span className="font-sans font-bold text-xs uppercase tracking-widest text-[var(--c-fg)]">Get In Touch</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sans font-black uppercase tracking-tighter text-[clamp(40px,6vw,72px)] text-[var(--c-fg)] leading-[0.9] mb-6"
+            className="font-sans font-black uppercase tracking-tighter text-3xl md:text-[52px] text-[var(--c-fg)] leading-[0.9] mb-6"
           >
-            Ready to <span className="text-[var(--color-lime)]">Collaborate?</span>
+            READY TO <span className="text-[var(--color-lime)]">COLLABORATE?</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,14 +40,15 @@ export default function ReadyToCollaborate() {
             transition={{ delay: 0.1 }}
             className="font-sans text-[var(--c-fg2)] text-lg"
           >
-            Whether you want to invest, supply e-waste, or build a strategic partnership — our team responds within 48 hours.
+            Whether you want to partner, invest, or supply feedstock — we're ready.
           </motion.p>
+
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          
+
           {/* Left Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -55,7 +56,7 @@ export default function ReadyToCollaborate() {
           >
             <div className="glass rounded-[24px] md:rounded-[32px] p-6 md:p-10 border border-[var(--c-border)] h-full">
               <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-                
+
                 {/* Intent toggle */}
                 <div>
                   <label className="block font-sans text-xs font-bold uppercase tracking-widest text-[var(--c-fg3)] mb-3">I want to</label>
@@ -65,14 +66,13 @@ export default function ReadyToCollaborate() {
                         key={opt}
                         type="button"
                         onClick={() => setIntent(opt)}
-                        className={`flex-1 min-w-[100px] py-3 px-3 rounded-[10px] font-sans font-bold text-[11px] md:text-sm tracking-wide transition-all ${
-                          intent === opt 
-                            ? "bg-[var(--color-lime)] text-black" 
+                        className={`flex-1 min-w-[100px] py-3 px-3 rounded-[10px] font-sans font-bold text-[11px] md:text-sm tracking-wide transition-all flex items-center justify-center ${intent === opt
+                            ? "bg-[var(--color-lime)] text-black"
                             : "border border-[var(--c-border)] text-[var(--c-fg)] hover:border-[var(--c-fg3)]"
-                        }`}
+                          }`}
                       >
-                        {opt === "Invest" && <span className="mr-1 md:mr-2">↗</span>}
-                        {opt === "Supply E-Waste" && <span className="mr-1 md:mr-2">♻</span>}
+                        {opt === "Invest" && <TrendingUp className="w-4 h-4 mr-2" />}
+                        {opt === "Supply E-Waste" && <Recycle className="w-4 h-4 mr-2" />}
                         {opt}
                       </button>
                     ))}
@@ -103,7 +103,7 @@ export default function ReadyToCollaborate() {
                   <textarea rows={4} placeholder="Describe the partnership opportunity..." className="w-full bg-[rgba(255,255,255,0.02)] border border-[var(--c-border)] rounded-[10px] px-4 py-3 text-[var(--c-fg)] font-sans focus:outline-none focus:border-[var(--color-lime)] transition-colors resize-none text-sm"></textarea>
                 </div>
 
-                <motion.button 
+                <motion.button
                   type="submit"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -118,7 +118,7 @@ export default function ReadyToCollaborate() {
 
           {/* Right Info Cards */}
           <div className="w-full lg:w-2/5 flex flex-col gap-2">
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -128,17 +128,17 @@ export default function ReadyToCollaborate() {
               <TiltCard intensity={2} className="h-full">
                 <div className="glass rounded-[24px] md:rounded-[32px] p-6 md:p-8 border border-[var(--c-border)] h-full flex flex-col">
                   <h3 className="font-sans font-black text-xl text-[var(--c-fg)] mb-8">Contact Information</h3>
-                  
+
                   <div className="space-y-6 flex-1">
                     <div className="flex items-center gap-4 text-[var(--c-fg2)]">
                       <div className="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center flex-shrink-0">
-                        ✉
+                        <Mail size={18} />
                       </div>
                       <span className="font-sans text-sm md:text-base break-all">hello@wastebaminerals.com</span>
                     </div>
                     <div className="flex items-center gap-4 text-[var(--c-fg2)]">
                       <div className="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center flex-shrink-0">
-                        ☏
+                        <Phone size={18} />
                       </div>
                       <span className="font-sans text-sm md:text-base">+1 (800) WASTE-BE</span>
                     </div>
@@ -149,6 +149,7 @@ export default function ReadyToCollaborate() {
                       <span className="font-sans text-sm md:text-base leading-tight mt-2">Houston TX · Dubai · Mumbai · Johannesburg</span>
                     </div>
                   </div>
+
 
                 </div>
               </TiltCard>

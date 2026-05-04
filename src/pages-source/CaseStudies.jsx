@@ -62,13 +62,12 @@ const CaseStudies = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Real-world impact</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
-              Driving the <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">circular economy</span>
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+              The <span className="text-[var(--c-lime)]">Whole Story.</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              Discover how our advanced processes help global industries achieve sustainability goals while securing critical mineral supply.
+              Capturing the LiBERT™ extraction journey, the 11 critical minerals portfolio, and the closed-loop circular economy.
             </p>
 
           </motion.div>
@@ -109,7 +108,7 @@ const CaseStudies = () => {
                     <p className="text-gray-500 font-medium leading-relaxed mb-6">
                       {item.description}
                     </p>
-                    <Button href="/contact" variant="ghost" className="flex items-center gap-2 group/btn p-0">
+                    <Button variant="ghost" className="flex items-center gap-2 group/btn p-0">
                       View full case study
                     </Button>
                   </div>
@@ -148,7 +147,6 @@ const CaseStudies = () => {
                   Start a partnership
                 </Button>
                 <Button 
-                  href="/contact"
                   variant="ghost"
                   size="lg"
                   className="text-white border-white/20 hover:bg-white/5"

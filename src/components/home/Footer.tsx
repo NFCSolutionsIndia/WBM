@@ -145,9 +145,9 @@ export default function Footer() {
             </span>
           </div>
 
-          <h2 className="font-sans font-black text-[clamp(40px,6vw,84px)] text-white tracking-tighter leading-[0.9] mb-10 max-w-3xl">
-            The circular economy<br />
-            <span className="text-[#C1FF00]">starts today.</span>
+          <h2 className="font-sans font-black text-3xl md:text-[52px] text-white uppercase tracking-tighter leading-[0.9] mb-10 max-w-4xl mx-auto">
+            READY WHEN <br />
+            <span className="text-[#C1FF00]">YOU ARE.</span>
           </h2>
 
           <a
@@ -155,7 +155,7 @@ export default function Footer() {
             className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm text-white font-sans font-bold text-xs uppercase tracking-[0.25em] hover:bg-white/10 hover:border-white/30 transition-all duration-300"
             data-cursor="view"
           >
-            Take Charge of Your Waste
+            Partner With Us
           </a>
         </motion.div>
       </div>
@@ -171,10 +171,12 @@ export default function Footer() {
             width={180} 
             height={60} 
             className="w-auto h-12 mb-6" 
+            style={{ width: 'auto' }}
           />
-          <p className="font-sans text-xs text-white/30 leading-relaxed max-w-[200px]">
-            Transforming e-waste into critical minerals for tomorrow&apos;s industries.
+          <p className="font-sans text-xs text-white/30 leading-relaxed max-w-[250px]">
+            Trash to Treasure. Recover. Reuse. Reimagine. The world's only integrated extractor for critical minerals.
           </p>
+
           <div className="flex gap-3 mt-6">
             <a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#C1FF00] hover:border-[#C1FF00]/30 transition-colors font-bold text-sm">in</a>
             <a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#C1FF00] hover:border-[#C1FF00]/30 transition-colors font-bold text-sm">𝕏</a>

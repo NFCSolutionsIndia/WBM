@@ -1,33 +1,14 @@
 import { motion } from 'framer-motion';
-import { ShieldCheck, Cpu, Zap, Activity, Trash2, Globe } from 'lucide-react';
+import { ShieldCheck, Cpu, Zap, Activity, Trash2, Globe, Magnet, Database, Layers, Microscope } from 'lucide-react';
 import Hyperspeed from '../components/ui/backgrounds/Hyperspeed';
 import Button from '../components/ui/Button';
 
 const DataCenters = () => {
-  // ... (services remains the same)
-  const services = [
-    {
-      title: "Secure Decommissioning",
-      desc: "End-to-end management of retired server infrastructure with 100% data security assurance and certified destruction.",
-      icon: <ShieldCheck size={32} className="text-[var(--c-lime)]" />
-    },
-    {
-      title: "GPU & AI Hardware Recovery",
-      desc: "Specialized extraction of critical components from high-density AI clusters and GPU arrays for maximum mineral yield.",
-      icon: <Cpu size={32} className="text-[var(--c-lime)]" />
-    },
-    {
-      title: "Sustainable Asset Recovery",
-      desc: "Maximizing the residual value of data center hardware through component reuse and advanced material recovery.",
-      icon: <Zap size={32} className="text-[var(--c-lime)]" />
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black pt-32 pb-24 md:pt-40 md:pb-32">
-        <div className="absolute inset-0 z-0">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[var(--c-bg)] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
+        <div className="absolute inset-0 z-0 opacity-30 dark:opacity-100">
           <Hyperspeed 
             effectOptions={{
               colors: {
@@ -44,7 +25,7 @@ const DataCenters = () => {
           />
         </div>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black z-[1]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--c-bg)]/60 via-transparent to-[var(--c-bg)] z-[1]"></div>
         
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 text-center">
           <motion.div 
@@ -53,47 +34,149 @@ const DataCenters = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-[var(--c-lime)] mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 bg-[var(--c-fg)]/5 backdrop-blur-md px-4 py-2 rounded-full border border-[var(--c-border)] text-[var(--c-lime)] mb-6 md:mb-8">
               <div className="w-2 h-2 bg-[var(--c-lime)] rounded-full animate-pulse"></div>
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Infrastructure Solutions</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
-              Future-proofing <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">data center</span> lifecycles
+            <h1 className="text-3xl md:text-[64px] font-bold text-[var(--c-fg)] leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+              AI Data Centres. <br className="hidden sm:block" />
+              <span className="text-[var(--c-lime)]">Sustainable & Secure.</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              We provide enterprise-grade recovery solutions for the world's largest data centers, ensuring secure, sustainable management.
+            <p className="text-base sm:text-lg md:text-xl text-[var(--c-fg2)] font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+              Enterprise-grade recovery solutions for the world's largest data centers, ensuring secure, sustainable management of retired hardware.
             </p>
 
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-12 md:py-24 bg-[var(--c-bg)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {services.map((service, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-[var(--c-bg)] p-8 md:p-12 rounded-[20px] border border-[var(--c-border)] shadow-xl hover:shadow-2xl transition-all duration-500 group"
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-50 dark:bg-white/5 rounded-[10px] flex items-center justify-center mb-8 md:mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <div className="scale-75 md:scale-100">{service.icon}</div>
+      {/* Supply Chain Bridge Section */}
+      <section className="py-24 bg-[var(--c-bg)] relative overflow-hidden transition-colors duration-500">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--c-lime)]/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-[52px] font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">One Bridged <span className="text-[var(--c-lime)]">Supply Chain.</span></h2>
+             <p className="text-lg text-[var(--c-fg2)] font-medium max-w-3xl mx-auto mb-12">
+               Each spoke is a mineral category — and a single-country dependency. Hover and explore where WBM picks up the slack.
+             </p>
+
+             <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="inline-flex flex-col md:flex-row items-center gap-4 p-6 rounded-2xl bg-[var(--c-lime)]/5 border border-[var(--c-lime)]/20 text-left max-w-4xl mx-auto"
+             >
+                <div className="w-12 h-12 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shrink-0">
+                   <Activity size={24} />
                 </div>
-                <h3 className="text-xl md:text-3xl font-bold text-[var(--c-fg)] mb-4 md:mb-6 tracking-tight group-hover:text-[var(--c-lime)] transition-colors">{service.title}</h3>
-                <p className="text-base md:text-xl text-gray-500 dark:text-gray-400 font-medium leading-relaxed">
-                  {service.desc}
-                </p>
-              </motion.div>
-            ))}
+                <div>
+                   <div className="text-[var(--c-fg)] font-bold mb-1">85% of this supply chain currently depends on Asia.</div>
+                   <div className="text-[var(--c-fg2)] text-sm">We are the bridge. Every spoke below maps to a WBM-recoverable mineral stream — sourced from allied geographies.</div>
+                </div>
+             </motion.div>
+          </div>
+
+          <div className="relative pt-20">
+            <div className="hidden lg:flex absolute top-0 left-1/2 -translate-x-1/2 flex-col items-center">
+               <div className="px-6 py-3 rounded-full bg-[var(--c-lime)]/10 border border-[var(--c-lime)] text-[var(--c-lime)] text-xs font-black uppercase tracking-widest mb-4">AI DATA CENTRE</div>
+               <div className="text-xl font-black text-[var(--c-fg)] uppercase tracking-tighter">5 Component Categories</div>
+               <div className="w-px h-12 bg-gradient-to-b from-[var(--c-lime)] to-transparent mt-4" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mt-12">
+               {[
+                 { 
+                   title: "Microchips & Processors", 
+                   sub: "The brains.", 
+                   minerals: ["Silicon", "Germanium", "Arsenic", "+2"], 
+                   coverage: 20, 
+                   color: "#10b981",
+                   icon: <Cpu size={20} />
+                 },
+                 { 
+                   title: "Server Boards & PCBs", 
+                   sub: "Every signal travels here.", 
+                   minerals: ["Gold", "Silver", "Copper", "+2"], 
+                   coverage: 89, 
+                   color: "#8b5cf6",
+                   icon: <Layers size={20} />
+                 },
+                 { 
+                   title: "Heat Sinks", 
+                   sub: "Pull watts from silicon.", 
+                   minerals: ["Copper", "Aluminium"], 
+                   coverage: 100, 
+                   color: "#f59e0b",
+                   icon: <Zap size={20} />
+                 },
+                 { 
+                   title: "Cooling Systems", 
+                   sub: "Liquid + immersion stacks.", 
+                   minerals: ["Rare-Earth", "Copper"], 
+                   coverage: 60, 
+                   color: "#0ea5e9",
+                   icon: <Activity size={20} />
+                 },
+                 { 
+                   title: "Magnets & Storage", 
+                   sub: "HDDs, SSDs, motors.", 
+                   minerals: ["Neodymium", "Dysprosium", "Boron"], 
+                   coverage: 93, 
+                   color: "#f43f5e",
+                   icon: <Database size={20} />
+                 }
+               ].map((cat, idx) => (
+                 <motion.div
+                   key={idx}
+                   initial={{ opacity: 0, scale: 0.95 }}
+                   whileInView={{ opacity: 1, scale: 1 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: idx * 0.1 }}
+                   className="p-8 rounded-[24px] bg-[var(--c-bg2)] border border-[var(--c-border)] hover:border-[var(--c-lime)]/30 transition-all group shadow-sm hover:shadow-xl"
+                 >
+                   <div className="flex items-center gap-4 mb-6">
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+                        style={{ backgroundColor: `${cat.color}15`, color: cat.color }}
+                      >
+                        {cat.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-[var(--c-fg)] text-lg leading-tight uppercase tracking-tight">{cat.title}</h3>
+                        <p className="text-[var(--c-fg2)] text-xs font-medium">{cat.sub}</p>
+                      </div>
+                   </div>
+
+                   <div className="flex flex-wrap gap-2 mb-8">
+                      {cat.minerals.map((m, i) => (
+                        <span key={i} className="text-[9px] font-bold px-2 py-1 rounded-md bg-[var(--c-fg)]/5 text-[var(--c-fg2)] uppercase tracking-wider">
+                          {m}
+                        </span>
+                      ))}
+                   </div>
+
+                   <div className="space-y-3">
+                      <div className="flex justify-between items-end">
+                         <div className="text-[9px] font-black text-[var(--c-fg2)] uppercase tracking-tighter">WBM Coverage</div>
+                         <div className="text-sm font-black" style={{ color: cat.color }}>{cat.coverage}%</div>
+                      </div>
+                      <div className="h-1.5 w-full bg-[var(--c-fg)]/5 rounded-full overflow-hidden">
+                         <motion.div 
+                           initial={{ width: 0 }}
+                           whileInView={{ width: `${cat.coverage}%` }}
+                           viewport={{ once: true }}
+                           transition={{ duration: 1, delay: 0.5 }}
+                           className="h-full shadow-[0_0_10px_currentColor]"
+                           style={{ backgroundColor: cat.color, color: cat.color }}
+                         />
+                      </div>
+                   </div>
+                 </motion.div>
+               ))}
+            </div>
           </div>
         </div>
       </section>

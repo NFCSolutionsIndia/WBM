@@ -20,16 +20,22 @@ export default function IndustriesQuickView() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-[var(--c-lime)] font-bold uppercase tracking-[0.3em] text-xs mb-4 block">• INDUSTRY</span>
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 text-[var(--c-fg)]">
-            Powering the World's<br/><span className="text-[var(--c-lime)]">Most Critical Industries</span>
+          <div className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm mx-auto">
+            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+              Industry
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-[52px] font-black uppercase tracking-tighter mb-6 text-[var(--c-fg)]">
+            Industries
           </h2>
-          <p className="text-[var(--c-fg)]/60 text-lg max-w-2xl mx-auto mb-10">
-            Supplying essential materials across sectors. Our recovered materials support industries enabling sustainable and reliable production at scale.
+          <p className="text-[var(--c-fg)]/60 text-lg max-w-3xl mx-auto mb-10">
+            The minerals we recover are the choke points for AI chips, EV batteries, wind turbines, and defense platforms. WBM provides a semi-circle of allied geographies, bypassing non-allied supply chain risks.
           </p>
+
           <button 
             onClick={() => window.location.href = '/WBM/industries'}
-            className="px-8 py-4 bg-[var(--c-fg)] text-[var(--c-bg)] font-bold uppercase tracking-widest text-sm rounded-[10px] hover:bg-[var(--c-lime)] hover:text-black transition-colors duration-300"
+            className="px-8 py-4 bg-[var(--c-fg)] text-[var(--c-bg)] font-bold uppercase tracking-widest text-sm rounded-[10px] hover:bg-[var(--c-lime)] hover:text-[var(--c-bg)] transition-colors duration-300"
           >
             View Industries
           </button>

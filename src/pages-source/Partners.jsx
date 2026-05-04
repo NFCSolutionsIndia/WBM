@@ -15,7 +15,7 @@ export default function Partners() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold text-white uppercase"
+          className="text-3xl md:text-[64px] font-bold text-white uppercase"
         >
           Collaborate <span className="text-[#C1FF00]">With Us</span>
         </motion.h1>

@@ -53,7 +53,7 @@ const Technology = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Innovation at Scale</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
               The science of <br className="hidden sm:block" />
               <span className="text-[var(--c-lime)]">material intelligence</span>
             </h1>

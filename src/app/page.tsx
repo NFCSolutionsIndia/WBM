@@ -16,13 +16,12 @@ import EwasteScrollSequence from "@/components/home/EwasteScrollSequence";
 import GlobalFootprint from "@/components/home/GlobalFootprint";
 import ReadyToCollaborate from "@/components/home/ReadyToCollaborate";
 import ImpactPurpose from "@/components/home/ImpactPurpose";
-
-import MaterialOutput from "@/components/home/MaterialOutput";
 import IndustriesQuickView from "@/components/home/IndustriesQuickView";
 import TechnologySnapshot from "@/components/home/TechnologySnapshot";
 import DataCenterBlock from "@/components/home/DataCenterBlock";
 import SustainabilityImpact from "@/components/home/SustainabilityImpact";
-import PartnersTrust from "@/components/home/PartnersTrust";
+import WhyNow from "@/components/home/WhyNow";
+import FeaturedLinks from "@/components/home/FeaturedLinks";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -35,28 +34,28 @@ export default function Home() {
         {/* 1. Hero */}
         <HeroSection />
 
-        {/* 2. Impact & Purpose */}
+        {/* 2. Impact & Purpose (The only difference is who touches it) */}
         <ImpactPurpose />
 
-        {/* 3. Partners Trust */}
-        <PartnersTrust />
-
-        {/* 4. How It Works */}
+        {/* 3. How It Works (The orchestration layer) */}
         <HowItWorks />
 
-        {/* 5. Technology Snapshot */}
+        {/* 4. Technology Snapshot (Inside look at LiBERT) */}
         <TechnologySnapshot />
 
-        {/* 6. Scrollytelling Sequence */}
+        {/* 5. Scrollytelling Sequence */}
         <EwasteScrollSequence />
 
-        {/* 7. Minerals Section */}
+        {/* 6. Minerals Section */}
         <div id="minerals">
           <MineralsSection />
         </div>
 
-        {/* 8. Scrolling Metal Ticker */}
+        {/* 7. Scrolling Metal Ticker */}
         <MetalTicker />
+
+        {/* 8. AI Data Centres */}
+        <DataCenterBlock />
 
         {/* 9. Three Waste Streams */}
         <div id="system"><ScrollStory /></div>
@@ -67,23 +66,29 @@ export default function Home() {
         {/* 11. KPI Stats */}
         <NumbersThatSpeak />
 
-        {/* 12. 4x5 System / Business Model */}
+        {/* 12. 4x5 System / Business Model (Our Model) */}
         <SystemModel4x5 isDark={isDark} />
 
-        {/* 13. Choose Your Path */}
+        {/* 13. Why Now (Geopolitical Choke Point) */}
+        <WhyNow />
+
+        {/* 14. Choose Your Path */}
         <div id="resources">
           <ChooseYourPath />
         </div>
+ 
 
-        {/* 14. Global Footprint (Distribution) */}
+        {/* 16. Global Footprint (Distribution) */}
         <div id="about">
           <GlobalFootprint isDark={isDark} />
         </div>
 
-        {/* 15. CTA / Contact */}
+        {/* 18. CTA / Contact */}
         <ReadyToCollaborate />
       </div>
+
     </main>
+
   );
 }
 

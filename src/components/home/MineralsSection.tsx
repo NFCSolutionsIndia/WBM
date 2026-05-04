@@ -1,12 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTheme } from "@/components/ui/ThemeProvider";
 
 const allMinerals = [
+  // Row 1
   { symbol: "H", num: 1, name: "Hydrogen", row: 1, col: 1, wbm: false },
   { symbol: "He", num: 2, name: "Helium", row: 1, col: 18, wbm: false },
-  { symbol: "Li", num: 3, name: "Lithium", row: 2, col: 1, wbm: true },
+  // Row 2
+  { symbol: "Li", num: 3, name: "Lithium", row: 2, col: 1, wbm: true, color: "#C1FF00", desc: "Essential for high-density EV batteries and grid storage.", from: "B-Waste", offtake: "Tesla, BYD, LG Energy" },
   { symbol: "Be", num: 4, name: "Beryllium", row: 2, col: 2, wbm: false },
   { symbol: "B", num: 5, name: "Boron", row: 2, col: 13, wbm: false },
   { symbol: "C", num: 6, name: "Carbon", row: 2, col: 14, wbm: false },
@@ -14,139 +17,253 @@ const allMinerals = [
   { symbol: "O", num: 8, name: "Oxygen", row: 2, col: 16, wbm: false },
   { symbol: "F", num: 9, name: "Fluorine", row: 2, col: 17, wbm: false },
   { symbol: "Ne", num: 10, name: "Neon", row: 2, col: 18, wbm: false },
+  // Row 3
   { symbol: "Na", num: 11, name: "Sodium", row: 3, col: 1, wbm: false },
   { symbol: "Mg", num: 12, name: "Magnesium", row: 3, col: 2, wbm: false },
-  { symbol: "Al", num: 13, name: "Aluminium", row: 3, col: 13, wbm: true },
+  { symbol: "Al", num: 13, name: "Aluminium", row: 3, col: 13, wbm: true, color: "#C1FF00", desc: "Lightweight structures and high-voltage power cables.", from: "E-Waste", offtake: "Apple, Boeing, Ford" },
   { symbol: "Si", num: 14, name: "Silicon", row: 3, col: 14, wbm: false },
   { symbol: "P", num: 15, name: "Phosphorus", row: 3, col: 15, wbm: false },
   { symbol: "S", num: 16, name: "Sulfur", row: 3, col: 16, wbm: false },
   { symbol: "Cl", num: 17, name: "Chlorine", row: 3, col: 17, wbm: false },
   { symbol: "Ar", num: 18, name: "Argon", row: 3, col: 18, wbm: false },
+  // Row 4
   { symbol: "K", num: 19, name: "Potassium", row: 4, col: 1, wbm: false },
   { symbol: "Ca", num: 20, name: "Calcium", row: 4, col: 2, wbm: false },
-  { symbol: "Ti", num: 22, name: "Titanium", row: 4, col: 4, wbm: true },
+  { symbol: "Sc", num: 21, name: "Scandium", row: 4, col: 3, wbm: false },
+  { symbol: "Ti", num: 22, name: "Titanium", row: 4, col: 4, wbm: true, color: "#C1FF00", desc: "Aerospace hulls and biocompatible medical implants.", from: "Defence Electronics", offtake: "Lockheed, SpaceX, Medtronic" },
+  { symbol: "V", num: 23, name: "Vanadium", row: 4, col: 5, wbm: false },
   { symbol: "Cr", num: 24, name: "Chromium", row: 4, col: 6, wbm: false },
   { symbol: "Mn", num: 25, name: "Manganese", row: 4, col: 7, wbm: false },
   { symbol: "Fe", num: 26, name: "Iron", row: 4, col: 8, wbm: false },
-  { symbol: "Co", num: 27, name: "Cobalt", row: 4, col: 9, wbm: true },
-  { symbol: "Ni", num: 28, name: "Nickel", row: 4, col: 10, wbm: true },
-  { symbol: "Cu", num: 29, name: "Copper", row: 4, col: 11, wbm: true },
+  { symbol: "Co", num: 27, name: "Cobalt", row: 4, col: 9, wbm: true, color: "#C1FF00", desc: "Thermal stability in NCM battery chemistries.", from: "B-Waste", offtake: "Panasonic, Samsung SDI" },
+  { symbol: "Ni", num: 28, name: "Nickel", row: 4, col: 10, wbm: true, color: "#C1FF00", desc: "High-nickel cathodes for long-range EVs.", from: "B-Waste", offtake: "Tesla, Ford, Hyundai" },
+  { symbol: "Cu", num: 29, name: "Copper", row: 4, col: 11, wbm: true, color: "#C1FF00", desc: "The backbone of electrification and AI data centres.", from: "E-Waste", offtake: "ABB, Siemens, Schneider" },
   { symbol: "Zn", num: 30, name: "Zinc", row: 4, col: 12, wbm: false },
   { symbol: "Ga", num: 31, name: "Gallium", row: 4, col: 13, wbm: false },
   { symbol: "Ge", num: 32, name: "Germanium", row: 4, col: 14, wbm: false },
   { symbol: "As", num: 33, name: "Arsenic", row: 4, col: 15, wbm: false },
-  { symbol: "Ag", num: 47, name: "Silver", row: 5, col: 11, wbm: true },
-  { symbol: "Pd", num: 46, name: "Palladium", row: 5, col: 10, wbm: true },
-  { symbol: "Pb", num: 82, name: "Lead", row: 6, col: 14, wbm: true },
-  { symbol: "Au", num: 79, name: "Gold", row: 6, col: 11, wbm: true },
-  { symbol: "Nd", num: 60, name: "Neodymium", row: 8, col: 6, wbm: true },
-  { symbol: "Dy", num: 66, name: "Dysprosium", row: 8, col: 12, wbm: true },
+  { symbol: "Se", num: 34, name: "Selenium", row: 4, col: 16, wbm: false },
+  { symbol: "Br", num: 35, name: "Bromine", row: 4, col: 17, wbm: false },
+  { symbol: "Kr", num: 36, name: "Krypton", row: 4, col: 18, wbm: false },
+  // Row 5
+  { symbol: "Rb", num: 37, name: "Rubidium", row: 5, col: 1, wbm: false },
+  { symbol: "Sr", num: 38, name: "Strontium", row: 5, col: 2, wbm: false },
+  { symbol: "Y",  num: 39, name: "Yttrium", row: 5, col: 3, wbm: false },
+  { symbol: "Zr", num: 40, name: "Zirconium", row: 5, col: 4, wbm: false },
+  { symbol: "Nb", num: 41, name: "Niobium", row: 5, col: 5, wbm: false },
+  { symbol: "Mo", num: 42, name: "Molybdenum", row: 5, col: 6, wbm: false },
+  { symbol: "Tc", num: 43, name: "Technetium", row: 5, col: 7, wbm: false },
+  { symbol: "Ru", num: 44, name: "Ruthenium", row: 5, col: 8, wbm: false },
+  { symbol: "Rh", num: 45, name: "Rhodium", row: 5, col: 9, wbm: false },
+  { symbol: "Pd", num: 46, name: "Palladium", row: 5, col: 10, wbm: true, color: "#C1FF00", desc: "Critical catalyst for hydrogen and semiconductor layers.", from: "E-Waste", offtake: "Intel, TSMC, BASF" },
+  { symbol: "Ag", num: 47, name: "Silver", row: 5, col: 11, wbm: true, color: "#C1FF00", desc: "Best conductor for solar PV and advanced circuit boards.", from: "E-Waste", offtake: "Samsung, SolarCity, Dell" },
+  { symbol: "Cd", num: 48, name: "Cadmium", row: 5, col: 12, wbm: false },
+  { symbol: "In", num: 49, name: "Indium", row: 5, col: 13, wbm: false },
+  { symbol: "Sn", num: 50, name: "Tin", row: 5, col: 14, wbm: false },
+  { symbol: "Sb", num: 51, name: "Antimony", row: 5, col: 15, wbm: false },
+  { symbol: "Te", num: 52, name: "Tellurium", row: 5, col: 16, wbm: false },
+  { symbol: "I",  num: 53, name: "Iodine", row: 5, col: 17, wbm: false },
+  { symbol: "Xe", num: 54, name: "Xenon", row: 5, col: 18, wbm: false },
+  // Row 6
+  { symbol: "Cs", num: 55, name: "Cesium", row: 6, col: 1, wbm: false },
+  { symbol: "Ba", num: 56, name: "Barium", row: 6, col: 2, wbm: false },
+  { symbol: "Hf", num: 72, name: "Hafnium", row: 6, col: 4, wbm: false },
+  { symbol: "Ta", num: 73, name: "Tantalum", row: 6, col: 5, wbm: false },
+  { symbol: "W",  num: 74, name: "Tungsten", row: 6, col: 6, wbm: false },
+  { symbol: "Re", num: 75, name: "Rhenium", row: 6, col: 7, wbm: false },
+  { symbol: "Os", num: 76, name: "Osmium", row: 6, col: 8, wbm: false },
+  { symbol: "Ir", num: 77, name: "Iridium", row: 6, col: 9, wbm: false },
+  { symbol: "Pt", num: 78, name: "Platinum", row: 6, col: 10, wbm: false },
+  { symbol: "Au", num: 79, name: "Gold", row: 6, col: 11, wbm: true, color: "#C1FF00", desc: "Corrosion-resistant plating for all high-end electronics.", from: "E-Waste", offtake: "Apple, NVIDIA, Rolex" },
+  { symbol: "Hg", num: 80, name: "Mercury", row: 6, col: 12, wbm: false },
+  { symbol: "Tl", num: 81, name: "Thallium", row: 6, col: 13, wbm: false },
+  { symbol: "Pb", num: 82, name: "Lead", row: 6, col: 14, wbm: true, color: "#C1FF00", desc: "Radiation shielding and high-performance lead-acid storage.", from: "E-Waste", offtake: "GS Yuasa, Exide" },
+  { symbol: "Bi", num: 83, name: "Bismuth", row: 6, col: 15, wbm: false },
+  { symbol: "Po", num: 84, name: "Polonium", row: 6, col: 16, wbm: false },
+  { symbol: "At", num: 85, name: "Astatine", row: 6, col: 17, wbm: false },
+  { symbol: "Rn", num: 86, name: "Radon", row: 6, col: 18, wbm: false },
+  // Row 7
+  { symbol: "Fr", num: 87, name: "Francium", row: 7, col: 1, wbm: false },
+  { symbol: "Ra", num: 88, name: "Radium", row: 7, col: 2, wbm: false },
+  { symbol: "Rf", num: 104, name: "Rutherfordium", row: 7, col: 4, wbm: false },
+  { symbol: "Db", num: 105, name: "Dubnium", row: 7, col: 5, wbm: false },
+  { symbol: "Sg", num: 106, name: "Seaborgium", row: 7, col: 6, wbm: false },
+  { symbol: "Bh", num: 107, name: "Bohrium", row: 7, col: 7, wbm: false },
+  { symbol: "Hs", num: 108, name: "Hassium", row: 7, col: 8, wbm: false },
+  { symbol: "Mt", num: 109, name: "Meitnerium", row: 7, col: 9, wbm: false },
+  { symbol: "Ds", num: 110, name: "Darmstadtium", row: 7, col: 10, wbm: false },
+  { symbol: "Rg", num: 111, name: "Roentgenium", row: 7, col: 11, wbm: false },
+  { symbol: "Cn", num: 112, name: "Copernicium", row: 7, col: 12, wbm: false },
+  { symbol: "Nh", num: 113, name: "Nihonium", row: 7, col: 13, wbm: false },
+  { symbol: "Fl", num: 114, name: "Flerovium", row: 7, col: 14, wbm: false },
+  { symbol: "Mc", num: 115, name: "Moscovium", row: 7, col: 15, wbm: false },
+  { symbol: "Lv", num: 116, name: "Livermorium", row: 7, col: 16, wbm: false },
+  { symbol: "Ts", num: 117, name: "Tennessine", row: 7, col: 17, wbm: false },
+  { symbol: "Og", num: 118, name: "Oganesson", row: 7, col: 18, wbm: false },
+  // Lanthanoids (Row 9)
+  { symbol: "La", num: 57, name: "Lanthanum", row: 9, col: 3, wbm: false },
+  { symbol: "Ce", num: 58, name: "Cerium", row: 9, col: 4, wbm: false },
+  { symbol: "Pr", num: 59, name: "Praseodymium", row: 9, col: 5, wbm: false },
+  { symbol: "Nd", num: 60, name: "Neodymium", row: 9, col: 6, wbm: true, color: "#7ECCD6", desc: "Super-magnets for EV motors and wind turbines.", from: "REE Magnets", offtake: "Tesla, Vestas, GE" },
+  { symbol: "Pm", num: 61, name: "Promethium", row: 9, col: 7, wbm: false },
+  { symbol: "Sm", num: 62, name: "Samarium", row: 9, col: 8, wbm: false },
+  { symbol: "Eu", num: 63, name: "Europium", row: 9, col: 9, wbm: false },
+  { symbol: "Gd", num: 64, name: "Gadolinium", row: 9, col: 10, wbm: false },
+  { symbol: "Tb", num: 65, name: "Terbium", row: 9, col: 11, wbm: false },
+  { symbol: "Dy", num: 66, name: "Dysprosium", row: 9, col: 12, wbm: true, color: "#7ECCD6", desc: "Enhances heat resistance in high-performance magnets.", from: "REE Magnets", offtake: "Defence, Aerospace" },
+  { symbol: "Ho", num: 67, name: "Holmium", row: 9, col: 13, wbm: false },
+  { symbol: "Er", num: 68, name: "Erbium", row: 9, col: 14, wbm: false },
+  { symbol: "Tm", num: 69, name: "Thulium", row: 9, col: 15, wbm: false },
+  { symbol: "Yb", num: 70, name: "Ytterbium", row: 9, col: 16, wbm: false },
+  { symbol: "Lu", num: 71, name: "Lutetium", row: 9, col: 17, wbm: false },
 ];
 
-const wbmMinerals = allMinerals.filter((m) => m.wbm);
-
 export default function MineralsSection() {
-  const [showOnlyWbm, setShowOnlyWbm] = useState(false);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const [hoveredMineral, setHoveredMineral] = useState<any>(null);
 
   return (
-    <section className="relative w-full py-12 bg-[var(--c-bg)] border-t border-[var(--c-border)]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative w-full py-24 overflow-hidden transition-colors duration-500" style={{ background: "var(--c-bg)" }}>
+      {/* Background radial glow */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none transition-opacity duration-1000 ${isDark ? "opacity-100" : "opacity-30"}`} 
+        style={{ background: `radial-gradient(circle, ${isDark ? "rgba(193,255,0,0.03)" : "rgba(120,185,51,0.05)"} 0%, transparent 70%)` }} 
+      />
+
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-16 text-center">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-4 mb-6"
+            className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm"
           >
-            <div className="w-8 h-px bg-[var(--c-highlight)]" />
-            <span className="font-sans font-bold text-xs tracking-[0.3em] uppercase text-[var(--c-highlight)]">
-              Recovered Minerals
+            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+              11 of 118 Elements
             </span>
           </motion.div>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-sans font-black tracking-tighter leading-[0.9] text-[clamp(36px,6vw,80px)] text-[var(--c-fg)] uppercase max-w-3xl"
-            >
-              Remember the{" "}
-              <span className="text-[var(--c-highlight)]">Periodic Table?</span>
-              <br />
-              We Extract 11 of Them.
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 shrink-0"
-            >
-              <span className="font-sans font-bold text-sm text-[var(--c-fg2)]">Show only WBM minerals</span>
-              <button
-                onClick={() => setShowOnlyWbm(!showOnlyWbm)}
-                className={`relative w-12 h-6 rounded-full transition-colors duration-300`}
-                style={{ background: showOnlyWbm ? "var(--color-lime)" : "var(--c-bg3)" }}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-sans font-black tracking-tighter leading-[1.1] text-3xl md:text-[52px] text-[var(--c-fg)] uppercase mb-8"
+          >
+            Remember the <span className="text-[var(--color-lime)]">Periodic Table?</span><br />
+            We Extract 11 of Them.
+          </motion.h2>
+          <p className="font-sans text-[var(--c-fg2)] text-xl max-w-3xl mx-auto leading-relaxed">
+            The choke points of every AI chip, every EV, every wind turbine, and every defence platform built this decade.
+          </p>
+        </div>
+
+        {/* Periodic Table Grid */}
+        <div className="relative overflow-x-auto pb-12">
+          <div className="min-w-[1000px] grid grid-cols-18 gap-1 md:gap-2">
+            {allMinerals.map((m, i) => (
+              <motion.div
+                key={m.num}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.005 }}
+                onMouseEnter={() => m.wbm && setHoveredMineral(m)}
+                onMouseLeave={() => setHoveredMineral(null)}
+                className={`aspect-square relative rounded-[4px] md:rounded-[8px] flex flex-col items-center justify-center p-1 md:p-2 border transition-all duration-300 ${
+                  m.wbm ? "z-10 cursor-pointer" : "opacity-15"
+                }`}
+                style={{
+                  gridRow: m.row,
+                  gridColumn: m.col,
+                  background: m.wbm ? (hoveredMineral?.num === m.num ? `${m.color}20` : "var(--c-bg2)") : "var(--c-bg2)",
+                  borderColor: m.wbm ? m.color : "var(--c-border)",
+                  borderWidth: m.wbm ? "2px" : "1px",
+                }}
               >
-                <span
-                  className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform duration-300 ${showOnlyWbm ? "translate-x-7" : "translate-x-1"}`}
-                />
-              </button>
-            </motion.div>
+                {/* Symbol Highlight */}
+                <div className={`font-sans font-bold text-[6px] md:text-[8px] absolute top-1 md:top-2 left-1 md:left-2 ${m.wbm ? "text-[var(--c-fg)]" : "text-[var(--c-fg3)]"}`}>
+                  {m.num}
+                </div>
+                <div
+                  className="font-sans font-black text-xs md:text-xl leading-none"
+                  style={{ color: m.wbm ? m.color : "var(--c-fg3)" }}
+                >
+                  {m.symbol}
+                </div>
+                <div className={`font-sans font-bold text-[5px] md:text-[7px] text-center leading-tight uppercase tracking-widest mt-1 ${m.wbm ? "text-[var(--c-fg2)]" : "text-[var(--c-fg3)]"}`}>
+                  {m.name}
+                </div>
+
+                {/* Tooltip Popup */}
+                <AnimatePresence>
+                  {hoveredMineral?.num === m.num && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-5 rounded-xl border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-2xl z-50 pointer-events-none"
+                      style={{ 
+                        backdropFilter: "blur(20px)",
+                        boxShadow: `0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px ${m.color}30`
+                      }}
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="font-sans font-black text-lg text-[var(--c-fg)]">{m.name}</span>
+                        <span className="text-[var(--c-fg3)] text-xs">·</span>
+                        <span className="font-sans font-black text-lg" style={{ color: m.color }}>{m.symbol}</span>
+                        <span className="text-[var(--c-fg3)] text-xs">·</span>
+                        <span className="font-sans font-black text-sm text-[var(--c-fg3)]">#{m.num}</span>
+                      </div>
+                      
+                      <p className="font-sans text-xs text-[var(--c-fg2)] leading-relaxed mb-4">
+                        {m.desc}
+                      </p>
+
+                      <div className="space-y-1.5 border-t border-[var(--c-border)] pt-3">
+                        <div className="flex justify-between text-[10px]">
+                          <span className="font-sans font-bold text-[var(--c-fg3)] uppercase">From:</span>
+                          <span className="font-sans font-bold text-[var(--c-fg)]">{m.from}</span>
+                        </div>
+                        <div className="flex justify-between text-[10px]">
+                          <span className="font-sans font-bold text-[var(--c-fg3)] uppercase">Off-take:</span>
+                          <span className="font-sans font-bold text-[var(--c-fg)]">{m.offtake}</span>
+                        </div>
+                      </div>
+
+                      {/* Tooltip Arrow */}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 w-4 h-4 bg-[var(--c-bg2)] border-r border-b border-[var(--c-border)] rotate-45 -translate-y-2" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+
+            {/* Empty slots for visual structure */}
+            <div className="row-start-8 h-8" /> 
           </div>
         </div>
 
-        {/* WBM Minerals Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3 mb-12">
-          {wbmMinerals.map((m, i) => (
-            <motion.div
-              key={m.symbol}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              whileHover={{ scale: 1.1, y: -4 }}
-              className="aspect-square rounded-[10px] flex flex-col items-center justify-center p-2 border cursor-pointer"
-              style={{
-                background: "var(--c-bg2)",
-                borderColor: "var(--color-lime)",
-                boxShadow: "0 0 20px rgba(120, 185, 51, 0.08)",
-              }}
-            >
-              <div className="font-sans font-black text-xs text-[var(--c-fg3)]">{m.num}</div>
-              <div
-                className="font-sans font-black text-xl leading-none"
-                style={{ color: "var(--c-highlight)" }}
-              >
-                {m.symbol}
-              </div>
-              <div className="font-sans font-bold text-[8px] text-center leading-tight text-[var(--c-fg3)] mt-1">
-                {m.name}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Description cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Description cards (same as before) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: "AI Chip Supply",
               minerals: ["Cu", "Au", "Pd", "Al"],
               desc: "Every AI chip requires copper traces, gold contacts, palladium capacitors and aluminium heat sinks — all recovered by WBM.",
-              accent: "var(--color-lime)",
+              accent: "#C1FF00",
             },
             {
               title: "EV Battery Loops",
               minerals: ["Li", "Co", "Ni"],
               desc: "Lithium, cobalt and nickel recovered from spent EV and grid-storage batteries in a fully closed-loop hydrometallurgical process.",
-              accent: "var(--color-orange)",
+              accent: "#C1FF00",
             },
             {
               title: "Defence & Energy",
               minerals: ["Nd", "Dy", "Ti", "Pb"],
               desc: "Neodymium and dysprosium from end-of-life turbines and MRI machines. Titanium and lead recovered from defence electronics.",
-              accent: "var(--color-lime)",
+              accent: "#7ECCD6",
             },
           ].map((card, i) => (
             <motion.div
@@ -155,23 +272,27 @@ export default function MineralsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-[10px] border border-[var(--c-border)] bg-[var(--c-bg2)] card-hover"
+              className="p-10 rounded-[20px] border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm backdrop-blur-sm group hover:border-[var(--color-lime)] transition-all duration-500"
             >
-              <div className="flex gap-2 mb-6 flex-wrap">
+              <div className="flex gap-3 mb-8 flex-wrap">
                 {card.minerals.map((sym) => (
                   <span
                     key={sym}
-                    className="font-sans font-black text-xs px-3 py-1 rounded-full"
-                    style={{ background: card.accent, color: "var(--c-bg)" }}
+                    className="font-sans font-black text-xs px-4 py-1.5 rounded-full border"
+                    style={{ 
+                      borderColor: `${card.accent}40`,
+                      color: card.accent,
+                      background: `${card.accent}10`
+                    }}
                   >
                     {sym}
                   </span>
                 ))}
               </div>
-              <h3 className="font-sans font-black text-xl uppercase tracking-tight text-[var(--c-fg)] mb-3">
-                {card.title.split(' ').slice(0, -1).join(' ')} <span className="text-[var(--c-highlight)]">{card.title.split(' ').slice(-1)}</span>
+              <h3 className="font-sans font-black text-2xl uppercase tracking-tight text-[var(--c-fg)] mb-4">
+                {card.title.split(' ').slice(0, -1).join(' ')} <span style={{ color: card.accent }}>{card.title.split(' ').slice(-1)}</span>
               </h3>
-              <p className="font-sans text-sm text-[var(--c-fg2)] leading-relaxed">{card.desc}</p>
+              <p className="font-sans text-base text-[var(--c-fg2)] leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -179,3 +300,5 @@ export default function MineralsSection() {
     </section>
   );
 }
+
+

@@ -5,105 +5,147 @@ import Particles from '../components/ui/backgrounds/Particles';
 import Button from '../components/ui/Button';
 
 const Materials = () => {
-  const materialList = [
+  const categories = [
     {
-      symbol: "Au",
-      name: "Gold",
-      purity: "99.99%",
-      source: "PCB & Connector Recovery",
-      use: "Precision Electronics & Aerospace",
-      color: "bg-[#FFD700]/10",
-      textColor: "text-[#D4AF37]"
+      id: "precious",
+      name: "PRECIOUS METALS",
+      color: "#8359ff",
+      minerals: [
+        {
+          symbol: "Au",
+          name: "Gold",
+          atomic: "79",
+          source: "E-Waste",
+          desc: "Bonding wires in every PCB and high-reliability connector.",
+          purity: "99.95%+",
+          lot: "5-50 kg / month",
+          lead: "30 days"
+        },
+        {
+          symbol: "Ag",
+          name: "Silver",
+          atomic: "47",
+          source: "E-Waste",
+          desc: "PV panels, contacts, RF shielding, switch contacts.",
+          purity: "99.9%+",
+          lot: "10-100 kg / month",
+          lead: "30 days"
+        },
+        {
+          symbol: "Cu",
+          name: "Copper",
+          atomic: "29",
+          source: "E-Waste",
+          desc: "Backbone of every interconnect, cable, and busbar.",
+          purity: "99.9%+ cathode grade",
+          lot: "20-500 t / month",
+          lead: "45 days"
+        },
+        {
+          symbol: "Pd",
+          name: "Palladium",
+          atomic: "46",
+          source: "E-Waste",
+          desc: "Catalysts, MLCC capacitors, hydrogen membranes.",
+          purity: "99.95%+",
+          lot: "1-20 kg / month",
+          lead: "60 days"
+        },
+        {
+          symbol: "Pt",
+          name: "Platinum",
+          atomic: "78",
+          source: "E-Waste",
+          desc: "Precision catalysts and high-durability electrical contacts.",
+          purity: "99.95%+",
+          lot: "1-10 kg / month",
+          lead: "60 days"
+        }
+      ]
     },
     {
-      symbol: "Cu",
-      name: "Copper",
-      purity: "99.9%",
-      source: "Cable & Infrastructure Scrap",
-      use: "Power Grids & EV Motors",
-      color: "bg-[#B87333]/10",
-      textColor: "text-[#B87333]"
+      id: "critical",
+      name: "CRITICAL MINERALS",
+      color: "#c1ff00",
+      minerals: [
+        {
+          symbol: "Li",
+          name: "Lithium",
+          atomic: "3",
+          source: "Batteries",
+          desc: "Cathode chemistry for every EV and grid-storage cell.",
+          purity: "99.8%",
+          lot: "50-1000 t / month",
+          lead: "90 days"
+        },
+        {
+          symbol: "Co",
+          name: "Cobalt",
+          atomic: "27",
+          source: "Batteries",
+          desc: "NMC/NCA cathodes - energy density and cycle life.",
+          purity: "99.8%",
+          lot: "10-200 t / month",
+          lead: "90 days"
+        },
+        {
+          symbol: "Ni",
+          name: "Nickel",
+          atomic: "28",
+          source: "Batteries",
+          desc: "High-nickel cathodes for long-range EVs.",
+          purity: "Class 1 99.8%",
+          lot: "100-2000 t / month",
+          lead: "45 days"
+        },
+        {
+          symbol: "Sn",
+          name: "Tin",
+          atomic: "50",
+          source: "E-Waste",
+          desc: "Essential component for lead-free solder in high-density PCBs.",
+          purity: "99.8%+",
+          lot: "5-50 t / month",
+          lead: "30 days"
+        },
+        {
+          symbol: "Al",
+          name: "Aluminum",
+          atomic: "13",
+          source: "Chassis",
+          desc: "Lightweight thermal management for high-density computing.",
+          purity: "99.7%",
+          lot: "20-500 t / month",
+          lead: "30 days"
+        }
+      ]
     },
     {
-      symbol: "Li",
-      name: "Lithium",
-      purity: "98.5%",
-      source: "EV Battery Cell Recycling",
-      use: "Next-Gen Energy Storage",
-      color: "bg-[#D3D3D3]/20",
-      textColor: "text-gray-500"
-    },
-    {
-      symbol: "Nd",
-      name: "Neodymium",
-      purity: "95%+",
-      source: "Hard Drive & Magnet Recovery",
-      use: "AI Compute & Robotics Motors",
-      color: "bg-[#8bc34a]/10",
-      textColor: "text-[#8bc34a]"
-    },
-    {
-      symbol: "Co",
-      name: "Cobalt",
-      purity: "99.8%",
-      source: "Li-ion Battery Cathode Recovery",
-      use: "EV Batteries & Superalloys",
-      color: "bg-[#0047AB]/10",
-      textColor: "text-[#0047AB]"
-    },
-    {
-      symbol: "Ag",
-      name: "Silver",
-      purity: "99.95%",
-      source: "Solar Panel & Component Recovery",
-      use: "Conductive Inks & Contact Points",
-      color: "bg-gray-100",
-      textColor: "text-gray-400"
-    },
-    {
-      symbol: "Pd",
-      name: "Palladium",
-      purity: "99.9%",
-      source: "Capacitor & Catalyst Recovery",
-      use: "High-performance Computing",
-      color: "bg-[#E5E4E2]/20",
-      textColor: "text-[#757575]"
-    },
-    {
-      symbol: "Pt",
-      name: "Platinum",
-      purity: "99.95%",
-      source: "Fuel Cell & Catalyst Recovery",
-      use: "Green Tech & Hydrogen Economy",
-      color: "bg-[#E5E4E2]/30",
-      textColor: "text-[#4A4A4A]"
-    },
-    {
-      symbol: "Ni",
-      name: "Nickel",
-      purity: "98.0%",
-      source: "EV Battery Cathode Scrap",
-      use: "EV Power Systems & Alloys",
-      color: "bg-[#71706E]/10",
-      textColor: "text-[#71706E]"
-    },
-    {
-      symbol: "Al",
-      name: "Aluminum",
-      purity: "99.7%",
-      source: "Chassis & Heat Sink Recycling",
-      use: "Lightweight Infrastructure",
-      color: "bg-[#C0C0C0]/20",
-      textColor: "text-[#A9A9A9]"
-    },
-    {
-      symbol: "Sn",
-      name: "Tin",
-      purity: "99.8%",
-      source: "Solder & Component Recovery",
-      use: "PCB Manufacturing & Electronics",
-      color: "bg-[#D3D3D3]/40",
-      textColor: "text-[#8E8E8E]"
+      id: "rare-earth",
+      name: "RARE EARTH ELEMENTS",
+      color: "#ff59b4",
+      minerals: [
+        {
+          symbol: "Nd",
+          name: "Neodymium",
+          atomic: "60",
+          source: "Magnets",
+          desc: "High-performance magnets for EV motors and wind turbines.",
+          purity: "99.5%+",
+          lot: "1-10 t / month",
+          lead: "60 days"
+        },
+        {
+          symbol: "Dy",
+          name: "Dysprosium",
+          atomic: "66",
+          source: "Magnets",
+          desc: "Critical additive for heat-resistant permanent magnets.",
+          purity: "99.9%",
+          lot: "100-500 kg / month",
+          lead: "90 days"
+        }
+      ]
     }
   ];
 
@@ -134,61 +176,86 @@ const Materials = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Material Catalog</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
-              Critical minerals for <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">a digital future</span>
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+              11 <span className="text-[var(--c-lime)]">of 118.</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              We provide a sustainable, ethically sourced supply of high-purity minerals recovered from the world's electronic waste.
+              The choke points of every AI chip, every EV, every wind turbine, and every defence platform built this decade.
             </p>
 
           </motion.div>
         </div>
       </section>
 
-      {/* Periodic Catalog */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {materialList.map((mat, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="group bg-[var(--c-bg2)] p-10 rounded-[10px] border border-[var(--c-border)] shadow-sm hover:shadow-2xl hover:border-[var(--c-lime)]/40 transition-all duration-500 cursor-default relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--c-lime)]/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-[var(--c-lime)]/10 transition-colors" />
-                
-                <div className={`w-20 h-20 ${mat.color} rounded-[10px] flex flex-col items-center justify-center mb-10 border border-[var(--c-border)] group-hover:scale-110 transition-transform relative z-10`}>
-                  <div className={`text-3xl font-bold ${mat.textColor}`}>{mat.symbol}</div>
-                </div>
 
-                <div className="relative z-10">
-                  <h3 className="text-3xl md:text-4xl font-bold text-[var(--c-fg)] mb-3 tracking-tight">
-                    {mat.name.split(' ')[0]} <span className="text-[var(--c-lime)]">{mat.name.split(' ').slice(1).join(' ')}</span>
-                  </h3>
-                  
-                  <div className="inline-block px-3 py-1 rounded-full bg-[var(--c-lime)]/10 border border-[var(--c-lime)]/20 text-[10px] font-black text-[var(--c-lime)] uppercase tracking-[0.2em] mb-10">
-                    Purity: {mat.purity}
-                  </div>
-                  
-                  <div className="space-y-8 pt-8 border-t border-[var(--c-border)]">
-                    <div className="group/item">
-                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-2 group-hover/item:text-[var(--c-lime)] transition-colors">Primary Source</div>
-                        <div className="text-base md:text-lg font-bold text-[var(--c-fg)] leading-tight">{mat.source}</div>
+      {/* Materials Deep Dive */}
+      <section className="py-24 bg-[var(--c-bg)]">
+        <div className="max-w-7xl mx-auto px-6">
+          {categories.map((category) => (
+            <div key={category.id} className="mb-24 last:mb-0">
+              {/* Category Header */}
+              <div className="flex items-center gap-4 mb-12">
+                <div 
+                  className="w-3 h-3 rounded-full animate-pulse" 
+                  style={{ backgroundColor: category.color, boxShadow: `0 0 12px ${category.color}` }}
+                />
+                <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-fg2)] uppercase">
+                  {category.name}
+                </h2>
+              </div>
+
+              {/* Grid of Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.minerals.map((mat, idx) => (
+                  <motion.div
+                    key={mat.symbol}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="p-8 rounded-[20px] bg-[var(--c-bg2)] border border-[var(--c-border)] hover:border-[var(--c-fg3)] transition-all duration-500 group"
+                  >
+                    {/* Symbol & Name */}
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-4xl font-black text-[var(--c-fg)] group-hover:text-[var(--c-lime)] transition-colors">
+                        {mat.symbol}
+                      </span>
+                      <span className="text-2xl font-medium text-[var(--c-fg2)]">
+                        {mat.name}
+                      </span>
                     </div>
-                    <div className="group/item">
-                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-2 group-hover/item:text-[var(--c-lime)] transition-colors">Industrial Use</div>
-                        <div className="text-base md:text-lg font-medium text-gray-500 leading-tight">{mat.use}</div>
+
+                    {/* Atomic & Source */}
+                    <div className="text-[10px] font-bold text-[var(--c-fg3)] uppercase tracking-widest mb-6">
+                      #{mat.atomic} from {mat.source}
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+
+                    {/* Description */}
+                    <p className="text-[var(--c-fg2)] text-base leading-relaxed mb-10 h-12">
+                      {mat.desc}
+                    </p>
+
+                    {/* Stats Table */}
+                    <div className="space-y-4 border-t border-[var(--c-border)] pt-8">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="font-bold text-[var(--c-fg3)] uppercase tracking-widest text-[10px]">Purity</span>
+                        <span className="font-bold text-[var(--c-fg2)]">{mat.purity}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="font-bold text-[var(--c-fg3)] uppercase tracking-widest text-[10px]">Lot</span>
+                        <span className="font-bold text-[var(--c-fg2)]">{mat.lot}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="font-bold text-[var(--c-fg3)] uppercase tracking-widest text-[10px]">Lead</span>
+                        <span className="font-bold text-[var(--c-fg2)]">{mat.lead}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -286,7 +353,7 @@ const Materials = () => {
           <h2 className="text-4xl font-bold text-[var(--c-fg)] mb-6 tracking-tight">Securing your <span className="text-[var(--c-lime)]">material future</span></h2>
           <p className="text-xl text-gray-500 font-medium mb-12">Contact our procurement team for current spot prices, forward supply contracts, and technical grade specifications.</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button href="/contact" size="lg">
+            <Button size="lg">
               Request Material Specs
             </Button>
             <Button href="/contact" size="lg" variant="outline">
@@ -300,4 +367,3 @@ const Materials = () => {
 };
 
 export default Materials;
-

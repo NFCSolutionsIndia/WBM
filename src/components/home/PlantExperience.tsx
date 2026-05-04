@@ -30,7 +30,7 @@ export default function PlantExperience() {
               Our 100,000 sq ft facilities run 24/7. We heavily invest in AI upskilling for our workforce, providing first-in-class amenities from CoE innovation labs to multi-cultural canteens and on-site clinics.
             </p>
             
-            <button className="mt-8 flex items-center gap-3 bg-white text-primary px-6 py-3 rounded-full hover:bg-gold hover:text-white transition-all font-medium">
+            <button className="mt-8 flex items-center gap-3 bg-white text-primary px-6 py-3 rounded-full hover:bg-gold hover:text-[var(--c-bg)] transition-all font-medium">
               <PlayCircle /> Take the Virtual Tour
             </button>
           </div>

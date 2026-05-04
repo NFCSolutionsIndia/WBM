@@ -78,7 +78,7 @@ const Process = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">End-to-End Recovery</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
               A precise journey from <br className="hidden sm:block" />
               <span className="text-[var(--c-lime)]">trash to treasure</span>
             </h1>
@@ -134,7 +134,7 @@ const Process = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">Recovered <span className="text-[var(--c-lime)]">Materials</span></h2>
+              <h2 className="text-3xl md:text-[52px] font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">Recovered <span className="text-[var(--c-lime)]">Materials</span></h2>
               <p className="text-lg text-gray-500 font-medium">We extract high-purity minerals that meet or exceed traditional mining standards.</p>
             </div>
             <Button href="/contact" variant="ghost" className="flex items-center gap-2 group">

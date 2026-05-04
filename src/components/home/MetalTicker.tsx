@@ -28,7 +28,6 @@ const TickerItem = ({ symbol, name }: { symbol: string; name: string }) => (
     <span className="font-sans font-bold text-sm uppercase tracking-widest text-[var(--c-fg2)]">
       {name}
     </span>
-    <span className="w-1 h-1 rounded-full bg-[var(--c-fg3)]" />
   </div>
 );
 

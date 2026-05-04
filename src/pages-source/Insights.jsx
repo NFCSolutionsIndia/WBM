@@ -87,13 +87,13 @@ const Insights = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Knowledge Hub</span>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
               Insights & <br className="hidden sm:block" />
-              <span className="text-[var(--c-lime)]">Innovation</span>
+              <span className="text-[var(--c-lime)]">Innovation.</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              Stay updated with the latest trends in material recovery, sustainable manufacturing, and the technology driving the circular economy.
+              Recovering the minerals that power the next decade. Stay updated with the latest in material intelligence.
             </p>
 
           </motion.div>
@@ -102,7 +102,7 @@ const Insights = () => {
 
       {/* Featured Insight */}
       {featuredInsight && (
-        <section className="py-24 relative z-20">
+        <section className="pt-24 pb-0 relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
@@ -134,7 +134,7 @@ const Insights = () => {
                     {featuredInsight.author}
                   </div>
                 </div>
-                <Button href="/contact" variant="ghost" className="flex items-center gap-3 group">
+                <Button variant="ghost" className="flex items-center gap-3 group">
                   Read full article
                 </Button>
               </div>
@@ -144,7 +144,7 @@ const Insights = () => {
       )}
 
       {/* Category Filter & Search */}
-      <section className="py-12 border-b border-gray-100 dark:border-white/10 dark:border-white/10">
+      <section className="pt-10 pb-5 border-b border-gray-100 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-wrap items-center gap-4">
@@ -176,7 +176,7 @@ const Insights = () => {
       </section>
 
       {/* Insights Grid */}
-      <section className="py-12">
+      <section className="pt-0 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredInsights.filter(i => !i.featured).map((item, index) => (

@@ -34,7 +34,7 @@ const Technology = () => {
           <Beams 
             beamNumber={15}
             beamWidth={3}
-            lightColor="#c1ff00"
+            lightColor="#839470"
             speed={1.5}
           />
         </div>
@@ -85,7 +85,7 @@ const Technology = () => {
                   </div>
                 </div>
                 <div className="lg:w-1/2">
-                  <h2 className="text-3xl md:text-4xl font-bold text-[var(--c-fg)] mb-6 tracking-tight">{tech.title}</h2>
+                  <h2 className="section-title  font-bold text-[var(--c-fg)] mb-6 tracking-tight">{tech.title}</h2>
                   <p className="text-lg text-gray-500 font-medium leading-relaxed mb-8">
                     {tech.desc}
                   </p>
@@ -115,7 +115,7 @@ const Technology = () => {
               <div className="inline-flex items-center gap-2 bg-[var(--c-fg)]/10 px-3 py-1.5 rounded-full shadow-sm text-sm font-semibold border border-[var(--c-border)] text-white mb-8">
                 <Microscope size={16} className="text-[var(--c-lime)]" /> Future-Proofing
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-8 tracking-tight">
+              <h2 className="section-title font-bold leading-tight mb-8 tracking-tight">
                 Continuous R&D: Solving tomorrow's recovery <span className="text-[var(--c-lime)]">challenges</span> today
               </h2>
               <p className="text-xl text-gray-400 font-medium leading-relaxed mb-10">
@@ -155,7 +155,7 @@ const Technology = () => {
       {/* CTA Section */}
       <section className="py-12 bg-[var(--c-bg)]">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--c-fg)] tracking-tight mb-8">
+          <h2 className="section-title font-bold text-[var(--c-fg)] tracking-tight mb-8">
             Harness our <span className="text-[var(--c-lime)]">technology</span> for your supply chain
           </h2>
           <p className="text-xl text-gray-500 font-medium mb-12">

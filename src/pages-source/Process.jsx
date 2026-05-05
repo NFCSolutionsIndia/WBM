@@ -57,7 +57,7 @@ const Process = () => {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="absolute inset-0 z-0">
           <SoftAurora 
-            color1="#c1ff00"
+            color1="#839470"
             color2="#4d7c0f"
             brightness={0.8}
             speed={0.4}
@@ -95,7 +95,7 @@ const Process = () => {
       <section className="py-12 bg-[var(--c-fg)]/5 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[var(--c-fg)] tracking-tight">The <span className="text-[var(--c-lime)]">Recovery</span> Lifecycle</h2>
+            <h2 className="section-title font-bold text-[var(--c-fg)] tracking-tight">The <span className="text-[var(--c-lime)]">Recovery</span> Lifecycle</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-collapse">
@@ -134,7 +134,7 @@ const Process = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-[52px] font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">Recovered <span className="text-[var(--c-lime)]">Materials</span></h2>
+              <h2 className="section-title font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">Recovered <span className="text-[var(--c-lime)]">Materials</span></h2>
               <p className="text-lg text-gray-500 font-medium">We extract high-purity minerals that meet or exceed traditional mining standards.</p>
             </div>
             <Button href="/contact" variant="ghost" className="flex items-center gap-2 group">
@@ -181,7 +181,7 @@ const Process = () => {
           <div className="bg-gradient-to-br from-[#1A1A1A] to-[#2D1B13] rounded-[10px] p-12 md:p-20 border border-white/5 relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">Uncompromising <span className="text-[var(--c-lime)]">Standards</span></h2>
+                <h2 className="section-title font-bold mb-8 tracking-tight">Uncompromising <span className="text-[var(--c-lime)]">Standards</span></h2>
                 <div className="space-y-6">
                   {[
                     "ISO 14001 Certified Environmental Management",

@@ -8,12 +8,21 @@ interface TiltCardProps {
   className?: string;
   intensity?: number;
   glowColor?: string;
+  onClick?: () => void;
 }
 
-export default function TiltCard({ children, className = "", intensity = 10, glowColor = "rgba(199,245,62,0.15)" }: TiltCardProps) {
+export default function TiltCard({ 
+  children, 
+  className = "", 
+  intensity = 10, 
+  glowColor = "rgba(199,245,62,0.15)",
+  onClick 
+}: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   const rx = useSpring(rawX, { stiffness: 200, damping: 20 });
   const ry = useSpring(rawY, { stiffness: 200, damping: 20 });
 
@@ -23,8 +32,14 @@ export default function TiltCard({ children, className = "", intensity = 10, glo
   const handleMouse = (e: React.MouseEvent) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    rawX.set((e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2));
-    rawY.set((e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2));
+    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+    rawX.set(x);
+    rawY.set(y);
+    
+    // Set absolute mouse position for glow
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   const handleLeave = () => {
@@ -35,20 +50,14 @@ export default function TiltCard({ children, className = "", intensity = 10, glo
   return (
     <motion.div
       ref={ref}
-      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      style={{ rotateX, rotateY, transformPerspective: 1200 }}
       onMouseMove={handleMouse}
       onMouseLeave={handleLeave}
-      whileHover={{ scale: 1.02 }}
-      className={`relative ${className}`}
+      onClick={onClick}
+      whileHover={{ scale: 1.03, y: -5 }}
+      className={`relative group card-theme ${className}`}
     >
-      {/* Glow highlight that follows cursor */}
-      <motion.div
-        className="absolute inset-0 rounded-[inherit] pointer-events-none z-[1] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(circle at 50% 50%, ${glowColor}, transparent 70%)`,
-        }}
-      />
-      <div className="relative z-[2]">{children}</div>
+      <div className="relative z-[2] h-full">{children}</div>
     </motion.div>
   );
 }

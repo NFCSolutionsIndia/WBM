@@ -66,7 +66,7 @@ const Materials = () => {
     {
       id: "critical",
       name: "CRITICAL MINERALS",
-      color: "#c1ff00",
+      color: "#839470",
       minerals: [
         {
           symbol: "Li",
@@ -158,7 +158,7 @@ const Materials = () => {
             particleCount={300}
             particleSpread={15}
             speed={0.2}
-            particleColors={['#c1ff00', '#ffffff', '#8bc34a']}
+            particleColors={['#839470', '#ffffff', '#8bc34a']}
           />
         </div>
         
@@ -264,7 +264,7 @@ const Materials = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">
+              <h2 className="section-title font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">
                 Transparency you can <span className="text-[var(--c-lime)]">trust</span>
               </h2>
               <div className="space-y-10">
@@ -306,7 +306,7 @@ const Materials = () => {
             >
                <div className="relative z-10">
                   <div className="text-sm font-bold text-[var(--c-lime)] uppercase tracking-widest mb-6">Market Impact</div>
-                  <h3 className="text-3xl font-bold text-white mb-8">Decoupling innovation from extractive mining.</h3>
+                  <h3 className="section-title font-bold text-white mb-8">Decoupling innovation from extractive mining.</h3>
                   <div className="space-y-8">
                      <div>
                         <div className="flex justify-between mb-2">
@@ -350,7 +350,7 @@ const Materials = () => {
       <section className="py-12 bg-[var(--c-bg)] text-center">
         <div className="max-w-3xl mx-auto px-4">
           <Zap size={48} className="text-[var(--c-lime)] mx-auto mb-8" />
-          <h2 className="text-4xl font-bold text-[var(--c-fg)] mb-6 tracking-tight">Securing your <span className="text-[var(--c-lime)]">material future</span></h2>
+          <h2 className="section-title font-bold text-[var(--c-fg)] mb-6 tracking-tight">Securing your <span className="text-[var(--c-lime)]">material future</span></h2>
           <p className="text-xl text-gray-500 font-medium mb-12">Contact our procurement team for current spot prices, forward supply contracts, and technical grade specifications.</p>
           <div className="flex flex-wrap justify-center gap-6">
             <Button size="lg">

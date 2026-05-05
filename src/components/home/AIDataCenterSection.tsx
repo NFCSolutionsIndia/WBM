@@ -25,7 +25,7 @@ export default function AIDataCenterSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold text-[var(--c-fg)] mb-6 leading-tight"
+              className="section-title font-bold text-[var(--c-fg)] mb-6 leading-tight"
             >
               The AI Economy <br/>Starts Here.
             </motion.h2>

@@ -23,7 +23,7 @@ export default function MaterialOutput() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-[#C1FF00]"
+            className="absolute w-2 h-2 rounded-full bg-[#839470]"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -49,14 +49,14 @@ export default function MaterialOutput() {
           className="mb-12"
         >
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Material Output Showcase</span>
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#839470]">Material Output Showcase</span>
           </div>
           <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
             High-purity materials powering global industries. We recover critical materials that meet industrial standards and are ready for reuse in manufacturing, energy storage, and advanced electronics.
           </p>
           <button 
             onClick={() => router.push('/materials')}
-            className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(193,255,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+            className="px-8 py-4 bg-[#839470] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(193,255,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
           >
             Explore Materials
           </button>

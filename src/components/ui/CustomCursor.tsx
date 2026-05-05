@@ -62,11 +62,11 @@ export default function CustomCursor() {
   }[mode];
 
   const ringColor = {
-    default: "#C1FF00",
-    hover: "#C1FF00",
-    text: "#ffffff",
-    drag: "#FF6B35",
-    view: "#00E5FF",
+    default: "var(--c-highlight)",
+    hover: "var(--c-highlight)",
+    text: "var(--c-fg)",
+    drag: "var(--c-orange)",
+    view: "var(--c-ice)",
   }[mode];
 
   const dotSize = mode === "text" ? 0 : mode === "hover" ? 6 : 8;

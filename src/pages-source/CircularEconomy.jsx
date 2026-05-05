@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { RefreshCw, Globe, MapPin, Wind, Zap, Database, ArrowRight, Shield, Layers, Repeat, Trash2 } from 'lucide-react';
 import Hyperspeed from '../components/ui/backgrounds/Hyperspeed';
 import Button from '../components/ui/Button';
+import { useTheme } from '../components/ui/ThemeProvider';
 
 const CircularEconomy = () => {
+  const { theme } = useTheme();
   const layers = [
     {
       id: "01",
@@ -71,18 +73,26 @@ const CircularEconomy = () => {
       </section>
 
       {/* Circular Loop Infographic */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className={`py-10 relative overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
         <div className="max-w-[1440px] mx-auto px-0 md:px-6">
           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-[52px] font-black text-gray-900 tracking-tight mb-6 uppercase leading-[1.1] max-w-4xl mx-auto">The Circular <span className="text-[var(--c-lime)]">Loop.</span></h2>
-             <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">A closed-loop system designed to recover 99% of critical minerals from complex waste streams.</p>
+             <h2 className={`section-title font-black tracking-tight mb-6 uppercase leading-[1.1] max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>The Circular <span className="text-[var(--c-lime)]">Loop.</span></h2>
+             <p className={`text-lg font-medium max-w-2xl mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>A closed-loop system designed to recover 99% of critical minerals from complex waste streams.</p>
           </div>
 
           <div className="relative max-w-[1280px] mx-auto md:rounded-[10px] md:overflow-hidden">
              {/* Desktop Image */}
-             <img src="/WBM/media/Circular loop.png" alt="Circular Economy Loop" className="hidden lg:block w-full h-auto object-contain mx-auto" />
+             <img 
+               src={theme === 'dark' ? "/WBM/media/Circular_loop_dark.png" : "/WBM/media/Circular loop.png"} 
+               alt="Circular Economy Loop" 
+               className="hidden lg:block w-full h-auto object-contain mx-auto" 
+             />
              {/* Mobile Image */}
-             <img src="/WBM/media/Circular loop_Mobile View.png" alt="Circular Economy Loop" className="lg:hidden w-full h-auto object-contain mx-auto" />
+             <img 
+               src={theme === 'dark' ? "/WBM/media/Circular_loop_dark_for mobile_view.png" : "/WBM/media/Circular loop_Mobile View.png"} 
+               alt="Circular Economy Loop" 
+               className="lg:hidden w-full h-auto object-contain mx-auto" 
+             />
           </div>
         </div>
       </section>
@@ -93,7 +103,7 @@ const CircularEconomy = () => {
       <section className="py-24 bg-black relative overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-0 md:px-6">
            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-[52px] font-black text-white tracking-tight mb-6 uppercase leading-[1.1] max-w-4xl mx-auto">The Shift to <span className="text-[var(--c-lime)]">Restoration.</span></h2>
+              <h2 className="section-title font-black text-white tracking-tight mb-6 uppercase leading-[1.1] max-w-4xl mx-auto">The Shift to <span className="text-[var(--c-lime)]">Restoration.</span></h2>
               <p className="text-lg text-gray-400 font-medium max-w-2xl mx-auto">Moving beyond the linear 'take-make-waste' model into a high-yield, sovereign supply chain.</p>
            </div>
 
@@ -115,7 +125,7 @@ const CircularEconomy = () => {
       <section className="py-24 bg-[var(--c-fg)]/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-[52px] font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase leading-[1.1] max-w-5xl mx-auto">Geographic. Global. <br className="hidden md:block" /><span className="text-[var(--c-lime)]">Operational.</span></h2>
+            <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase leading-[1.1] max-w-5xl mx-auto">Geographic. Global. <br className="hidden md:block" /><span className="text-[var(--c-lime)]">Operational.</span></h2>
             <p className="text-xl text-[var(--c-fg3)] font-medium max-w-2xl mx-auto">Three layers of deliberate circularity, closing the loop from local regions to global alliances.</p>
           </div>
 
@@ -168,7 +178,7 @@ const CircularEconomy = () => {
       {/* CTA */}
       <section className="py-24 text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-black text-[var(--c-fg)] tracking-tight mb-8 uppercase">Ready to close <span className="text-[var(--c-lime)]">the loop?</span></h2>
+          <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-8 uppercase">Ready to close <span className="text-[var(--c-lime)]">the loop?</span></h2>
           <p className="text-xl text-[var(--c-fg3)] font-medium mb-12 leading-relaxed">Let's turn trash into treasure - together.</p>
           <div className="flex justify-center">
             <Button href="/contact">

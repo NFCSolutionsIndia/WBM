@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Recycle } from "lucide-react";
 
 const LOCS = [
-  { id: "india",  city: "Pune",          country: "India",         status: "operational", x: 72, y: 45, color: "#78B933", capacity: "30,000 t/yr intake",   footprint: "100,000 sq ft", desc: "India's flagship AI-powered e-waste facility serving major tech hubs across South Asia." },
-  { id: "uae",    city: "Ras al-Khaimah",country: "UAE",           status: "operational", x: 65, y: 40, color: "#78B933", capacity: "15,000 t/yr intake",   footprint: "75,000 sq ft",  desc: "Strategic Middle East hub processing e-waste from GCC member states." },
-  { id: "sa",     city: "Johannesburg",  country: "South Africa",  status: "planned",     x: 55, y: 75, color: "#7ECCD6", capacity: "20,000 t/yr (planned)",footprint: "90,000 sq ft",  desc: "Planned greenfield facility to serve Sub-Saharan Africa's growing e-waste volumes." },
-  { id: "usa",    city: "Houston",       country: "United States", status: "operational", x: 20, y: 35, color: "#78B933", capacity: "35,000 t/yr intake",   footprint: "120,000 sq ft", desc: "North American HQ and primary processing hub for US domestic e-waste networks." },
+  { id: "india",  city: "Pune",          country: "India",         status: "operational", x: 72, y: 45, color: "#839470", capacity: "30,000 t/yr intake",   footprint: "100,000 sq ft", desc: "India's flagship AI-powered e-waste facility serving major tech hubs across South Asia." },
+  { id: "uae",    city: "Ras al-Khaimah",country: "UAE",           status: "operational", x: 65, y: 40, color: "#839470", capacity: "15,000 t/yr intake",   footprint: "75,000 sq ft",  desc: "Strategic Middle East hub processing e-waste from GCC member states." },
+  { id: "sa",     city: "Johannesburg",  country: "South Africa",  status: "planned",     x: 55, y: 75, color: "#839470", capacity: "20,000 t/yr (planned)",footprint: "90,000 sq ft",  desc: "Planned greenfield facility to serve Sub-Saharan Africa's growing e-waste volumes." },
+  { id: "usa",    city: "Houston",       country: "United States", status: "operational", x: 20, y: 35, color: "#839470", capacity: "35,000 t/yr intake",   footprint: "120,000 sq ft", desc: "North American HQ and primary processing hub for US domestic e-waste networks." },
 ];
 
 export default function GlobalFootprint({ isDark = true }: { isDark?: boolean }) {
@@ -41,20 +41,20 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
     >
       {/* ── BACKGROUND GLOWS ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#78B933]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#78B933]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#839470]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#839470]/5 rounded-full blur-[120px]" />
       </div>
 
       {/* ── HEADER ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-0 text-center w-full pointer-events-none">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <div className="w-2 h-2 rounded-full bg-[#78B933] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#78B933]">Our Footprint</span>
+            <div className="w-2 h-2 rounded-full bg-[#839470] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#839470]">Our Footprint</span>
           </div>
-          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-3xl md:text-[52px] mb-3 text-white">
+          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] section-title mb-3 text-white">
             A semi-circle of allies.<br />
-            Not a straight line <span className="text-[#78B933]">through Beijing.</span>
+            Not a straight line <span className="text-[#839470]">through Beijing.</span>
           </h2>
           <p className="font-sans text-base max-w-2xl mx-auto text-white/60">
             Four countries. Eight plants. Zero exposure to the geographies that hold the West hostage. By design, not by default. WBM does not operate in non-allied parts of Asia. Our semi-circle of allied geographies is the bypass route.
@@ -135,7 +135,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
                   {hovered.status}
                 </span>
               </div>
-              <h3 className="font-sans font-black text-3xl tracking-tight mb-2 text-white">{hovered.city}</h3>
+              <h3 className="section-title font-sans font-black tracking-tight mb-2 text-white">{hovered.city}</h3>
               <p className="font-sans text-sm leading-relaxed mb-5 text-white/70">{hovered.desc}</p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-[10px] p-3 border border-white/10 bg-white/5">

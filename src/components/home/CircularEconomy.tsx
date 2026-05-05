@@ -52,7 +52,7 @@ export default function CircularEconomy() {
               <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: `radial-gradient(circle, ${l.accent}20 0%, transparent 70%)` }} />
 
               <div className="font-mono text-xs tracking-widest mb-6" style={{ color: l.accent }}>{l.num} / 03</div>
-              <h3 className="font-display font-bold text-5xl text-[var(--c-fg)] mb-4 leading-tight">{l.title}</h3>
+              <h3 className="section-title font-display font-bold text-[var(--c-fg)] mb-4 leading-tight">{l.title}</h3>
               <p className="font-sans text-base leading-relaxed" style={{ color: "var(--c-fg2)" }}>{l.desc}</p>
 
               {/* Animated ring */}

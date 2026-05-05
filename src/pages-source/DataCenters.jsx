@@ -7,7 +7,7 @@ const DataCenters = () => {
   return (
     <div className="min-h-screen bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[var(--c-bg)] pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black pt-32 pb-24 md:pt-40 md:pb-32 transition-colors duration-500">
         <div className="absolute inset-0 z-0 opacity-30 dark:opacity-100">
           <Hyperspeed 
             effectOptions={{
@@ -25,7 +25,7 @@ const DataCenters = () => {
           />
         </div>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--c-bg)]/60 via-transparent to-[var(--c-bg)] z-[1]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black z-[1]"></div>
         
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 text-center">
           <motion.div 
@@ -39,12 +39,12 @@ const DataCenters = () => {
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">Infrastructure Solutions</span>
             </div>
             
-            <h1 className="text-3xl md:text-[64px] font-bold text-[var(--c-fg)] leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
+            <h1 className="text-3xl md:text-[64px] font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 uppercase">
               AI Data Centres. <br className="hidden sm:block" />
               <span className="text-[var(--c-lime)]">Sustainable & Secure.</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-[var(--c-fg2)] font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-base sm:text-lg md:text-xl text-white/70 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
               Enterprise-grade recovery solutions for the world's largest data centers, ensuring secure, sustainable management of retired hardware.
             </p>
 
@@ -53,12 +53,12 @@ const DataCenters = () => {
       </section>
 
       {/* Supply Chain Bridge Section */}
-      <section className="py-24 bg-[var(--c-bg)] relative overflow-hidden transition-colors duration-500">
+      <section className="py-10 bg-[var(--c-bg)] relative overflow-hidden transition-colors duration-500">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--c-lime)]/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-[52px] font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">One Bridged <span className="text-[var(--c-lime)]">Supply Chain.</span></h2>
+             <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">One Bridged <span className="text-[var(--c-lime)]">Supply Chain.</span></h2>
              <p className="text-lg text-[var(--c-fg2)] font-medium max-w-3xl mx-auto mb-12">
                Each spoke is a mineral category — and a single-country dependency. Hover and explore where WBM picks up the slack.
              </p>
@@ -191,7 +191,7 @@ const DataCenters = () => {
               viewport={{ once: true }}
               transition={{ duration: 1 }}
             >
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8 md:mb-10">
+              <h2 className="section-title section-title  font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8 md:mb-10">
                 Uncompromising <span className="text-[var(--c-lime)]">security</span> protocols
               </h2>
               <div className="space-y-6 md:space-y-8">
@@ -234,7 +234,7 @@ const DataCenters = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold text-[var(--c-fg)] tracking-tight mb-10 leading-tight">Ready to decommission your <span className="text-[var(--c-lime)]">retired hardware?</span></h2>
+            <h2 className="section-title font-bold text-[var(--c-fg)] tracking-tight mb-10 leading-tight">Ready to decommission your <span className="text-[var(--c-lime)]">retired hardware?</span></h2>
             <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium mb-12 leading-relaxed max-w-3xl mx-auto">Our infrastructure team provides specialized solutions for enterprise data centers and AI clusters.</p>
             <div className="flex justify-center">
               <Button href="/contact">

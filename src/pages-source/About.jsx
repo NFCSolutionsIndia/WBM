@@ -26,7 +26,7 @@ const About = () => {
         <div className="absolute inset-0 z-0">
           <LineWaves 
             speed={0.2}
-            color1="#c1ff00"
+            color1="#839470"
             color2="#ffffff"
             color3="#8bc34a"
             brightness={0.15}
@@ -69,7 +69,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-[52px] font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">
+              <h2 className="section-title font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">
                 Our <span className="text-[var(--c-lime)]">Story</span>
               </h2>
               <p className="text-lg text-gray-500 font-medium leading-relaxed mb-6">
@@ -114,7 +114,7 @@ const About = () => {
       <section className="py-12 bg-[var(--c-fg)]/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-[52px] font-bold text-[var(--c-fg)] tracking-tight">Our Core <span className="text-[var(--c-lime)]">Values</span></h2>
+            <h2 className="section-title font-bold text-[var(--c-fg)] tracking-tight">Our Core <span className="text-[var(--c-lime)]">Values</span></h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => (
@@ -146,7 +146,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-[52px] font-bold text-[var(--c-fg)] tracking-tight mb-6">Leadership driven by <span className="text-[var(--c-lime)]">purpose</span></h2>
+              <h2 className="section-title font-bold text-[var(--c-fg)] tracking-tight mb-6">Leadership driven by <span className="text-[var(--c-lime)]">purpose</span></h2>
               <p className="text-lg text-gray-500 font-medium">Meet the experts guiding Waste Be Minerals toward a more sustainable and resource-secure future.</p>
             </div>
             <Button variant="ghost" className="flex items-center gap-2 group">
@@ -185,7 +185,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 uppercase">
+            <h2 className="section-title font-black text-white leading-[1.1] tracking-tight mb-8 uppercase">
               Ready to be part of the <br/><span className="text-[var(--c-lime)] lime-glow-text">circular revolution?</span>
             </h2>
             <p className="text-xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import TiltCard from "@/components/ui/TiltCard";
 import { TrendingUp, User, Truck, Server, Building2, GraduationCap, CheckCircle2 } from "lucide-react";
+import ScrollReveal from "@/components/ui/effects/ScrollReveal";
 
 const paths = [
   {
@@ -22,6 +24,7 @@ const paths = [
         "5 distinct revenue streams",
       ],
       buttonText: "Request Pitch Deck",
+      href: "/for-you/investor",
     },
     accent: "var(--color-orange)",
   },
@@ -41,6 +44,7 @@ const paths = [
         "Verified ESG compliance",
       ],
       buttonText: "Request Spec Sheets",
+      href: "/for-you/customer",
     },
     accent: "var(--color-ice)",
   },
@@ -60,6 +64,7 @@ const paths = [
         "Secure chain of custody",
       ],
       buttonText: "Partner With Us",
+      href: "/for-you/supplier",
     },
     accent: "var(--color-lime)",
   },
@@ -79,6 +84,7 @@ const paths = [
         "Enterprise-grade security",
       ],
       buttonText: "Leasing Info",
+      href: "/for-you/tenant",
     },
     accent: "var(--color-orange)",
   },
@@ -98,6 +104,7 @@ const paths = [
         "High-tech employment growth",
       ],
       buttonText: "Explore Collaboration",
+      href: "/for-you/government",
     },
     accent: "var(--color-ice)",
   },
@@ -117,6 +124,7 @@ const paths = [
         "Sustainable metallurgy research",
       ],
       buttonText: "Connect With Us",
+      href: "/for-you/academia",
     },
     accent: "var(--color-lime)",
   },
@@ -124,46 +132,43 @@ const paths = [
 
 
 
+
 export default function ChooseYourPath() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState(paths[0].id);
 
   const activePath = paths.find((p) => p.id === activeTab)!;
   const activeContent = activePath.content;
 
   return (
-    <section className="py-12 w-full bg-[var(--c-bg2)] overflow-hidden">
+    <section className="py-10 w-full bg-[var(--c-bg2)] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Header */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm mx-auto"
-          >
-            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
-              Partnerships
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-sans font-black uppercase tracking-tighter text-3xl md:text-[52px] text-[var(--c-fg)] leading-[0.9] mb-6"
-          >
-            Choose Your <span className="text-[var(--color-lime)]">Path</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-sans text-[var(--c-fg2)] text-lg"
-          >
-            Whether you&apos;re an investor, customer, supplier, government partner, or researcher — there&apos;s a role for you in the circular economy.
-          </motion.p>
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm mx-auto"
+            >
+              <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+              <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
+                Partnerships
+              </span>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <h2
+              className="font-sans font-black uppercase tracking-tighter section-title text-[var(--c-fg)] leading-[0.9] mb-6"
+            >
+              Choose Your <span className="text-[var(--color-lime)]">Path</span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <p
+              className="font-sans text-[var(--c-fg2)] text-lg"
+            >
+              Whether you&apos;re an investor, customer, supplier, government partner, or researcher — there&apos;s a role for you in the circular economy.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 min-h-[500px]">
@@ -208,8 +213,8 @@ export default function ChooseYourPath() {
 
           {/* Right Content Area */}
           <div className="w-full md:w-2/3">
-            <TiltCard intensity={2} className="h-full w-full">
-              <div className="glass h-full w-full rounded-[32px] border border-[var(--c-border)] p-8 md:p-12 relative overflow-hidden flex flex-col">
+            <TiltCard intensity={2} className="h-full w-full rounded-[var(--radius-card)]">
+              <div className="glass h-full w-full rounded-[inherit] p-8 md:p-12 relative overflow-hidden flex flex-col">
                 
                 {/* Glow blob */}
                 <div 
@@ -235,7 +240,7 @@ export default function ChooseYourPath() {
                         {activePath.icon}
                       </div>
                       <div>
-                        <h3 className="font-sans font-black text-3xl md:text-4xl uppercase tracking-tighter text-[var(--c-fg)] mb-1">
+                        <h3 className="font-sans font-black  uppercase tracking-tighter text-[var(--c-fg)] mb-1 text-[30px] leading-none">
                           {activeContent.title}
                         </h3>
                         <p className="font-sans text-sm tracking-widest text-[var(--c-fg3)] uppercase">
@@ -264,6 +269,7 @@ export default function ChooseYourPath() {
                     <motion.button 
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
+                      onClick={() => router.push(activeContent.href)}
                       className="relative overflow-hidden w-full py-4 rounded-[10px] font-sans font-bold text-sm uppercase tracking-widest text-black group"
                       style={{ background: activePath.accent }}
                       data-cursor="view"

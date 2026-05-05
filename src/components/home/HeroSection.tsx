@@ -2,25 +2,26 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Check, X, ArrowRight, FileText, Leaf } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Particles from "@/components/ui/backgrounds/Particles";
+import Image from "next/image";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
-  // Prevent SSR mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["10px", "0px"]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.5], [0, 40]);
 
   return (
     <section
@@ -31,8 +32,21 @@ export default function HeroSection() {
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center p-3 md:p-5">
         <motion.div
           style={{ scale, borderRadius }}
-          className="relative w-full h-full overflow-hidden flex items-center justify-center"
+          className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#050505]"
         >
+          {/* Particles Background */}
+          <div className="absolute inset-0 z-0">
+            <Particles 
+              particleCount={300}
+              particleSpread={12}
+              speed={0.15}
+              particleColors={["#839470", "#ffffff", "#555555"]}
+              moveParticlesOnHover
+              alphaParticles
+              className="opacity-40"
+            />
+          </div>
+
           {/* ── Background Video ── */}
           <video
             src="/WBM/media/BackgroundVideoHero.mp4"
@@ -41,18 +55,48 @@ export default function HeroSection() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center mix-blend-screen opacity-40 z-[1]"
           />
 
           {/* Dark overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-          {/* Radial vignette */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 z-[2]" />
+          
+          {/* ── 3D Rotating Object Simulation ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2, delay: 0.5 }}
+            className="absolute right-[5%] top-[20%] w-[400px] h-[400px] pointer-events-none hidden lg:block z-[2]"
+          >
+            <motion.div
+              animate={{ 
+                rotateY: [0, 360],
+                y: [0, -20, 0]
+              }}
+              transition={{ 
+                rotateY: { duration: 20, repeat: Infinity, ease: "linear" },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="relative w-full h-full"
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-64 h-64 bg-[var(--c-highlight)]/10 rounded-full blur-3xl animate-pulse" />
+                <Image 
+                  src="/WBMLogo.svg" 
+                  alt="3D Object" 
+                  width={300} 
+                  height={300} 
+                  className="brightness-0 invert opacity-20 drop-shadow-[0_0_30px_var(--c-highlight)]"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
 
-          {/* ── Hero Text (visible by default) ── */}
+          {/* ── Hero Text ── */}
           {mounted && (
             <motion.div
-              className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center pt-10"
+              className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-32 md:justify-center md:pt-32 px-6 text-center"
             >
               {/* Pill badge */}
               <motion.div
@@ -63,103 +107,86 @@ export default function HeroSection() {
               >
                 <span className="w-2 h-2 rounded-full bg-[var(--c-highlight)] shadow-[0_0_10px_var(--c-highlight)] animate-pulse" />
                 <span className="font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] text-white/90 uppercase">
-                  FIRST & ONLY OF ITS KIND — WORLDWIDE
+                  Integrated Resource Recovery
                 </span>
               </motion.div>
 
-              {/* Static Title */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="font-sans font-black uppercase tracking-tighter leading-[1.1] text-white drop-shadow-lg mb-2 text-3xl md:text-[64px]"
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="font-sans font-black text-5xl md:text-[84px] leading-[0.85] tracking-tighter text-white uppercase mb-2"
               >
-                TRASH to <br className="sm:hidden" />
-                <span className="text-[var(--c-highlight)]" style={{ textShadow: "0 0 60px rgba(120,185,51,0.5)" }}>treasure.</span>
+                TRASH TO <br />
+                <span className="text-[var(--c-highlight)] lime-glow-text">TREASURE.</span>
               </motion.h1>
 
-              {/* Subtitle */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.7 }}
-                className="mt-6 md:mt-8 flex flex-col items-center"
+                transition={{ delay: 0.5, duration: 0.7 }}
+                className="font-sans text-lg md:text-3xl font-black text-white uppercase tracking-tight mb-4"
               >
-                <h2 className="font-sans text-white text-xl md:text-2xl font-bold mb-4">
-                  Recover. Reuse. Reimagine.
-                </h2>
-                <p className="font-sans text-white/60 text-base md:text-lg max-w-2xl leading-relaxed">
-                  We're the only company on Earth extracting 11 critical minerals from batteries, magnets, AND PCBs—under one AI-native roof.
-                </p>
+                Recover. Reuse. Reimagine.
               </motion.div>
 
-              {/* Tags */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.7 }}
+                className="font-sans text-sm md:text-xl text-white/60 max-w-2xl mb-6 leading-relaxed"
+              >
+                100% uptime. 6-layer encryption. 15-year leases. Bring your NVIDIA, Cisco, and Juniper; we handle the rest.
+              </motion.p>
+
+              {/* Metric Pills */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.7 }}
-                className="mt-8 flex flex-wrap justify-center gap-3"
+                className="flex flex-wrap justify-center gap-2 mb-8"
               >
-                <div className="px-3 py-1 rounded-full border border-[var(--c-highlight)]/30 bg-[var(--c-highlight)]/10 text-[var(--c-highlight)] text-[10px] font-bold uppercase tracking-wider">
-                  98% recovery
-                </div>
-                <div className="px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-[10px] font-bold uppercase tracking-wider">
-                  30–40% energy savings
-                </div>
-                <div className="px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-500 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <Leaf size={10} /> Zero NOx
-                </div>
-                <div className="px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider">
-                  LiBERT™ patented
-                </div>
+                {[
+                  { label: "98% recovery", color: "border-[#839470]/30 text-[#839470]" },
+                  { label: "30-40% energy savings", color: "border-[#D9A750]/30 text-[#D9A750]" },
+                  { label: "Zero NOx", color: "border-[#4ECDC4]/30 text-[#4ECDC4]" },
+                  { label: "LiBERT™ patented", color: "border-[#A18CD1]/30 text-[#A18CD1]" }
+                ].map((pill, i) => (
+                  <div key={i} className={`px-4 py-1.5 rounded-full border ${pill.color} bg-black/40 backdrop-blur-sm text-[10px] font-black uppercase tracking-widest`}>
+                    {pill.label}
+                  </div>
+                ))}
               </motion.div>
 
-              {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.7 }}
-                className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full max-w-[320px] sm:max-w-none justify-center"
+                className="flex flex-col items-center gap-12"
               >
-                <Button 
-                  href="/what-we-do"
-                  variant="primary"
-                  className="w-full sm:w-auto justify-center"
-                  showArrow
+                <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+                  <button className="min-w-[200px] md:min-w-[240px] px-6 py-3 md:px-8 md:py-4 rounded-full bg-[var(--c-highlight)] text-black font-sans font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:brightness-110 transition-all shadow-[0_0_30px_rgba(131,148,112,0.3)]">
+                    View Data Centre Specs
+                  </button>
+                  <button className="flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full border border-white/10 bg-white/5 text-white font-sans font-black text-xs md:text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all">
+                    <span className="opacity-60 text-base md:text-lg">📄</span>
+                    Request Tour
+                  </button>
+                </div>
+
+                {/* Scroll Down Indicator - Now unified and in-flow to prevent overlapping */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.5, duration: 1 }}
+                  className="flex flex-col items-center gap-2 mt-6 opacity-60"
                 >
-                  See How We Do It
-                </Button>
-                
-                <Button 
-                  href="/pitch-deck"
-                  variant="outline"
-                  className="w-full sm:w-auto justify-center"
-                >
-                  Request Pitch Deck
-                </Button>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/50">Scroll</span>
+                  <div className="w-[1px] h-12 bg-gradient-to-b from-[var(--c-highlight)] to-transparent" />
+                </motion.div>
               </motion.div>
-
             </motion.div>
           )}
-
-          {/* Scroll indicator */}
-          {mounted && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-            >
-              <span className="font-sans text-xs uppercase tracking-[0.3em] text-white/40">Scroll</span>
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent"
-              />
-            </motion.div>
-          )}
-
-
         </motion.div>
       </div>
     </section>

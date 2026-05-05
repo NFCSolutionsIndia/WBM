@@ -35,11 +35,15 @@ export default function Button({
   const buttonContent = (
     <motion.button
       onClick={onClick}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`relative overflow-hidden rounded-[10px] shadow-[0_0_15px_rgba(193,255,0,0.1)] group border border-[var(--c-border)] ${variant === 'primary' ? 'bg-[var(--c-fg)]' : 'bg-[var(--c-bg)]'} flex items-center justify-center transition-all duration-300 ${sizeClasses[size]} ${className}`}
+      whileHover={{ y: -4, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`relative overflow-hidden rounded-[10px] group border border-[var(--c-border)] ${variant === 'primary' ? 'bg-[var(--c-fg)] shadow-[0_10px_20px_rgba(0,0,0,0.1)]' : 'bg-[var(--c-bg)] shadow-sm'} flex items-center justify-center transition-all duration-300 ${sizeClasses[size]} ${className}`}
     >
-      <div className="absolute inset-0 w-full h-full bg-[var(--c-lime)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+      {/* Hover background slide */}
+      <div className="absolute inset-0 w-full h-full bg-[var(--c-highlight)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+      
+      {/* Border glow on hover */}
+      <div className="absolute inset-0 border border-[var(--c-highlight)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[inherit]" />
       
       <div className="relative z-10 flex items-center gap-3">
         <span className={`font-bold uppercase tracking-[0.15em] ${variant === 'primary' ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]'} group-hover:text-[var(--c-bg)] transition-colors duration-300`}>
@@ -48,17 +52,18 @@ export default function Button({
         
         {showArrow && (
           <motion.div 
-            className={`${arrowBgSize} rounded-full bg-[var(--c-fg)]/10 flex items-center justify-center group-hover:bg-[var(--c-bg)]/20 transition-colors`}
-            animate={{ x: [0, 4, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className={`${arrowBgSize} rounded-full bg-[var(--c-fg)]/10 flex items-center justify-center group-hover:bg-[var(--c-bg)]/20 transition-all duration-300 group-hover:translate-x-1`}
           >
-            <svg width={arrowSize} height={arrowSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--c-fg)] group-hover:text-[var(--c-bg)] transition-colors">
+            <svg width={arrowSize} height={arrowSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`transition-colors duration-300 ${variant === 'primary' ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]'} group-hover:text-[var(--c-bg)]`}>
               <path d="M5 12h14"></path>
               <path d="m12 5 7 7-7 7"></path>
             </svg>
           </motion.div>
         )}
       </div>
+      
+      {/* Subtle shine effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
     </motion.button>
   );
 

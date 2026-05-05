@@ -60,7 +60,7 @@ export default function MaterialRecovery() {
 
           {/* Recovery rates */}
           <div>
-            <h3 className="font-display font-bold text-4xl text-text-primary mb-10">Recovery <span style={{ color: "#C7F53E" }}>Efficiency</span></h3>
+            <h3 className="section-title font-display font-bold text-text-primary mb-10">Recovery <span style={{ color: "#C7F53E" }}>Efficiency</span></h3>
             <div className="space-y-6">
               {metrics.map((m, idx) => (
                 <motion.div

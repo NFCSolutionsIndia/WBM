@@ -15,7 +15,7 @@ export default function GlobalMap() {
     <section className="py-12 bg-[var(--c-bg)] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 relative z-10">
-          <h2 className="text-4xl text-[var(--c-fg)] font-bold mb-4 uppercase tracking-tighter">Global Circular Economy</h2>
+          <h2 className="section-title text-[var(--c-fg)] font-bold mb-4 uppercase tracking-tighter">Global Circular Economy</h2>
           <p className="text-xl text-[var(--c-fg)]/70 max-w-2xl mx-auto">
             Our global footprint forms a semi-circle of supply chain independence, entirely avoiding high-risk dependencies.
           </p>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Shield, Zap, Award, ArrowRight, Cpu, Battery, Activity, Layers, Database, FlaskConical, Truck, ChevronRight } from 'lucide-react';
+import { Target, Shield, Zap, Award, ArrowRight, Cpu, Battery, Activity, Layers, Database, FlaskConical, Truck, ChevronRight, Magnet } from 'lucide-react';
 import PixelBlast from '../components/ui/backgrounds/PixelBlast';
 import Button from '../components/ui/Button';
 
@@ -11,7 +11,7 @@ const WhatWeDo = () => {
         <div className="absolute inset-0 z-0">
           <PixelBlast 
             pixelSize={5}
-            color="#c1ff00"
+            color="#839470"
             patternDensity={0.8}
             speed={0.3}
           />
@@ -74,12 +74,12 @@ const WhatWeDo = () => {
       </section>
 
       {/* E-Waste Section */}
-      <section className="py-24 bg-[var(--c-fg)]/5 relative overflow-hidden">
+      <section id="e-waste" className="py-24 bg-[var(--c-fg)]/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
             <div className="max-w-3xl text-left">
               <div className="text-[var(--c-lime)] font-black text-[10px] uppercase tracking-widest mb-4">Integrated Waste Stream 01</div>
-              <h2 className="text-3xl md:text-[52px] font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">E-Waste <span className="text-[var(--c-lime)]">Extraction.</span></h2>
+              <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">E-Waste <span className="text-[var(--c-lime)]">Extraction.</span></h2>
               <p className="text-xl text-[var(--c-fg3)] font-medium leading-relaxed">
                 Your decommissioned electronics carry six of the eleven minerals every modern product needs. We pull them out at OEM-grade purity.
               </p>
@@ -147,12 +147,12 @@ const WhatWeDo = () => {
       </section>
 
       {/* B-Waste Section */}
-      <section className="py-24 bg-[var(--c-bg)]">
+      <section id="b-waste" className="py-24 bg-[var(--c-bg)]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
             <div className="max-w-3xl text-left">
               <div className="text-[var(--c-lime)] font-black text-[10px] uppercase tracking-widest mb-4">Integrated Waste Stream 02</div>
-              <h2 className="text-3xl md:text-[52px] font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">Battery <span className="text-[var(--c-lime)]">Recycling.</span></h2>
+              <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">Battery <span className="text-[var(--c-lime)]">Recycling.</span></h2>
               <p className="text-xl text-[var(--c-fg3)] font-medium leading-relaxed">
                 Spent EV packs and grid-storage modules. We accept the chemistries that recycle cleanly — and refuse the ones that don't.
               </p>
@@ -223,6 +223,54 @@ const WhatWeDo = () => {
                   </div>
                </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REE Magnets Section */}
+      <section id="ree-magnets" className="py-24 bg-[var(--c-fg)]/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+            <div className="max-w-3xl text-left">
+              <div className="text-[var(--c-lime)] font-black text-[10px] uppercase tracking-widest mb-4">Integrated Waste Stream 03</div>
+              <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">Rare Earth <span className="text-[var(--c-lime)]">Magnets.</span></h2>
+              <p className="text-xl text-[var(--c-fg3)] font-medium leading-relaxed">
+                Recovering Neodymium and Dysprosium from high-performance magnets used in EV motors, wind turbines, and data center drives.
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <div className="p-4 bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl text-center min-w-[120px]">
+                <div className="text-2xl font-black text-[var(--c-fg)] tracking-tighter">Circular</div>
+                <div className="text-[10px] font-bold text-[var(--c-fg3)] uppercase">Supply Chain</div>
+              </div>
+              <div className="p-4 bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl text-center min-w-[120px]">
+                <div className="text-2xl font-black text-[var(--c-lime)] tracking-tighter">98%</div>
+                <div className="text-[10px] font-bold text-[var(--c-fg3)] uppercase">Recovery Rate</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+             {[
+               { mineral: "Neodymium", sym: "Nd", id: "60", desc: "The core of high-strength permanent magnets.", icon: <Magnet size={24} /> },
+               { mineral: "Dysprosium", sym: "Dy", id: "66", desc: "Critical for maintaining magnetism at high temperatures.", icon: <Magnet size={24} /> }
+             ].map((m, idx) => (
+               <div key={idx} className="p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center gap-8 group hover:border-[var(--c-lime)]/30 transition-all">
+                  <div className="w-16 h-16 rounded-2xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shrink-0">
+                    {m.icon}
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-xl font-bold text-[var(--c-fg)] uppercase">{m.mineral}</h3>
+                      <div className="text-right">
+                        <span className="text-3xl font-black text-[var(--c-fg)] tracking-tighter mr-3">{m.sym}</span>
+                        <span className="text-xs font-bold text-[var(--c-fg3)] uppercase">#{m.id}</span>
+                      </div>
+                    </div>
+                    <p className="text-base text-[var(--c-fg3)] font-medium leading-relaxed">{m.desc}</p>
+                  </div>
+               </div>
+             ))}
           </div>
         </div>
       </section>

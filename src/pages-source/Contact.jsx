@@ -8,25 +8,25 @@ const Contact = () => {
   const [intent, setIntent] = useState("Material Partnership");
   const offices = [
     {
-      city: "Los Angeles",
+      city: "New Jersey",
       type: "Global Headquarters",
-      address: "123 Innovation Drive, CA 90001",
+      address: "2001 Route 46, Waterview Plaza, Suite 310, Parsippany, NJ 07054, USA",
       phone: "+1 (800) 555-0198",
-      email: "la@wastebeminerals.com"
+      email: "contact@wastebeminerals.com"
     },
     {
-      city: "Zurich",
-      type: "R&D Lab",
-      address: "Technology Park, 8005 Zurich",
-      phone: "+41 44 123 4567",
-      email: "zurich@wastebeminerals.com"
+      city: "Ras al-Khaimah",
+      type: "EMEA Regional Hub",
+      address: "RAKEZ Business Zone, UAE",
+      phone: "+971 7 123 4567",
+      email: "contact@wastebeminerals.com"
     },
     {
-      city: "Singapore",
+      city: "New Delhi",
       type: "APAC Regional Hub",
-      address: "10 Marina Boulevard, 018983",
-      phone: "+65 6789 0123",
-      email: "singapore@wastebeminerals.com"
+      address: "N-161, Okhla Phase III, New Delhi 110020, India",
+      phone: "+91 11 1234 5678",
+      email: "contact@wastebeminerals.com"
     }
   ];
 
@@ -37,7 +37,7 @@ const Contact = () => {
         <div className="absolute inset-0 z-0">
           <LineWaves 
             speed={0.2}
-            color1="#c1ff00"
+            color1="#839470"
             color2="#ffffff"
             color3="#8bc34a"
             brightness={0.1}
@@ -103,7 +103,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest mb-1">General Inquiries</div>
-                      <div className="text-base md:text-xl font-bold text-[var(--c-fg)] break-all">hello@wastebe.com</div>
+                      <div className="text-base md:text-xl font-bold text-[var(--c-fg)] break-all">contact@wastebeminerals.com</div>
                     </div>
                   </div>
 
@@ -157,22 +157,22 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-[var(--c-bg2)] border border-[var(--c-border)] rounded-[24px] md:rounded-[32px] p-6 md:p-12 shadow-2xl"
+                className="bg-[var(--c-bg2)] border border-[var(--c-border)] rounded-[10px] p-6 md:p-12 shadow-sm"
               >
                 <div className="mb-8 md:mb-10">
-                  <h2 className="text-3xl md:text-5xl font-black text-[var(--c-fg)] tracking-tighter uppercase mb-4">Send a message</h2>
+                  <h2 className="section-title font-black text-[var(--c-fg)] tracking-tighter uppercase mb-4">Send a message</h2>
                   <p className="text-[var(--c-fg)]/60 font-medium text-base">Tell us about your organization and how we can work together.</p>
                 </div>
 
                 <div className="mb-10">
                    <label className="block text-[10px] font-bold text-[var(--c-fg)]/40 uppercase tracking-[0.2em] mb-4 ml-1">I am interested in</label>
                    <div className="flex flex-wrap gap-3">
-                      {["Material Partnership", "E-Waste Processing", "Data Center Services", "Investment"].map((type) => (
+                      {["Investor", "Customer", "Supplier", "Data Center Tenant", "Government", "Academia"].map((type) => (
                          <button
                             key={type}
                             type="button"
                             onClick={() => setIntent(type)}
-                            className={`px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border ${
+                            className={`px-5 py-3 rounded-[10px] text-xs font-bold uppercase tracking-wider transition-all duration-300 border ${
                                intent === type 
                                ? "bg-[var(--c-lime)] border-[var(--c-lime)] text-black shadow-[0_10px_20px_-5px_rgba(193,255,0,0.3)]" 
                                : "bg-[var(--c-fg)]/5 border-transparent text-[var(--c-fg)]/60 hover:border-[var(--c-fg)]/20"
@@ -188,11 +188,11 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-3">
                       <label className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest ml-1">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-xl px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all placeholder:text-[var(--c-fg)]/30 shadow-inner" />
+                      <input type="text" placeholder="John Doe" className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-[10px] px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all placeholder:text-[var(--c-fg)]/30" />
                     </div>
                     <div className="space-y-3">
                       <label className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest ml-1">Work Email</label>
-                      <input type="email" placeholder="john@company.com" className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-xl px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all placeholder:text-[var(--c-fg)]/30 shadow-inner" />
+                      <input type="email" placeholder="john@company.com" className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-[10px] px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all placeholder:text-[var(--c-fg)]/30" />
                     </div>
                   </div>
                   
@@ -207,13 +207,14 @@ const Contact = () => {
                         <select 
                           value={intent}
                           onChange={(e) => setIntent(e.target.value)}
-                          className="w-full appearance-none bg-[var(--c-bg)] border border-[var(--c-border)] rounded-xl px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all cursor-pointer pr-12 shadow-inner"
+                          className="w-full appearance-none bg-[var(--c-bg)] border border-[var(--c-border)] rounded-[10px] px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all cursor-pointer pr-12"
                         >
-                          <option className="bg-[var(--c-bg)]">Material Partnership</option>
-                          <option className="bg-[var(--c-bg)]">E-Waste Processing</option>
-                          <option className="bg-[var(--c-bg)]">Data Center Services</option>
-                          <option className="bg-[var(--c-bg)]">Investment</option>
-                          <option className="bg-[var(--c-bg)]">Media Inquiry</option>
+                          <option className="bg-[var(--c-bg)]">Investor</option>
+                          <option className="bg-[var(--c-bg)]">Customer</option>
+                          <option className="bg-[var(--c-bg)]">Supplier</option>
+                          <option className="bg-[var(--c-bg)]">Data Center Tenant</option>
+                          <option className="bg-[var(--c-bg)]">Government</option>
+                          <option className="bg-[var(--c-bg)]">Academia</option>
                         </select>
                         <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--c-fg)]/40 pointer-events-none group-hover:text-[var(--c-lime)] transition-colors" size={18} />
                       </div>
@@ -222,7 +223,7 @@ const Contact = () => {
 
                   <div className="space-y-3">
                     <label className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest ml-1">How can we help?</label>
-                    <textarea rows={5} placeholder="Describe your request in detail..." className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-xl px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all resize-none placeholder:text-[var(--c-fg)]/30 shadow-inner"></textarea>
+                    <textarea rows={5} placeholder="Describe your request in detail..." className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] rounded-[10px] px-5 py-4 text-[var(--c-fg)] focus:outline-none focus:border-[var(--c-lime)] transition-all resize-none placeholder:text-[var(--c-fg)]/30"></textarea>
                   </div>
 
                   <Button 

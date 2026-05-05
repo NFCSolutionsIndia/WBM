@@ -35,9 +35,29 @@ export default function Navbar() {
       title: 'Company',
       links: [
         { name: 'About', href: '/about' },
-        { name: 'What We Recover', href: '/what-we-do' },
+        { 
+          name: 'What We Recover', 
+          href: '/what-we-do',
+          subLinks: [
+            { name: 'E-Waste', href: '/what-we-do#e-waste' },
+            { name: 'B-Waste', href: '/what-we-do#b-waste' },
+            { name: 'REE Magnets', href: '/what-we-do#ree-magnets' },
+          ]
+        },
         { name: 'Technology', href: '/technology' },
         { name: 'Process', href: '/process' },
+      ]
+    },
+    {
+      title: 'For You',
+      links: [
+        { name: 'All Journeys', href: '/for-you/all-journeys' },
+        { name: 'Investor', href: '/for-you/investor' },
+        { name: 'Customer / OEM', href: '/for-you/customer' },
+        { name: 'Supplier', href: '/for-you/supplier' },
+        { name: 'Tenant', href: '/for-you/tenant' },
+        { name: 'Government', href: '/for-you/government' },
+        { name: 'Academia', href: '/for-you/academia' },
       ]
     },
     {
@@ -113,14 +133,29 @@ export default function Navbar() {
                 {section.title} <ChevronDown size={14} />
               </span>
               {/* Dropdown Menu */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-48">
-                <div className="bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl shadow-xl overflow-hidden py-2 flex flex-col">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-56">
+                <div className="bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl shadow-xl overflow-hidden py-3 flex flex-col">
                   {section.links.map((link) => {
                     const isActive = pathname === link.href;
                     return (
-                      <Link key={link.name} href={link.href} className={`px-4 py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-[var(--c-lime)] bg-[var(--c-fg)]/5' : 'text-[var(--c-fg)]/70 hover:text-[var(--c-fg)] hover:bg-[var(--c-fg)]/5'}`}>
-                        {link.name}
-                      </Link>
+                      <React.Fragment key={link.name}>
+                        <Link href={link.href} className={`px-5 py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-[var(--c-lime)] bg-[var(--c-fg)]/5' : 'text-[var(--c-fg)]/70 hover:text-[var(--c-fg)] hover:bg-[var(--c-fg)]/5'}`}>
+                          {link.name}
+                        </Link>
+                        {link.subLinks && (
+                          <div className="flex flex-col mb-2">
+                            {link.subLinks.map((sub) => (
+                              <Link 
+                                key={sub.name} 
+                                href={sub.href} 
+                                className="px-8 py-1.5 text-[9px] font-black tracking-[0.2em] uppercase text-[var(--c-fg)]/40 hover:text-[var(--c-lime)] transition-colors"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </React.Fragment>
                     );
                   })}
                 </div>
@@ -209,14 +244,29 @@ export default function Navbar() {
                     <span className="text-[var(--c-lime)] text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">{section.title}</span>
                     <div className="flex flex-col gap-4 border-l border-white/10 pl-6">
                       {section.links.map((link) => (
-                        <Link 
-                          key={link.name} 
-                          href={link.href} 
-                          className={`text-xl font-bold transition-colors uppercase tracking-tight ${pathname === link.href ? 'text-[var(--c-lime)]' : 'text-white/70 hover:text-white'}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {link.name}
-                        </Link>
+                        <div key={link.name} className="flex flex-col gap-3">
+                          <Link 
+                            href={link.href} 
+                            className={`text-xl font-bold transition-colors uppercase tracking-tight ${pathname === link.href ? 'text-[var(--c-lime)]' : 'text-white/70 hover:text-white'}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                          {link.subLinks && (
+                            <div className="flex flex-col gap-3 pl-4 border-l border-white/5 mb-2">
+                              {link.subLinks.map((sub) => (
+                                <Link 
+                                  key={sub.name} 
+                                  href={sub.href} 
+                                  className="text-sm font-bold text-white/40 uppercase tracking-widest hover:text-[var(--c-lime)] transition-colors"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </motion.div>

@@ -1,48 +1,49 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import ScrollReveal from "@/components/ui/effects/ScrollReveal";
 
 const steps = [
   {
     num: "01",
-    metric: "Global Feedstock",
+    metric: "10,000+ tonnes/yr capacity",
     title: "Feedstock Intake",
-    desc: "We accept B-waste (lithium-ion), E-waste (PCBs), and REE magnets from OEMs, recyclers, and government agencies. Chain-of-custody starts the moment it enters our robot-assisted facility.",
-    tags: ["OEM Partners", "Recyclers", "Gov Agencies", "Secure Intake"],
+    desc: "We partner with corporations, municipalities, and data centres to collect e-waste, batteries, and rare earth magnets. Our logistics network ensures secure, certified pickup with chain-of-custody documentation.",
+    tags: ["Electronics", "Batteries", "Magnets", "Data Centres"],
     img: "/WBM/media/Step1.png",
   },
   {
     num: "02",
-    metric: "AI Orchestration",
+    metric: "98.7% AI accuracy rate",
     title: "Robot-Assisted Sorting",
-    desc: "Our proprietary AI orchestration layer identifies, scans, and sorts mixed waste streams with 99.9% accuracy. Robotic arms prepare the feedstock for the LiBERT™ engine.",
-    tags: ["AI Vision", "Robotics", "Mixed Streams", "High Precision"],
+    desc: "Our proprietary AI vision systems scan, classify, and sort every piece of waste in real-time. Robotic arms work alongside our technicians with 98.7% material identification accuracy.",
+    tags: ["Computer Vision", "Robotics", "Real-time", "Human-AI"],
     img: "/WBM/media/Step2.jpg",
   },
   {
     num: "03",
-    metric: "LiBERT™ Engine",
+    metric: "Zero liquid discharge",
     title: "Proprietary Extraction",
-    desc: "The only difference is who touches it. We extract lithium, cobalt, nickel, and precious metals simultaneously under one roof—with energy savings of 30-40% over traditional mining.",
-    tags: ["Hydrometallurgy", "Closed-loop", "Energy Efficient", "Patented"],
+    desc: "Using hydrometallurgical and pyrometallurgical processes, we extract precious and critical minerals. Zero liquid discharge technology ensures we're environmentally compliant at every stage.",
+    tags: ["Hydrometallurgy", "Pyrometallurgy", "Zero Discharge", "ISO Certified"],
     img: "/WBM/media/Step3.jpg",
   },
   {
     num: "04",
-    metric: "11/118 Elements",
+    metric: "99.9% purity grade",
     title: "Mineral Formation",
-    desc: "Extracted minerals are refined to battery-grade purity. Neodymium, dysprosium, gold, and silver are stabilized for the world's most critical supply chains.",
-    tags: ["High Purity", "Battery-grade", "Critical Minerals", "REE Recovery"],
+    desc: "Extracted materials are refined to industry-grade purity. Lithium, cobalt, copper, gold, and 40+ other critical minerals are processed and certified for immediate industrial use.",
+    tags: ["Lithium", "Cobalt", "Copper", "Gold", "Neodymium"],
     img: "/WBM/media/Step4.png",
   },
   {
     num: "05",
-    metric: "World Engine Supply",
-    title: "Closed-loop Distribution",
-    desc: "From waste to world engines. We supply the minerals that power the next decade of AI chips, EV batteries, and defence platforms, completing the circular economy.",
-    tags: ["AI Chips", "EV Batteries", "Defence", "Circular Economy"],
+    metric: "40+ countries served",
+    title: "The Smart Marketplace",
+    desc: "Certified minerals are distributed to EV manufacturers, semiconductor companies, defence contractors, and AI infrastructure providers globally through our smart marketplace.",
+    tags: ["EV Manufacturers", "Chip Makers", "Defence", "AI Infrastructure"],
     img: "/WBM/media/Step5.jpg",
   },
 ];
@@ -54,7 +55,6 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
     offset: ["start center", "end center"]
   });
 
-  // Whenever this block crosses the center of the viewport, we set it as active
   useEffect(() => {
     return scrollYProgress.on("change", (v) => {
       if (v > 0 && v < 1) {
@@ -70,33 +70,43 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ margin: "-10%" }}
         transition={{ duration: 0.6 }}
-        className="lg:pr-10 pr-0 relative group"
+        className="pr-0 md:pr-10 relative group"
       >
-        <h3 className="font-sans font-medium text-4xl md:text-5xl text-[var(--c-fg)] mb-6 tracking-tight leading-[1.1]">
-          {step.title}
-        </h3>
-
-        <p className="font-sans text-[var(--c-fg2)] text-xl leading-relaxed mb-10">
-          {step.desc}
-        </p>
-
-        <div className="flex items-center gap-4">
-          <span className="font-sans font-black text-sm text-[var(--c-fg3)]">
-            {step.num}
+        <div className="flex items-center gap-4 mb-6">
+          <span className="font-sans font-black text-xs text-[var(--c-lime)] tracking-widest uppercase">
+            Step {step.num}
           </span>
-          <span className="font-sans font-bold text-xs uppercase tracking-widest text-[var(--color-lime)]">
+          <div className="h-px w-8 bg-[var(--c-border)]" />
+          <span className="font-sans font-bold text-[10px] uppercase tracking-widest text-[var(--c-fg3)]">
             {step.metric}
           </span>
         </div>
 
+        <h3 className="font-sans font-black text-[var(--c-fg)] mb-8 tracking-tight leading-[1.1] uppercase text-[30px]">
+          {step.title}
+        </h3>
+
+        <p className="font-sans text-[var(--c-fg2)] text-xl leading-relaxed mb-10 max-w-xl">
+          {step.desc}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {step.tags.map((tag: string) => (
+            <span key={tag} className="px-4 py-1.5 rounded-full border border-[var(--c-border)] text-[10px] font-bold uppercase tracking-widest text-[var(--c-fg2)]">
+              {tag}
+            </span>
+          ))}
+        </div>
+
         {/* Mobile image (only visible on small screens) */}
-        <div className="block lg:hidden mt-12 w-full aspect-square relative rounded-[10px] overflow-hidden border border-[var(--c-border)]">
+        <div className="block lg:hidden mt-12 w-full aspect-[4/3] sm:aspect-square relative rounded-[20px] overflow-hidden border border-[var(--c-border)] shadow-xl mx-auto">
           <Image 
             src={step.img}
             alt={step.title}
             fill
             className="object-cover"
           />
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         </div>
       </motion.div>
     </div>
@@ -110,32 +120,26 @@ export default function HowItWorks() {
     <section className="relative w-full bg-[var(--c-bg)]" id="process">
       
       {/* Intro Header */}
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <div className="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
-            <div className="w-2 h-2 rounded-full bg-[var(--color-lime)] animate-pulse" />
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <ScrollReveal className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
             <span className="font-sans font-bold text-xs uppercase tracking-[0.3em] text-[var(--c-fg2)]">
-              The orchestration layer
+              The Orchestration Layer
             </span>
           </div>
-          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] text-3xl md:text-[52px] text-[var(--c-fg)] mb-6">
+          <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] section-title text-[var(--c-fg)] mb-8">
             From Waste to <br/>
-            <span className="text-[var(--color-lime)]">World Engines.</span>
+            <span className="text-[var(--c-highlight)] lime-glow-text">World Engines.</span>
           </h2>
-          <p className="font-sans text-[var(--c-fg2)] text-lg">
+          <p className="font-sans text-[var(--c-fg2)] text-xl max-w-2xl mx-auto leading-relaxed">
             PCBs, chips, laptops, servers—everything identified and processed under one AI-native roof.
           </p>
-
-        </motion.div>
+        </ScrollReveal>
       </div>
 
       {/* Scroll Narrative Section */}
-      <div className="w-full relative flex flex-col lg:flex-row pb-10">
+      <div className="w-full relative flex flex-col lg:flex-row pb-24">
         
         {/* Left Side: Scrolling Content */}
         <div className="w-full lg:w-1/2 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))] lg:pr-20 px-6 relative z-10">
@@ -149,23 +153,17 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Right Side: Sticky Images (Hidden on mobile) */}
+        {/* Right Side: Sticky Images */}
         <div className="hidden lg:block w-1/2 relative">
-          <div className="sticky top-0 h-screen w-full flex items-center justify-end py-6 pr-6 pl-0">
-            <div 
-              className="relative w-full h-full bg-[#0a0a0a] overflow-hidden"
-              style={{
-                clipPath: "polygon(100% 0%, 100% 100%, 0% 100%, 0% calc(50% + 100px), 40px calc(50% + 60px), 40px calc(50% - 60px), 0% calc(50% - 100px), 0% 0%)"
-              }}
-            >
-              
+          <div className="sticky top-0 h-screen w-full">
+            <div className="relative w-full h-full overflow-hidden bg-[var(--c-bg)]" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 70%, 60px 50%, 0% 30%)' }}>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeStep}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "linear" }}
+                  initial={{ opacity: 0, scale: 1, x: 20 }}
+                  animate={{ opacity: 1, scale: 1.05, x: 0 }}
+                  exit={{ opacity: 0, scale: 1, x: -20 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0"
                 >
                   <Image 
@@ -175,11 +173,9 @@ export default function HowItWorks() {
                     className="object-cover object-center"
                     priority={activeStep === 0}
                   />
-                  {/* Inner shadow/vignette */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/20 pointer-events-none" />
                 </motion.div>
               </AnimatePresence>
-
             </div>
           </div>
         </div>

@@ -102,7 +102,7 @@ const CaseStudies = () => {
                 
                 <div className="flex flex-col md:flex-row justify-between gap-6">
                   <div className="flex-grow max-w-xl">
-                    <h3 className="text-2xl md:text-3xl font-bold text-[var(--c-fg)] mb-4 leading-tight group-hover:text-[var(--c-lime)] transition-colors">
+                    <h3 className="section-title text-2xl  font-bold text-[var(--c-fg)] mb-4 leading-tight group-hover:text-[var(--c-lime)] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-gray-500 font-medium leading-relaxed mb-6">
@@ -133,7 +133,7 @@ const CaseStudies = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-6">
+              <h2 className="section-title font-bold text-white leading-tight tracking-tight mb-6">
                 Ready to optimize your <span className="text-[var(--c-lime)]">material recovery</span>?
               </h2>
               <p className="text-gray-400 text-xl font-medium mb-8">

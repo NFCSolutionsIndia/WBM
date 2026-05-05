@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ScrollReveal from "@/components/ui/effects/ScrollReveal";
+import TiltCard from "@/components/ui/TiltCard";
 
 function Counter({ target, suffix = "" }: { target: number, suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -42,30 +44,25 @@ export default function SustainabilityImpact() {
           backgroundSize: "200% 200%"
         }}
       />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C1FF00]/20 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#839470]/20 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FF6B35]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
+        <ScrollReveal>
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <div className="w-2 h-2 rounded-full bg-[#C1FF00] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">Circular Economy</span>
+            <div className="w-2 h-2 rounded-full bg-[#839470] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#839470]">Circular Economy</span>
           </div>
-          <h2 className="text-3xl md:text-[52px] font-black uppercase tracking-tighter text-white mb-6">
+          <h2 className="section-title font-black uppercase tracking-tighter text-white mb-6">
             From your dump yard<br/>back to your devices
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
             Three layers of closed loops. We're the only company on Earth extracting 11 critical minerals from batteries, magnets, AND PCBs—under one AI-native roof.
           </p>
-          <button className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300">
+          <button className="px-8 py-4 bg-[#839470] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white hover:text-black transition-colors duration-300">
             Our Closed-Loop Journey
           </button>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -73,19 +70,16 @@ export default function SustainabilityImpact() {
             { value: 11, label: "Minerals Extracted", suffix: "/118" },
             { value: 100, label: "Plant Uptime Guarantee", suffix: "%" }
           ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-10 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors card-theme"
-            >
-              <div className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#C1FF00] to-[#FF6B35] tracking-tighter mb-4 drop-shadow-[0_0_15px_rgba(193,255,0,0.2)]">
-                <Counter target={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="font-bold text-sm tracking-widest uppercase text-white/60">{stat.label}</div>
-            </motion.div>
+            <ScrollReveal key={stat.label} delay={i * 0.1}>
+              <TiltCard
+                className="p-10 rounded-[10px] bg-black/40 border border-white/5 backdrop-blur-xl hover:border-white/10 transition-colors card-theme"
+              >
+                <div className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#839470] to-[#FF6B35] tracking-tighter mb-4 drop-shadow-[0_0_15px_rgba(193,255,0,0.2)]">
+                  <Counter target={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="font-bold text-sm tracking-widest uppercase text-white/60">{stat.label}</div>
+              </TiltCard>
+            </ScrollReveal>
           ))}
         </div>
       </div>

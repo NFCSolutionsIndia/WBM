@@ -63,7 +63,7 @@ export default function SegmentSelector() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-sans font-black text-2xl md:text-3xl text-[var(--c-fg)] mb-3 leading-tight tracking-tight uppercase">{seg.title}</h3>
+                <h3 className="section-title font-sans font-black text-2xl  text-[var(--c-fg)] mb-3 leading-tight tracking-tight uppercase">{seg.title}</h3>
                 <p className="font-sans text-base leading-relaxed text-[var(--c-fg2)] flex-grow">{seg.desc}</p>
 
                 {/* Arrow reveal on hover */}

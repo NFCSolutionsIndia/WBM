@@ -10,7 +10,7 @@ export default function CustomerSection() {
         className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center"
       >
         <div className="flex-1">
-          <h2 className="text-4xl md:text-5xl font-sans font-black uppercase tracking-tight text-[var(--c-fg)] mb-6">
+          <h2 className="section-title font-sans font-black uppercase tracking-tight text-[var(--c-fg)] mb-6">
             Built For <br/>
             <span style={{ color: "var(--color-orange)" }}>Pioneers</span>
           </h2>

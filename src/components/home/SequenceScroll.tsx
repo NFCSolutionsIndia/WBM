@@ -152,7 +152,7 @@ export default function SequenceScroll() {
             style={{ opacity: opacity0, y: y0 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center"
           >
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white drop-shadow-lg">
+            <h2 className="section-title font-black tracking-tighter text-white drop-shadow-lg">
               Trash to Treasure.
             </h2>
             <p className="mt-4 text-xl md:text-2xl font-medium text-white/70 tracking-tight">
@@ -165,7 +165,7 @@ export default function SequenceScroll() {
             style={{ opacity: opacity25, y: y25 }}
             className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-24 max-w-2xl"
           >
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white drop-shadow-lg">
+            <h2 className="section-title font-black tracking-tighter text-white drop-shadow-lg">
               Built for Precision.
             </h2>
             <p className="mt-4 text-lg md:text-xl font-medium text-white/70 tracking-tight max-w-md">
@@ -179,7 +179,7 @@ export default function SequenceScroll() {
             className="absolute inset-0 flex flex-col items-end justify-center text-right px-6 md:px-24"
           >
             <div className="max-w-xl">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white drop-shadow-lg">
+              <h2 className="section-title font-black tracking-tighter text-white drop-shadow-lg">
                 Layered Engineering.
               </h2>
               <p className="mt-4 text-lg md:text-xl font-medium text-white/70 tracking-tight">
@@ -193,7 +193,7 @@ export default function SequenceScroll() {
             style={{ opacity: opacity90, y: y90 }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center"
           >
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white drop-shadow-lg">
+            <h2 className="section-title font-black tracking-tighter text-white drop-shadow-lg">
               Assembled. Ready.
             </h2>
             <p className="mt-4 text-xl md:text-2xl font-medium text-white/70 tracking-tight">

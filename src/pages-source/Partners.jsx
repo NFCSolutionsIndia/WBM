@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 export default function Partners() {
   const sections = [
-    { title: <>Why <span className="text-[#C1FF00]">Partner</span></>, desc: "Access to sustainable and reliable materials" },
-    { title: <>Supply Chain <span className="text-[#C1FF00]">Advantage</span></>, desc: "Scalable and efficient sourcing" },
-    { title: <>Investment <span className="text-[#C1FF00]">Opportunity</span></>, desc: "Positioned in a rapidly growing industry" }
+    { title: <>Why <span className="text-[#839470]">Partner</span></>, desc: "Access to sustainable and reliable materials" },
+    { title: <>Supply Chain <span className="text-[#839470]">Advantage</span></>, desc: "Scalable and efficient sourcing" },
+    { title: <>Investment <span className="text-[#839470]">Opportunity</span></>, desc: "Positioned in a rapidly growing industry" }
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function Partners() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-[64px] font-bold text-white uppercase"
         >
-          Collaborate <span className="text-[#C1FF00]">With Us</span>
+          Collaborate <span className="text-[#839470]">With Us</span>
         </motion.h1>
       </section>
 

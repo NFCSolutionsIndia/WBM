@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 export default function Sustainability() {
   const pillars = [
-    { title: <>Environmental <span className="text-[#C1FF00]">Impact</span></>, desc: "Reducing waste, emissions, and resource depletion", icon: "🌱" },
-    { title: <>Social <span className="text-[#C1FF00]">Responsibility</span></>, desc: "Ensuring safe and ethical operations", icon: "🤝" },
-    { title: <>Governance & <span className="text-[#C1FF00]">Compliance</span></>, desc: "Maintaining transparency and compliance", icon: "⚖️" }
+    { title: <>Environmental <span className="text-[#839470]">Impact</span></>, desc: "Reducing waste, emissions, and resource depletion", icon: "🌱" },
+    { title: <>Social <span className="text-[#839470]">Responsibility</span></>, desc: "Ensuring safe and ethical operations", icon: "🤝" },
+    { title: <>Governance & <span className="text-[#839470]">Compliance</span></>, desc: "Maintaining transparency and compliance", icon: "⚖️" }
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function Sustainability() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-[64px] font-bold text-white uppercase"
         >
-          The <span className="text-[#C1FF00]">Circular Economy.</span>
+          The <span className="text-[#839470]">Circular Economy.</span>
         </motion.h1>
         <p className="text-xl text-white/60 mt-6 max-w-2xl mx-auto">
           From your dump yard back to your devices—three layers of closed loops.

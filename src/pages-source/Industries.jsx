@@ -8,7 +8,7 @@ const Industries = () => {
   const industries = [
     {
       title: "Agribusiness",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/Agribusiness.jpg",
       desc: "Precision-ag electronics and farm robotics depend on rare-earth motors and PCB-grade copper. We close the loop on decommissioned hardware.",
       tags: ["Cu", "Nd", "Al"],
@@ -16,7 +16,7 @@ const Industries = () => {
     },
     {
       title: "Advanced Manufacturing",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/AdvancedManufacturing.jpg",
       desc: "Industrial robotics and CNC tooling consume permanent magnets and high-purity copper at scale. We supply OEM-grade powders and cathodes.",
       tags: ["Cu", "Nd", "Dy", "Ti"],
@@ -24,7 +24,7 @@ const Industries = () => {
     },
     {
       title: "Automotive & Mobility",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/ElectricVehicles.jpg",
       desc: "Every EV cell and traction motor passes through our supply chain logic. We reclaim Li-Co-Ni-Mn cathodes and Nd-Dy magnets.",
       tags: ["Li", "Co", "Ni", "Nd"],
@@ -32,7 +32,7 @@ const Industries = () => {
     },
     {
       title: "Financial Services",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/FinancialServices.jpg",
       desc: "Lenders and insurers use our published recovery KPIs and Battery Passport data to model risk and validate ESG claims.",
       tags: ["Au", "Ag"],
@@ -40,7 +40,7 @@ const Industries = () => {
     },
     {
       title: "Healthcare & Life Sciences",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/Healthcare.jpg",
       desc: "MRI machines, surgical robots, and implantable devices use rare-earth magnets and titanium. We recover magnet assemblies.",
       tags: ["Nd", "Dy", "Ti", "Pd"],
@@ -48,7 +48,7 @@ const Industries = () => {
     },
     {
       title: "Energy & Natural Resources",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/EnergyPower.jpg",
       desc: "Wind turbines, grid-scale storage, and solar inverters draw on every mineral category we touch. Second-life supply for green-energy.",
       tags: ["Nd", "Dy", "Cu", "Ag", "Li"],
@@ -56,7 +56,7 @@ const Industries = () => {
     },
     {
       title: "Media & Entertainment",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/MediaEntertainment.jpg",
       desc: "Studios and broadcasters retire petabytes of HDD and broadcast hardware annually. We extract Nd magnets and PCB-grade Au, Ag, Pd.",
       tags: ["Au", "Ag", "Pd"],
@@ -64,7 +64,7 @@ const Industries = () => {
     },
     {
       title: "Telecommunications",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/Telecommunications.jpg",
       desc: "5G base stations, fibre transceivers, and end-of-life handsets are dense with copper, gold, and palladium.",
       tags: ["Cu", "Au", "Pd"],
@@ -72,7 +72,7 @@ const Industries = () => {
     },
     {
       title: "Technology Services",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/DataCentersAI.jpg",
       desc: "Hyperscalers refresh server fleets every 3–5 years. We integrate with their asset-disposition programs with chain-of-custody.",
       tags: ["Au", "Ag", "Cu", "Pd"],
@@ -80,23 +80,23 @@ const Industries = () => {
     },
     {
       title: "Social & Public Sector",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
-      image: "/WBM/media/PublicSector.jpg",
+      icon: <CheckCircle2 size={24} />,
+      image: "/WBM/media/SustainablebyDesign.jpg",
       desc: "Federal, state, and municipal IT modernisation generates secure-disposal e-waste at scale. We deliver compliant recovery.",
       tags: ["Au", "Ag", "Cu"],
       link: "/industries/public-sector"
     },
     {
       title: "Forest Products",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
-      image: "/WBM/media/ForestProducts.jpg",
+      icon: <CheckCircle2 size={24} />,
+      image: "/WBM/media/Agribusiness.jpg",
       desc: "Sawmill electrification and biomass-energy plants run on rugged drives and inverters. Circular path for power-electronics.",
       tags: ["Cu", "Al"],
       link: "/industries/forest"
     },
     {
       title: "Aerospace & Defense",
-      icon: <CheckCircle2 size={24} className="text-[var(--c-lime)]" />,
+      icon: <CheckCircle2 size={24} />,
       image: "/WBM/media/AerospaceDefense.jpg",
       desc: "Strategic mineral security and aerospace-grade purity for high-performance applications requiring absolute traceability.",
       tags: ["Nd", "Dy", "Ti", "Co"],
@@ -111,7 +111,7 @@ const Industries = () => {
         <div className="absolute inset-0 z-0">
           <PixelBlast 
             pixelSize={5}
-            color="#c1ff00"
+            color="#839470"
             patternDensity={0.8}
             speed={0.3}
           />
@@ -147,7 +147,7 @@ const Industries = () => {
       <section className="py-24 bg-[var(--c-bg)] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
-             <h2 className="text-3xl md:text-5xl font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">The Allied <span className="text-[var(--c-lime)]">Sectors.</span></h2>
+             <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">The Allied <span className="text-[var(--c-lime)]">Sectors.</span></h2>
              <p className="text-lg text-[var(--c-fg3)] font-medium max-w-2xl mx-auto">Providing mission-critical mineral security across 12 strategic industry layers.</p>
           </div>
 
@@ -159,52 +159,90 @@ const Industries = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="group relative rounded-[32px] bg-[var(--c-bg2)] border border-[var(--c-border)] hover:border-[var(--c-lime)]/50 transition-all duration-500 overflow-hidden flex flex-col h-[480px]"
+                className="group relative rounded-[10px] bg-black border border-white/10 hover:border-[var(--c-lime)] transition-all duration-500 overflow-hidden flex flex-col h-[480px] shadow-2xl cursor-pointer"
               >
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                   <img src={ind.image} alt={ind.title} className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--c-bg2)] via-[var(--c-bg2)]/80 to-transparent" />
+                {/* Full Background Image */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                   <img 
+                    src={ind.image} 
+                    alt={ind.title} 
+                    className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-all duration-700 ease-out" 
+                   />
+                   {/* Strategic Gradient Overlay for Text Clarity */}
+                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                   
+                   {/* Hover Accent Glow at the bottom */}
+                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-t from-[var(--c-lime)]/20 via-transparent to-transparent transition-opacity duration-700" />
                 </div>
 
-                <div className="relative z-10 p-10 flex flex-col h-full">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shadow-inner group-hover:bg-[var(--c-lime)] group-hover:text-black transition-all duration-500">
-                      {ind.icon}
+                {/* Top Badge (Sector Layer) */}
+                <div className="relative z-10 p-6 flex justify-between items-start">
+                  <div className="w-10 h-10 rounded-[6px] bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-black group-hover:rotate-[360deg] transition-all duration-700">
+                    {ind.icon}
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <span className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em] mb-0.5">Sector</span>
+                    <span className="text-xs font-black text-[var(--c-lime)] tracking-tighter">0{idx+1}</span>
+                  </div>
+                </div>
+
+                {/* Bottom Content Area */}
+                <div className="relative z-10 mt-auto p-8 pt-0">
+                  <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
+                    <h3 className="text-2xl font-black text-white tracking-tight uppercase mb-3 leading-tight group-hover:text-[var(--c-lime)] transition-colors duration-300">
+                      {ind.title}
+                    </h3>
+
+                    {/* Collapsible/Expandable Description */}
+                    <div className="overflow-hidden">
+                      <p className="text-white/70 font-medium leading-relaxed text-sm mb-6 transition-all duration-500 max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0">
+                        {ind.desc}
+                      </p>
                     </div>
-                    <div className="text-[10px] font-black text-[var(--c-lime)] uppercase tracking-widest opacity-60">Layer 0{idx+1}</div>
+
+                    {/* Mineral Tags - Styled as high-tech pills */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {ind.tags.map(tag => {
+                        const mineralColors = {
+                          'Cu': 'border-[#F6AD55] text-[#F6AD55]',
+                          'Nd': 'border-[#9F7AEA] text-[#9F7AEA]',
+                          'Li': 'border-[#48BB78] text-[#48BB78]',
+                          'Au': 'border-[#ECC94B] text-[#ECC94B]',
+                          'Ag': 'border-[#A0AEC0] text-[#A0AEC0]',
+                        };
+                        return (
+                          <span 
+                            key={tag} 
+                            className={`px-3 py-1 rounded-[4px] bg-black/40 text-[9px] font-black uppercase tracking-widest border transition-all duration-300 ${mineralColors[tag] || 'border-white/20 text-white/60'} group-hover:border-[var(--c-lime)] group-hover:text-[var(--c-lime)]`}
+                          >
+                            {tag}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    {/* CTA Button Style */}
+                    <a 
+                      href={ind.link} 
+                      className="inline-flex items-center gap-3 py-3 px-6 rounded-[4px] bg-[var(--c-lime)] text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
+                    >
+                      <span>Strategic Details</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </div>
-
-                  <h3 className="text-2xl font-black text-[var(--c-fg)] tracking-tight uppercase mb-4 leading-tight">
-                    {ind.title}
-                  </h3>
-
-                  <p className="text-[var(--c-fg3)] font-medium leading-relaxed mb-8 text-sm flex-1">
-                    {ind.desc}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-10">
-                    {ind.tags.map(tag => (
-                      <span key={tag} className="px-2.5 py-1 rounded bg-[var(--c-fg)]/5 text-[9px] font-black text-[var(--c-lime)] uppercase tracking-widest border border-[var(--c-lime)]/20 backdrop-blur-sm">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a href={ind.link} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--c-lime)] hover:gap-3 transition-all">
-                    Strategic Details <ArrowRight size={14} />
-                  </a>
                 </div>
               </motion.div>
             ))}
           </div>
+
+
         </div>
       </section>
 
       {/* Strategic Partnership Section */}
       <section className="py-12 bg-[#151515] text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tight max-w-4xl mx-auto leading-tight">
+          <h2 className="section-title font-bold mb-12 tracking-tight max-w-4xl mx-auto leading-tight">
             Securing the supply chain for <br/><span className="text-[var(--c-lime)]">global manufacturing</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
@@ -238,18 +276,28 @@ const Industries = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-[var(--c-bg)]">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-[var(--c-fg)] tracking-tight mb-8">Ready to discuss your industry requirements?</h2>
-          <p className="text-xl text-gray-500 font-medium mb-12">Our experts are ready to design a custom recovery and sourcing program tailored to your sector's unique needs.</p>
+      <section className="py-10 bg-[var(--c-fg)] relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="section-title font-black text-white tracking-tighter uppercase mb-6">Ready to discuss your industry requirements?</h2>
+          <p className="text-xl text-white/60 font-medium mb-12 max-w-2xl mx-auto">Our experts are ready to design a custom recovery and sourcing program tailored to your sector's unique needs.</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button href="/contact" size="lg">
+            <Button href="/contact" className="bg-[var(--c-highlight)] text-black hover:brightness-110 border-none px-8 py-4">
               Consult With Our Experts
             </Button>
-            <Button size="lg" variant="outline">
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4">
               Request Industry Specs
             </Button>
           </div>
+        </div>
+        
+        {/* Background grid pattern */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <svg width="100%" height="100%" className="w-full h-full">
+            <pattern id="grid-cta-industries" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="white" strokeWidth="1"/>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid-cta-industries)" />
+          </svg>
         </div>
       </section>
     </div>

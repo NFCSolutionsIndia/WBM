@@ -17,7 +17,7 @@ export default function PlantExperience() {
             <div className="inline-block px-4 py-1 rounded-full bg-cyan/20 text-cyan text-sm font-medium border border-cyan/30">
               Next-Generation Manufacturing
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-medium leading-tight">
+            <h2 className="section-title  font-display font-medium leading-tight">
               AI-Native Robot-Assisted Operations
             </h2>
             <p className="text-xl text-neutral-light/80">

@@ -61,10 +61,11 @@ const PATHS = [
 ];
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
+import ScrollReveal from "@/components/ui/effects/ScrollReveal";
+
 export default function Footer() {
   const dotRefs = useRef<(SVGPathElement | null)[]>([]);
 
-  /* Animate the traveling dots */
   useEffect(() => {
     dotRefs.current.forEach((el, i) => {
       if (!el) return;
@@ -84,163 +85,149 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative w-full bg-[#0d1a14] overflow-hidden">
-
+    <footer className="relative w-full bg-[#030303] overflow-hidden border-t border-white/5">
       {/* ── Animated SVG circuit lines ─────────────────────────────────── */}
       <svg
         viewBox="0 0 1521 1099"
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
         preserveAspectRatio="xMidYMid slice"
       >
-        <defs>
-          <filter id="footer-blur">
-            <feGaussianBlur stdDeviation="17" />
-          </filter>
-        </defs>
-
         {PATHS.map((p, i) => (
           <g key={p.id}>
-            {/* Ghost track */}
             <path
               d={p.d}
-              stroke="#A2A2A2"
+              stroke="var(--c-highlight)"
               fill="none"
-              strokeOpacity="0.12"
+              strokeOpacity="0.05"
               strokeWidth="1"
             />
-            {/* Traveling dot */}
             <path
               ref={(el) => { dotRefs.current[i] = el; }}
               d={p.d}
               fill="none"
-              stroke="#C1FF00"
+              stroke="var(--c-highlight)"
               strokeWidth="2"
               strokeLinecap="round"
               strokeDasharray={`${p.dotLen}, ${p.len}`}
               strokeDashoffset={p.startOffset}
+              className="drop-shadow-[0_0_8px_var(--c-highlight)]"
             />
           </g>
         ))}
       </svg>
 
       {/* ── Top CTA block ──────────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 md:py-12 border-b border-white/5">
-        
-        {/* Decorative rounded rectangles (like the reference) */}
-        <div className="absolute top-10 left-10 w-32 h-20 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute top-16 right-16 w-24 h-16 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-24 left-20 w-16 h-24 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-20 right-12 w-28 h-20 rounded-[10px] border border-white/5 pointer-events-none hidden lg:block" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24 border-b border-white/5 bg-gradient-to-b from-transparent to-black/40">
+        <ScrollReveal>
           <div className="inline-flex items-center gap-3 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <div className="w-2 h-2 rounded-full bg-[#C1FF00] animate-pulse" />
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-white/70">
-              Join the Circular Economy
+            <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-white/50">
+              Strategic Resource Security
             </span>
           </div>
 
-          <h2 className="font-sans font-black text-3xl md:text-[52px] text-white uppercase tracking-tighter leading-[0.9] mb-10 max-w-4xl mx-auto">
+          <h2 className="font-sans font-black section-title text-white uppercase tracking-tighter leading-[0.9] mb-12 max-w-4xl mx-auto">
             READY WHEN <br />
-            <span className="text-[#C1FF00]">YOU ARE.</span>
+            <span className="text-[var(--c-highlight)] lime-glow-text">YOU ARE.</span>
           </h2>
 
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm text-white font-sans font-bold text-xs uppercase tracking-[0.25em] hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-            data-cursor="view"
-          >
-            Partner With Us
-          </a>
-        </motion.div>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <a
+              href="#contact"
+              className="px-10 py-5 rounded-[12px] bg-[var(--c-highlight)] text-black font-sans font-black text-xs uppercase tracking-[0.2em] shadow-[0_20px_40px_rgba(131,148,112,0.2)] hover:shadow-[0_25px_50px_rgba(131,148,112,0.3)] hover:-translate-y-1 transition-all duration-500"
+            >
+              Initiate Partnership
+            </a>
+            <a
+              href="/industries"
+              className="px-10 py-5 rounded-[12px] border border-white/10 bg-white/5 text-white font-sans font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 hover:border-white/20 transition-all duration-500"
+            >
+              Explore Sectors
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* ── Footer bottom bar ──────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-12 border-b border-white/5">
-
-        {/* Tagline / Socials */}
-        <div className="col-span-2 md:col-span-1">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-16 border-b border-white/5">
+        <ScrollReveal className="col-span-2 md:col-span-1">
           <Image 
             src="/WBM/WBMLogoWhiteText.png" 
             alt="Waste BE Minerals" 
             width={180} 
             height={60} 
-            className="w-auto h-12 mb-6" 
+            className="w-auto h-10 mb-8 brightness-100" 
             style={{ width: 'auto' }}
           />
-          <p className="font-sans text-xs text-white/30 leading-relaxed max-w-[250px]">
-            Trash to Treasure. Recover. Reuse. Reimagine. The world's only integrated extractor for critical minerals.
+          <p className="font-sans text-white leading-relaxed max-w-[250px] mb-8">
+            The world's only integrated extractor for 11 critical minerals. Powering the next generation of global industry.
           </p>
 
-          <div className="flex gap-3 mt-6">
-            <a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#C1FF00] hover:border-[#C1FF00]/30 transition-colors font-bold text-sm">in</a>
-            <a href="#" className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#C1FF00] hover:border-[#C1FF00]/30 transition-colors font-bold text-sm">𝕏</a>
+          <div className="flex gap-4">
+            {["in", "𝕏", "ig"].map(social => (
+              <a key={social} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[var(--c-highlight)] hover:border-[var(--c-highlight)]/50 transition-all duration-300 font-bold text-sm">
+                {social}
+              </a>
+            ))}
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* System column */}
-        <div>
-          <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.25em] text-white/40 mb-5">System</h4>
-          <ul className="space-y-3">
+        <ScrollReveal delay={0.1}>
+          <h4 className="font-sans font-black text-[10px] uppercase tracking-[0.3em] text-[var(--c-highlight)] mb-8 opacity-60">System</h4>
+          <ul className="space-y-4">
             {COL_SYSTEM.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="font-sans text-sm text-white/60 hover:text-white transition-colors duration-200">
+                <a href={l.href} className="font-sans text-sm text-white hover:text-[var(--c-highlight)] transition-colors duration-300">
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
-        </div>
+        </ScrollReveal>
 
-        {/* Company column */}
-        <div>
-          <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.25em] text-white/40 mb-5">Company</h4>
-          <ul className="space-y-3">
+        <ScrollReveal delay={0.2}>
+          <h4 className="font-sans font-black text-[10px] uppercase tracking-[0.3em] text-[var(--c-highlight)] mb-8 opacity-60">Company</h4>
+          <ul className="space-y-4">
             {COL_COMPANY.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="font-sans text-sm text-white/60 hover:text-white transition-colors duration-200">
+                <a href={l.href} className="font-sans text-sm text-white hover:text-[var(--c-highlight)] transition-colors duration-300">
                   {l.label}
                 </a>
               </li>
             ))}
           </ul>
-        </div>
+        </ScrollReveal>
 
-        {/* Reach Us column */}
-        <div>
-          <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.25em] text-white/40 mb-5">Reach Us</h4>
-          <p className="font-sans text-sm text-white/60 mb-4 leading-relaxed">
-            Ready for a world without<br />e-waste?
+        <ScrollReveal delay={0.3}>
+          <h4 className="font-sans font-black text-[10px] uppercase tracking-[0.3em] text-[var(--c-highlight)] mb-8 opacity-60">Global Reach</h4>
+          <p className="font-sans text-sm text-white mb-6 leading-relaxed">
+            Ready to secure your strategic mineral supply chain?
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 font-sans font-bold text-xs uppercase tracking-widest text-[#C1FF00] hover:gap-3 transition-all duration-200"
+            className="inline-flex items-center gap-3 font-sans font-black text-xs uppercase tracking-widest text-[var(--c-highlight)] hover:gap-5 transition-all duration-300 group"
           >
-            Get in touch
+            Connect Now
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <div className="mt-6 space-y-2">
-            <div className="font-sans text-xs text-white/30">hello@wastebeminerals.com</div>
-            <div className="font-sans text-xs text-white/30">Houston · Dubai · Mumbai</div>
+          <div className="mt-8 space-y-3">
+            <div className="font-sans text-xs text-white hover:text-[var(--c-highlight)] transition-colors cursor-pointer">contact@wastebeminerals.com</div>
+            <div className="font-sans text-[10px] text-white leading-relaxed uppercase tracking-wider">Parsippany, NJ 07054, USA</div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* ── Legal bar ──────────────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="font-sans text-[11px] text-white/20">
-          © {new Date().getFullYear()} Waste BE Minerals. All rights reserved.
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <span className="font-sans text-[10px] text-white uppercase tracking-[0.2em]">
+          © {new Date().getFullYear()} Waste BE Minerals. AI-Native Extraction.
         </span>
-        <div className="flex gap-6">
-          <a href="#" className="font-sans text-[11px] text-white/20 hover:text-white/50 transition-colors">Privacy Policy</a>
-          <a href="#" className="font-sans text-[11px] text-white/20 hover:text-white/50 transition-colors">Terms of Service</a>
+        <div className="flex gap-8">
+          {["Privacy Policy", "Terms of Service", "Compliance"].map(item => (
+            <a key={item} href="#" className="font-sans text-[10px] text-white hover:text-white/50 transition-colors uppercase tracking-widest">{item}</a>
+          ))}
         </div>
       </div>
-
     </footer>
   );
 }

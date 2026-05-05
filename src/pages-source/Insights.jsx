@@ -118,7 +118,7 @@ const Insights = () => {
                   <Tag size={16} />
                   {featuredInsight.category}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-[var(--c-fg)] leading-tight mb-6 tracking-tight">
+                <h2 className="section-title  font-bold text-[var(--c-fg)] leading-tight mb-6 tracking-tight">
                   {featuredInsight.title.split(' ').slice(0, -2).join(' ')} <span className="text-[var(--c-lime)]">{featuredInsight.title.split(' ').slice(-2).join(' ')}</span>
                 </h2>
                 <p className="text-gray-500 text-lg mb-8 leading-relaxed">
@@ -221,7 +221,7 @@ const Insights = () => {
           <div className="w-16 h-16 bg-[var(--c-lime)]/10 rounded-[10px] flex items-center justify-center mx-auto mb-8">
             <Tag size={32} className="text-[var(--c-lime)]" />
           </div>
-          <h2 className="text-4xl font-bold text-[var(--c-fg)] mb-6 tracking-tight">Stay ahead of the <span className="text-[var(--c-lime)]">curve</span></h2>
+          <h2 className="section-title font-bold text-[var(--c-fg)] mb-6 tracking-tight">Stay ahead of the <span className="text-[var(--c-lime)]">curve</span></h2>
           <p className="text-gray-500 text-lg font-medium mb-10 max-w-2xl mx-auto">
             Subscribe to our newsletter to receive the latest industry insights, technology updates, and sustainable sourcing reports directly in your inbox.
           </p>

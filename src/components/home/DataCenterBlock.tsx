@@ -1,7 +1,15 @@
+"use client";
+
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { Shield, Zap, Cpu } from "lucide-react";
+import TiltCard from "@/components/ui/TiltCard";
+import ScrollReveal from "@/components/ui/effects/ScrollReveal";
+import MiniChart from "@/components/ui/effects/MiniChart";
+import Button from "@/components/ui/Button";
 
 export default function DataCenterBlock() {
+  const router = useRouter();
   const cards = [
     { icon: <Shield className="w-8 h-8" />, title: "6-Layer Encryption", desc: "Enterprise-grade security for co-located compute infrastructure." },
     { icon: <Zap className="w-8 h-8" />, title: "100% Uptime", desc: "Redundant power and cooling systems ensuring zero downtime for critical AI loads." },
@@ -10,48 +18,57 @@ export default function DataCenterBlock() {
 
   return (
     <section className="py-24 bg-[#0C0F14] text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(193,255,0,0.05),transparent_50%)]" />
+      {/* Animated background glow */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.05, 0.1, 0.05]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--c-highlight)] rounded-full blur-[150px] z-0"
+      />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <ScrollReveal className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#C1FF00]">AI Data Centres</span>
+            <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
+            <span className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-[#839470]">AI Data Centres</span>
           </div>
-          <h2 className="text-3xl md:text-[52px] font-black uppercase tracking-tighter mb-6 leading-tight">
-            AI Data Centres<br/>Sustainable & Secure
+          <h2 className="section-title font-black uppercase tracking-tighter mb-8 leading-tight">
+            AI Data Centres<br/>
+            <span className="text-[var(--c-highlight)]">Sustainable & Secure</span>
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-white/50 text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
             Co-located on-site for 100% uptime and 6-layer encryption. Tenants benefit from sharing the same infrastructure, power, and talent as our extraction facility.
           </p>
-          <button className="px-8 py-4 bg-[#C1FF00] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-white transition-colors duration-300">
+          <Button 
+            href="/for-you/tenant"
+            variant="outline"
+            className="mx-auto"
+            showArrow
+          >
             View Lease Specs
-          </button>
-        </motion.div>
+          </Button>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cards.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-10 rounded-[10px] bg-white/5 border border-white/10 backdrop-blur-lg hover:border-[#C1FF00]/50 transition-colors group cursor-pointer card-theme"
-            >
-              <div className="w-16 h-16 rounded-[10px] bg-black/50 border border-white/10 flex items-center justify-center text-[#C1FF00] mx-auto mb-6 group-hover:scale-110 transition-transform shadow-inner group-hover:shadow-[0_0_20px_rgba(193,255,0,0.2)]">
-                {card.icon}
-              </div>
-              <h3 className="text-2xl font-bold tracking-tight mb-4 group-hover:text-[#C1FF00] transition-colors">{card.title}</h3>
-              <p className="text-white/50">{card.desc}</p>
-            </motion.div>
+            <ScrollReveal key={card.title} delay={i * 0.1}>
+              <TiltCard
+                className="p-10 rounded-[20px] bg-white/5 border border-white/10 backdrop-blur-lg h-full"
+                glowColor="rgba(131, 148, 112, 0.15)"
+              >
+                <div className="w-16 h-16 rounded-[12px] bg-black/50 border border-white/10 flex items-center justify-center text-[#839470] mb-8 group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500 shadow-inner">
+                  {card.icon}
+                </div>
+                <h3 className="text-2xl font-bold tracking-tight mb-4 group-hover:text-[#839470] transition-colors">{card.title}</h3>
+                <p className="text-white/40 text-sm leading-relaxed mb-6">{card.desc}</p>
+                <MiniChart />
+              </TiltCard>
+            </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
-
   );
 }

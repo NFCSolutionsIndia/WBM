@@ -27,7 +27,7 @@
   --c-lime: #839470;
   --c-orange: #BFA98A;
   --c-ice: #92A39E;
-  --c-highlight: #78B933;
+  --c-highlight: #839470;
 }
 
 /* ─── Dark Theme (Terminal Industries Style) ─── */
@@ -44,10 +44,10 @@
   --c-nav: rgba(3, 3, 3, 0.85);
   --c-card: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
   --radius-card: 12px;
-  --c-lime: #C1FF00;
+  --c-lime: #839470;
   --c-orange: #FF6B35;
   --c-ice: #00E5FF;
-  --c-highlight: #78B933;
+  --c-highlight: #839470;
 }
 
 *,
@@ -110,6 +110,21 @@ body::before {
   box-shadow: 0 20px 60px var(--c-shadow);
 }
 
+/* Section Headings */
+.section-title {
+  font-size: 52px !important;
+  line-height: 1.1 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 36px !important;
+  }
+}
+
 /* Lime glow utility */
 .lime-glow {
   box-shadow: 0 0 30px rgba(193, 255, 0, 0.15), 0 0 60px rgba(193, 255, 0, 0.05);
@@ -120,7 +135,53 @@ body::before {
 }
 
 .lime-glow-text {
-  text-shadow: 0 0 40px rgba(193, 255, 0, 0.5);
+  text-shadow: 0 0 40px rgba(131, 148, 112, 0.5);
+  color: var(--c-highlight);
+}
+
+/* Premium Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow Border Animation */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(131, 148, 112, 0.2); }
+  50% { border-color: rgba(131, 148, 112, 0.6); }
+}
+
+.glow-border {
+  animation: border-glow 4s infinite ease-in-out;
+}
+
+/* Mask for fade effects */
+.mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.mask-fade-t {
+  mask-image: linear-gradient(to top, black 50%, transparent 100%);
+}
+
+/* Premium Card Theme Update */
+.card-theme {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-card) !important;
+}
+
+.card-theme:hover {
+  border-color: var(--c-highlight) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px) scale(1.02);
+}
+
+.dark .card-theme:hover {
+  border-color: var(--c-highlight) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(131, 148, 112, 0.1);
 }
 
 /* ─── Animated Background for Dark Mode ─── */
@@ -172,6 +233,7 @@ body::before {
 .dark .card-theme {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius-card) !important;
   backdrop-filter: blur(8px);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
@@ -242,7 +304,6 @@ body::before {
   background: var(--c-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--c-border);
 }
 
 /* Theme Toggle Checkbox from Uiverse.io by Shoh2008 */

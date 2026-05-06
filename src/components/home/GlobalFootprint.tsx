@@ -3,6 +3,12 @@
 import { useState, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Recycle } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const FootprintGlobe = dynamic(() => import("./FootprintGlobe"), { 
+  ssr: false,
+  loading: () => <div className="w-full h-[500px] bg-[#0a0a0a]/50 animate-pulse rounded-[20px]" />
+});
 
 const LOCS = [
   { id: "india",  city: "Pune",          country: "India",         status: "operational", x: 72, y: 45, color: "#839470", capacity: "30,000 t/yr intake",   footprint: "100,000 sq ft", desc: "India's flagship AI-powered e-waste facility serving major tech hubs across South Asia." },
@@ -62,56 +68,11 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
         </motion.div>
       </div>
 
-
-      {/* ── ISOMETRIC 3D MAP ── */}
-      <div className="relative z-0 flex-1 min-h-[50vh] md:min-h-[60vh] flex items-center justify-center -mt-10 lg:-mt-12 perspective-[1200px] overflow-hidden">
-        <motion.div 
-          initial={{ rotateX: 60, rotateZ: -10, y: 50, opacity: 0 }}
-          whileInView={{ rotateX: 60, rotateZ: -20, y: 0, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="relative w-[1000px] h-[500px] preserve-3d"
-          style={{ scale }}
-        >
-          {/* Map Base (SVG from Wikimedia, tinted via CSS) */}
-          <div 
-            className="absolute inset-0 opacity-40 mix-blend-screen"
-            style={{ 
-              backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg")',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              filter: 'invert(1) sepia(1) saturate(5) hue-rotate(45deg) drop-shadow(0 0 15px rgba(193,255,0,0.5))'
-            }}
-          />
-          
-          {/* Tech Grid Floor */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_70%)]" />
-
-          {/* Location Pins */}
-          {LOCS.map((loc) => (
-            <div 
-              key={loc.id} 
-              className="absolute group"
-              style={{ left: `${loc.x}%`, top: `${loc.y}%`, transform: 'translateZ(20px) rotateX(-60deg) rotateZ(20deg)' }}
-              onMouseEnter={() => setHovered(loc)}
-              onMouseLeave={() => setHovered(null)}
-              onClick={() => setHovered(hovered?.id === loc.id ? null : loc)}
-            >
-              {/* Pin Pillar / Beam */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-0.5 h-16 bg-gradient-to-t from-transparent to-white/50 blur-[1px] pointer-events-none" style={{ background: `linear-gradient(to top, transparent, ${loc.color})` }} />
-              
-              {/* Interactive Node */}
-              <div className="relative flex items-center justify-center cursor-pointer transition-transform duration-300 group-hover:scale-125">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.2)] text-black font-bold" style={{ background: loc.color }}>
-                  <Recycle size={14} />
-                </div>
-                <div className="absolute inset-0 rounded-full animate-ping opacity-40 pointer-events-none" style={{ background: loc.color }} />
-              </div>
-            </div>
-          ))}
-
-        </motion.div>
+      {/* ── INTERACTIVE 3D GLOBE ── */}
+      <div className="relative z-0 flex-1 min-h-[500px] flex items-center justify-center -mt-10 lg:-mt-20 overflow-hidden">
+        <div className="w-full h-full max-w-5xl">
+          <FootprintGlobe />
+        </div>
       </div>
 
       {/* ── FLOATING HOVER POPUP (Fixed to Screen Center to avoid isometric skew) ── */}

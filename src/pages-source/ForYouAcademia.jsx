@@ -57,7 +57,7 @@ const ForYouAcademia = () => {
 
             <div className="flex flex-wrap justify-center gap-4">
               <Button href="/contact" size="lg">Start Research Relationship</Button>
-              <Button href="/insights" variant="outline" size="lg">Access Publications Library</Button>
+              <Button href="/insights" variant="outline" size="lg" className="h-auto py-4 md:h-14 md:py-0">Access Publications Library</Button>
             </div>
           </motion.div>
         </div>
@@ -92,7 +92,7 @@ const ForYouAcademia = () => {
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-16">
               <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Focus Areas</h2>
-              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Active Research <span className="opacity-40">Themes.</span></h3>
+              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Active Research <span className="text-[#839470]">Themes.</span></h3>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

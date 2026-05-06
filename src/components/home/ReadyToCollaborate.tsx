@@ -100,35 +100,35 @@ export default function ReadyToCollaborate() {
           <div className="w-full lg:w-2/5 flex flex-col gap-6">
             <ScrollReveal direction="right" className="flex-1">
               <TiltCard className="h-full">
-                <div className="glass shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-[var(--radius-card)] p-8 border border-[var(--c-border)] h-full flex flex-col justify-between bg-[var(--c-bg2)]">
+                <div className="glass shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-[var(--radius-card)] p-6 md:p-8 border border-[var(--c-border)] h-full flex flex-col justify-between bg-[var(--c-bg2)]">
                   <div>
                     <h3 className="font-sans font-black text-xl text-[var(--c-fg)] mb-6 uppercase tracking-tight">Contact Information</h3>
                     <div className="space-y-6">
-                      <div className="flex items-center gap-6 group cursor-pointer">
-                        <div className="w-12 h-12 rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500">
-                           <Mail size={20} />
+                      <div className="flex items-center gap-3 md:gap-6 group cursor-pointer">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-[12px] md:rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500 flex-shrink-0">
+                           <Mail size={18} className="md:w-5 md:h-5" />
                         </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-1">Email</span>
-                          <span className="font-sans text-base text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors">contact@wastebeminerals.com</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-6 group cursor-pointer">
-                        <div className="w-12 h-12 rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500">
-                           <Phone size={20} />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-1">Phone</span>
-                          <span className="font-sans text-base text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors">+1 (800) WASTE-BE</span>
+                        <div className="flex flex-col min-w-0">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-0.5">Email</span>
+                          <span className="font-sans text-sm md:text-base text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors break-all">contact@wastebeminerals.com</span>
                         </div>
                       </div>
-                      <div className="flex items-start gap-6 group cursor-pointer">
-                        <div className="w-12 h-12 rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500 flex-shrink-0">
-                           <MapPin size={20} />
+                      <div className="flex items-center gap-3 md:gap-6 group cursor-pointer">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-[12px] md:rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500 flex-shrink-0">
+                           <Phone size={18} className="md:w-5 md:h-5" />
                         </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-1">Location</span>
-                          <span className="font-sans text-sm text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors leading-relaxed">Waterview Plaza, Suite 310,<br/>Parsippany, NJ 07054, USA</span>
+                        <div className="flex flex-col min-w-0">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-0.5">Phone</span>
+                          <span className="font-sans text-sm md:text-base text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors">+1 (800) WASTE-BE</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 md:gap-6 group cursor-pointer">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-[12px] md:rounded-[14px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center justify-center text-[var(--c-highlight)] group-hover:bg-[var(--c-highlight)] group-hover:text-black transition-all duration-500 flex-shrink-0">
+                           <MapPin size={18} className="md:w-5 md:h-5" />
+                        </div>
+                        <div className="flex flex-col min-w-0">
+                          <span className="text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)] mb-0.5">Location</span>
+                          <span className="font-sans text-[13px] md:text-sm text-[var(--c-fg)] group-hover:text-[var(--c-highlight)] transition-colors leading-relaxed">Waterview Plaza, Suite 310,<br/>Parsippany, NJ 07054, USA</span>
                         </div>
                       </div>
                     </div>
@@ -138,7 +138,7 @@ export default function ReadyToCollaborate() {
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="glass shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-[var(--radius-card)] p-8 border border-[var(--c-highlight)]/30 bg-gradient-to-br from-[var(--c-highlight)]/10 to-transparent relative overflow-hidden group bg-[var(--c-bg2)]">
+              <div className="glass shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-[var(--radius-card)] p-6 md:p-8 border border-[var(--c-highlight)]/30 bg-gradient-to-br from-[var(--c-highlight)]/10 to-transparent relative overflow-hidden group bg-[var(--c-bg2)]">
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--c-highlight)]/10 rounded-full blur-3xl group-hover:bg-[var(--c-highlight)]/20 transition-all duration-700" />
                 <h3 className="font-sans font-black text-4xl text-[var(--c-highlight)] mb-2 tracking-tighter">48H</h3>
                 <div className="font-sans font-black text-xs tracking-[0.2em] uppercase text-[var(--c-fg)] mb-2">Guaranteed Response</div>

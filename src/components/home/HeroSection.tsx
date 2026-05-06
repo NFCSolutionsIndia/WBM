@@ -96,7 +96,7 @@ export default function HeroSection() {
           {/* ── Hero Text ── */}
           {mounted && (
             <motion.div
-              className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-32 md:justify-center md:pt-32 px-6 text-center"
+              className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-20 md:justify-center md:pt-32 px-6 text-center"
             >
               {/* Pill badge */}
               <motion.div
@@ -134,7 +134,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.7 }}
-                className="font-sans text-sm md:text-xl text-white/60 max-w-2xl mb-6 leading-relaxed"
+                className="font-sans text-sm md:text-xl text-white/60 max-w-2xl mb-4 md:mb-6 leading-relaxed"
               >
                 100% uptime. 6-layer encryption. 15-year leases. Bring your NVIDIA, Cisco, and Juniper; we handle the rest.
               </motion.p>
@@ -144,7 +144,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.7 }}
-                className="flex flex-wrap justify-center gap-2 mb-8"
+                className="flex flex-wrap justify-center gap-2 mb-4 md:mb-8"
               >
                 {[
                   { label: "98% recovery", color: "border-[#839470]/30 text-[#839470]" },
@@ -162,7 +162,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.7 }}
-                className="flex flex-col items-center gap-12"
+                className="flex flex-col items-center gap-6 md:gap-12"
               >
                 <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
                   <button className="min-w-[200px] md:min-w-[240px] px-6 py-3 md:px-8 md:py-4 rounded-full bg-[var(--c-highlight)] text-black font-sans font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:brightness-110 transition-all shadow-[0_0_30px_rgba(131,148,112,0.3)]">

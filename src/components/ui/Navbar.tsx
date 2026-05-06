@@ -164,8 +164,8 @@ export default function Navbar() {
           ))}
         </div>
  
-        {/* Right Section (Theme Toggle + CTA) */}
-        <div className="hidden md:flex items-center shrink-0 gap-3">
+        {/* Right Section (Theme Toggle + CTA) - Only Desktop */}
+        <div className="hidden xl:flex items-center shrink-0 gap-3">
           <button onClick={toggle} className="p-2 rounded-full border border-[var(--c-border)] text-[var(--c-fg)] hover:bg-[var(--c-fg)]/10 transition-colors">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>

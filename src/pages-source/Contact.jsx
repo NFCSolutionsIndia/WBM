@@ -4,28 +4,37 @@ import { Mail, Phone, MapPin, Send, MessageCircle, Globe, Clock, ChevronDown } f
 import LineWaves from '../components/ui/backgrounds/LineWaves';
 import Button from '../components/ui/Button';
 
+import GlobalFootprint from '../components/home/GlobalFootprint';
+
 const Contact = () => {
   const [intent, setIntent] = useState("Material Partnership");
   const offices = [
     {
-      city: "New Jersey",
+      city: "Houston",
       type: "Global Headquarters",
-      address: "2001 Route 46, Waterview Plaza, Suite 310, Parsippany, NJ 07054, USA",
-      phone: "+1 (800) 555-0198",
+      address: "Energy Tower II, Suite 1100, Houston, TX 77079, USA",
+      phone: "+1 (800) WASTE-BE",
       email: "contact@wastebeminerals.com"
     },
     {
       city: "Ras al-Khaimah",
       type: "EMEA Regional Hub",
-      address: "RAKEZ Business Zone, UAE",
+      address: "RAKEZ Business Zone, Al Nakheel, Ras al-Khaimah, UAE",
       phone: "+971 7 123 4567",
       email: "contact@wastebeminerals.com"
     },
     {
-      city: "New Delhi",
+      city: "Pune",
       type: "APAC Regional Hub",
-      address: "N-161, Okhla Phase III, New Delhi 110020, India",
-      phone: "+91 11 1234 5678",
+      address: "EON Free Zone, Kharadi, Pune, Maharashtra 411014, India",
+      phone: "+91 20 1234 5678",
+      email: "contact@wastebeminerals.com"
+    },
+    {
+      city: "Johannesburg",
+      type: "Southern Africa Hub (Planned)",
+      address: "Sandton City, 5th St, Sandown, Johannesburg, 2196, South Africa",
+      phone: "+27 11 555 0123",
       email: "contact@wastebeminerals.com"
     }
   ];
@@ -86,73 +95,48 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
             
-            {/* LEFT: Information & Offices */}
-            <div className="w-full lg:w-[40%] flex flex-col gap-10 md:gap-16">
+            {/* LEFT: Information & Direct Channels */}
+            <div className="w-full lg:w-[35%] flex flex-col gap-10">
               
               {/* Direct Channels */}
-              <div className="space-y-6 md:space-y-8">
+              <div className="space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-px bg-[var(--c-lime)]"></div>
                   <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--c-lime)]">Direct Channels</h2>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-6 md:gap-8">
-                  <div className="flex items-center gap-4 md:gap-5 group">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
-                      <Mail size={20} className="md:w-6 md:h-6" />
+                <div className="flex flex-col gap-8">
+                  <div className="flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
+                      <Mail size={24} />
                     </div>
                     <div>
                       <div className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest mb-1">General Inquiries</div>
-                      <div className="text-base md:text-xl font-bold text-[var(--c-fg)] break-all">contact@wastebeminerals.com</div>
+                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] whitespace-nowrap">contact@wastebeminerals.com</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 md:gap-5 group">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
-                      <Phone size={20} className="md:w-6 md:h-6" />
+                  <div className="flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-2xl bg-[var(--c-fg)]/5 flex items-center justify-center text-[var(--c-lime)] group-hover:bg-[var(--c-lime)] group-hover:text-[var(--c-bg)] transition-all duration-300 flex-shrink-0">
+                      <Phone size={24} />
                     </div>
                     <div>
                       <div className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest mb-1">Toll-Free Support</div>
-                      <div className="text-base md:text-xl font-bold text-[var(--c-fg)] break-all">+1 (800) WASTE-BE</div>
+                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] whitespace-nowrap">+1 (800) WASTE-BE</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Global Offices */}
-              <div className="space-y-10">
-                <div className="flex items-center gap-4">
-                  <div className="w-8 h-px bg-[var(--c-lime)]"></div>
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--c-lime)]">Global Footprint</h2>
-                </div>
-                
-                <div className="space-y-10 md:space-y-12">
-                  {offices.map((office, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="group flex gap-5 md:gap-6"
-                    >
-                      <div className="text-[var(--c-fg)]/20 font-black text-2xl md:text-3xl group-hover:text-[var(--c-lime)] transition-colors duration-500 leading-none">0{idx + 1}</div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg md:text-xl font-bold text-[var(--c-fg)] mb-1 uppercase tracking-tight">{office.city}</h3>
-                        <div className="text-[9px] md:text-[10px] font-bold text-[var(--c-lime)] uppercase tracking-widest mb-3">{office.type}</div>
-                        <p className="text-[var(--c-fg)]/70 font-medium text-sm md:text-base leading-relaxed mb-4 max-w-xs">{office.address}</p>
-                        <div className="flex flex-col gap-2 text-[11px] font-bold text-[var(--c-fg)]/60">
-                          <span className="flex items-center gap-2 hover:text-[var(--c-lime)] transition-colors cursor-pointer"><Phone size={12} /> {office.phone}</span>
-                          <span className="flex items-center gap-2 hover:text-[var(--c-lime)] transition-colors cursor-pointer break-all"><Mail size={12} /> {office.email}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+              {/* Added value statement to fill space nicely */}
+              <div className="hidden lg:block p-8 rounded-[10px] bg-[var(--c-fg)]/[0.03] border border-[var(--c-border)]">
+                <h4 className="text-[var(--c-fg)] font-bold text-sm mb-3 uppercase tracking-tight">Rapid Response Protocol</h4>
+                <p className="text-[var(--c-fg)]/60 text-xs leading-relaxed font-medium">Our global desk operates 24/7 to ensure your inquiry is routed to the correct regional hub within 4 hours.</p>
               </div>
             </div>
 
             {/* RIGHT: Form Container */}
-            <div className="w-full lg:w-[60%]">
+            <div className="w-full lg:w-[65%]">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -242,6 +226,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* Global Footprint Section */}
+      <GlobalFootprint />
 
       {/* Social & Help Section */}
       <section className="py-12 bg-[var(--c-fg)]/[0.02] border-y border-[var(--c-border)]">

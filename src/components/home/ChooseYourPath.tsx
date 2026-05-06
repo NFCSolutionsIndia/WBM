@@ -174,7 +174,7 @@ export default function ChooseYourPath() {
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 min-h-[500px]">
           
           {/* Left Tabs - Row of icons on mobile, stack on desktop */}
-          <div className="w-full md:w-1/3 flex flex-row md:flex-col gap-2 md:gap-3 justify-center md:justify-start mb-8 md:mb-0">
+          <div className="w-full md:w-1/3 flex flex-wrap md:flex-col gap-2 md:gap-3 justify-center md:justify-start mb-8 md:mb-0">
             {paths.map((path) => {
               const isActive = activeTab === path.id;
               return (
@@ -214,7 +214,7 @@ export default function ChooseYourPath() {
           {/* Right Content Area */}
           <div className="w-full md:w-2/3">
             <TiltCard intensity={2} className="h-full w-full rounded-[var(--radius-card)]">
-              <div className="glass h-full w-full rounded-[inherit] p-8 md:p-12 relative overflow-hidden flex flex-col">
+              <div className="glass h-full w-full rounded-[inherit] p-6 md:p-12 relative overflow-hidden flex flex-col">
                 
                 {/* Glow blob */}
                 <div 
@@ -232,18 +232,18 @@ export default function ChooseYourPath() {
                     className="relative z-10 flex flex-col h-full"
                   >
                     {/* Header */}
-                    <div className="flex items-center gap-6 mb-8">
+                    <div className="flex items-center gap-4 md:gap-6 mb-8">
                       <div 
-                        className="w-16 h-16 rounded-[10px] flex items-center justify-center text-black"
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-[10px] flex items-center justify-center text-black"
                         style={{ background: activePath.accent }}
                       >
                         {activePath.icon}
                       </div>
                       <div>
-                        <h3 className="font-sans font-black  uppercase tracking-tighter text-[var(--c-fg)] mb-1 text-[30px] leading-none">
+                        <h3 className="font-sans font-black uppercase tracking-tighter text-[var(--c-fg)] mb-1 text-[24px] md:text-[30px] leading-none">
                           {activeContent.title}
                         </h3>
-                        <p className="font-sans text-sm tracking-widest text-[var(--c-fg3)] uppercase">
+                        <p className="font-sans text-[10px] md:text-sm tracking-widest text-[var(--c-fg3)] uppercase">
                           {activeContent.subtitle}
                         </p>
                       </div>

@@ -98,7 +98,7 @@ const ForYouTenant = () => {
                 viewport={{ once: true }}
               >
                  <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Architecture</h2>
-                 <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight mb-8">Liquid Cooling <br /> <span className="opacity-40">Integrated Flow.</span></h3>
+                 <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight mb-8">Liquid Cooling <br /> <span className="text-[#839470]">Integrated Flow.</span></h3>
                  <p className="text-lg text-[var(--c-fg2)] mb-10">Indicative cross-section. Recovery occurs at end-of-life — the techniques stay with us.</p>
                  
                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -144,7 +144,7 @@ const ForYouTenant = () => {
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-16">
               <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Leasing Status</h2>
-              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Four Floors. <span className="opacity-40">One is Yours.</span></h3>
+              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Four Floors. <span className="text-[#839470]">One is Yours.</span></h3>
            </div>
 
            <div className="space-y-4 max-w-4xl mx-auto">

@@ -79,11 +79,11 @@ const DataCenters = () => {
              </motion.div>
           </div>
 
-          <div className="relative pt-20">
-            <div className="hidden lg:flex absolute top-0 left-1/2 -translate-x-1/2 flex-col items-center">
+          <div className="relative pt-12 md:pt-20">
+            <div className="flex lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 flex-col items-center mb-12 lg:mb-0">
                <div className="px-6 py-3 rounded-full bg-[var(--c-lime)]/10 border border-[var(--c-lime)] text-[var(--c-lime)] text-xs font-black uppercase tracking-widest mb-4">AI DATA CENTRE</div>
                <div className="text-xl font-black text-[var(--c-fg)] uppercase tracking-tighter">5 Component Categories</div>
-               <div className="w-px h-12 bg-gradient-to-b from-[var(--c-lime)] to-transparent mt-4" />
+               <div className="w-px h-12 bg-gradient-to-b from-[var(--c-lime)] to-transparent mt-4 hidden lg:block" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mt-12">

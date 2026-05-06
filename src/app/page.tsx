@@ -14,6 +14,7 @@ import SystemModel4x5 from "@/components/home/SystemModel4x5";
 import MineralsSection from "@/components/home/MineralsSection";
 import EwasteScrollSequence from "@/components/home/EwasteScrollSequence";
 import GlobalFootprint from "@/components/home/GlobalFootprint";
+import FootprintGlobe from "@/components/home/FootprintGlobe";
 import ReadyToCollaborate from "@/components/home/ReadyToCollaborate";
 import ImpactPurpose from "@/components/home/ImpactPurpose";
 import IndustriesQuickView from "@/components/home/IndustriesQuickView";

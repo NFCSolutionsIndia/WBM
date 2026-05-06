@@ -94,7 +94,7 @@ const ForYouGovernment = () => {
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-16">
               <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">A Semi-Circle of Allies</h2>
-              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Jobs Created <span className="opacity-40">in Each Region.</span></h3>
+              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">Jobs Created <span className="text-[#839470]">in Each Region.</span></h3>
               <p className="mt-4 text-[var(--c-fg2)] font-medium">Every active geography is a partnership commitment to local upskilling.</p>
            </div>
 

@@ -12,6 +12,7 @@ interface ButtonProps {
   variant?: 'primary' | 'outline' | 'ghost';
   showArrow?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  style?: React.CSSProperties;
 }
 
 export default function Button({ 
@@ -21,7 +22,8 @@ export default function Button({
   className = "", 
   variant = 'primary',
   showArrow = false,
-  size = 'md'
+  size = 'md',
+  style
 }: ButtonProps) {
   const sizeClasses = {
     sm: "h-10 px-4 text-[11px]",
@@ -37,6 +39,7 @@ export default function Button({
       onClick={onClick}
       whileHover={{ y: -4, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      style={style}
       className={`relative overflow-hidden rounded-[10px] group border border-[var(--c-border)] ${variant === 'primary' ? 'bg-[var(--c-fg)] shadow-[0_10px_20px_rgba(0,0,0,0.1)]' : 'bg-[var(--c-bg)] shadow-sm'} flex items-center justify-center transition-all duration-300 ${sizeClasses[size]} ${className}`}
     >
       {/* Hover background slide */}

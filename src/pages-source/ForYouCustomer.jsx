@@ -139,7 +139,7 @@ const ForYouCustomer = () => {
                 viewport={{ once: true }}
               >
                  <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Battery Anatomy</h2>
-                 <h3 className="section-title text-[var(--c-fg)] mb-8">EV Battery <br /> <span className="opacity-40">Exploded View.</span></h3>
+                 <h3 className="section-title text-[var(--c-fg)] mb-8">EV Battery <br /> <span className="text-[#839470]">Exploded View.</span></h3>
                  <p className="text-lg text-[var(--c-fg2)] mb-10">Tap the pack to separate it into layers. Each layer lists the minerals WBM extracts via the LiBERT™ engine.</p>
                  
                  <div className="space-y-4">
@@ -174,41 +174,121 @@ const ForYouCustomer = () => {
         <div className="max-w-7xl mx-auto px-6">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="p-10 rounded-[32px] border border-[var(--c-border)] bg-[var(--c-bg2)] relative overflow-hidden"
+                className="relative group perspective-1000"
               >
-                 <div className="flex justify-between items-start mb-8">
-                    <div className="flex items-center gap-3">
-                       <ShieldCheck className="text-[var(--c-lime)]" size={32} />
-                       <div>
-                          <h4 className="text-xl font-bold text-[var(--c-fg)] uppercase">WBM Battery Passport</h4>
-                          <div className="text-[10px] text-[var(--c-fg2)] font-bold tracking-widest">ID: WBM-BP-2026-00487</div>
+                 <TiltCard
+                    className={`p-0 rounded-[24px] border transition-colors duration-500 overflow-hidden min-h-[450px] ${
+                      theme === 'dark' 
+                        ? "border-white/10 bg-[#0c0d0b] shadow-2xl" 
+                        : "border-black/10 bg-white shadow-[0_30px_60px_rgba(0,0,0,0.1)]"
+                    }`}
+                    glowColor={theme === 'dark' ? "rgba(131, 148, 112, 0.4)" : "rgba(131, 148, 112, 0.2)"}
+                 >
+                    {/* Passport Header */}
+                    <div className={`p-6 border-b transition-colors duration-500 flex justify-between items-center ${
+                      theme === 'dark' ? "bg-[#1a1c18] border-white/5" : "bg-gray-50 border-black/5"
+                    }`}>
+                       <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-[var(--c-highlight)] flex items-center justify-center text-black font-black text-[10px]">WBM</div>
+                          <div>
+                             <h4 className={`text-[10px] font-black uppercase tracking-[0.3em] leading-none mb-1 ${
+                               theme === 'dark' ? "text-white/40" : "text-black/40"
+                             }`}>Global Standard</h4>
+                             <h4 className={`text-sm font-black uppercase tracking-tighter leading-none ${
+                               theme === 'dark' ? "text-white" : "text-black"
+                             }`}>Battery Passport</h4>
+                          </div>
+                       </div>
+                       <div className="text-right">
+                          <div className="text-[8px] font-black text-[var(--c-highlight)] uppercase tracking-widest mb-1">LiBERT™ Certified</div>
+                          <div className={`text-[10px] font-mono ${theme === 'dark' ? "text-white/30" : "text-black/30"}`}>ID: WBM-BP-2026-00487</div>
                        </div>
                     </div>
-                    <div className="px-3 py-1 rounded-full bg-[var(--c-lime)]/20 text-[var(--c-lime)] text-[9px] font-black uppercase tracking-widest">LiBERT-Certified</div>
-                 </div>
-                 
-                 <div className="space-y-6">
-                    <div>
-                       <div className="text-[9px] font-bold text-[var(--c-fg2)] uppercase tracking-widest mb-2">Verification Partners</div>
-                       <div className="flex flex-wrap gap-2">
-                          {["Circulor", "Everledger", "IBM Blockchain", "Minespider", "RCS Global"].map(p => (
-                            <span key={p} className="px-3 py-1 rounded-md border border-[var(--c-border)] bg-[var(--c-bg)] text-[10px] font-bold text-[var(--c-fg)]/60 uppercase">{p}</span>
-                          ))}
+
+                    <div className="p-8 relative">
+                       {/* Holographic Watermark */}
+                       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-[80px] pointer-events-none transition-all ${
+                         theme === 'dark' ? "bg-[var(--c-highlight)]/5 group-hover:bg-[var(--c-highlight)]/10" : "bg-[var(--c-highlight)]/10 group-hover:bg-[var(--c-highlight)]/20"
+                       }`} />
+
+                       <div className="flex flex-col md:flex-row gap-8 mb-8 relative z-10">
+                          {/* Photo / ID Area */}
+                          <div className="shrink-0">
+                             <div className={`w-32 h-40 rounded-xl border overflow-hidden relative group/photo transition-colors duration-500 ${
+                               theme === 'dark' ? "bg-black/40 border-white/10" : "bg-gray-50 border-black/10 shadow-inner"
+                             }`}>
+                                <div className={`absolute inset-0 z-10 ${
+                                  theme === 'dark' ? "bg-gradient-to-t from-black/80 via-transparent to-transparent" : "bg-gradient-to-t from-black/10 via-transparent to-transparent"
+                                }`} />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                   <Cpu size={60} className={`transition-transform duration-700 ${
+                                     theme === 'dark' ? "text-[var(--c-highlight)]/20 group-hover/photo:scale-110" : "text-[var(--c-highlight)]/30 group-hover/photo:scale-110"
+                                   }`} />
+                                </div>
+                                {/* Technical scan lines overlay */}
+                                <div className={`absolute inset-0 opacity-20 pointer-events-none ${
+                                  theme === 'dark' ? "bg-[repeating-linear-gradient(transparent,transparent_2px,rgba(255,255,255,0.05)_3px)]" : "bg-[repeating-linear-gradient(transparent,transparent_2px,rgba(0,0,0,0.05)_3px)]"
+                                }`} />
+                                <div className={`absolute bottom-3 left-3 z-20 text-[8px] font-black tracking-widest uppercase ${
+                                  theme === 'dark' ? "text-white/50" : "text-black/40"
+                                }`}>Verified</div>
+                             </div>
+                          </div>
+
+                          {/* Data Fields */}
+                          <div className="flex-grow grid grid-cols-2 gap-y-4 gap-x-6">
+                             {[
+                                { label: "Type", val: "LFP / NMC" },
+                                { label: "Nationality", val: "WBM-EU/US" },
+                                { label: "Recovery %", val: "99.8%" },
+                                { label: "Carbon Basln", val: "-84.2%" },
+                                { label: "Issue Date", val: "12 MAY 2026" },
+                                { label: "Expiry Date", val: "PERPETUAL" },
+                             ].map((f, i) => (
+                               <div key={i}>
+                                  <div className="text-[8px] font-black text-[var(--c-highlight)] uppercase tracking-widest mb-1">{f.label}</div>
+                                  <div className={`text-xs font-black uppercase tracking-tighter ${
+                                    theme === 'dark' ? "text-white/80" : "text-black/80"
+                                  }`}>{f.val}</div>
+                               </div>
+                             ))}
+                          </div>
+                       </div>
+
+                       {/* Visa / Stamp Area */}
+                       <div className="mb-8 relative z-10">
+                          <div className={`text-[8px] font-black uppercase tracking-[0.2em] mb-4 border-b pb-2 ${
+                            theme === 'dark' ? "text-white/30 border-white/5" : "text-black/30 border-black/5"
+                          }`}>Verification Stamps</div>
+                          <div className="flex flex-wrap gap-2">
+                             {["Circulor", "Everledger", "IBM", "Minespider", "RCS"].map(p => (
+                               <span key={p} className={`px-3 py-1 rounded-md border text-[8px] font-black uppercase tracking-widest transition-all cursor-default ${
+                                 theme === 'dark' 
+                                   ? "border-white/5 bg-white/5 text-white/40 hover:text-[var(--c-highlight)] hover:border-[var(--c-highlight)]/30" 
+                                   : "border-black/5 bg-black/5 text-black/40 hover:text-[var(--c-highlight)] hover:border-[var(--c-highlight)]/30 shadow-sm"
+                               }`}>{p}</span>
+                             ))}
+                          </div>
+                       </div>
+
+                       {/* Machine Readable Zone (MRZ) */}
+                       <div className={`p-4 rounded-xl border font-mono text-[9px] tracking-[0.1em] leading-relaxed break-all relative overflow-hidden group/mrz transition-colors ${
+                         theme === 'dark' ? "bg-white/5 border-white/5 text-white/20" : "bg-black/5 border-black/5 text-black/40"
+                       }`}>
+                          <div className="absolute top-0 left-0 w-full h-[1px] bg-[var(--c-highlight)]/20 group-hover/mrz:translate-y-12 transition-transform duration-[3s] ease-linear" />
+                          P&lt;WBM&lt;&lt;BATTERY&lt;PASSPORT&lt;&lt;2026&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br />
+                          0x71C7656EC7AB88B098DEFB751B7401B5F6D8976F&lt;&lt;&lt;LIBERT&lt;&lt;
                        </div>
                     </div>
-                    <div className="p-4 rounded-xl bg-black/20 border border-white/5">
-                       <div className="text-[9px] font-bold text-[var(--c-fg2)] uppercase tracking-widest mb-2">Signatures recorded on-chain</div>
-                       <div className="font-mono text-[9px] text-[var(--c-lime)]/50 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F...</div>
-                    </div>
-                 </div>
+                 </TiltCard>
               </motion.div>
               
               <div className="space-y-8">
                  <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase">Traceability</h2>
-                 <h3 className="section-title text-[var(--c-fg)]">Battery passport, <br /> <span className="opacity-40">Ready for the EU & IRA.</span></h3>
+                 <h3 className="section-title text-[var(--c-fg)]">Battery passport, <br /> <span className="text-[#839470]">Ready for the EU & IRA.</span></h3>
                  <p className="text-lg text-[var(--c-fg2)]">Every output ships with a verifiable chain-of-custody record meeting EU Battery Regulation and US IRA reporting requirements.</p>
                  <ul className="space-y-4">
                     {["Per-lot recovery rate, audited", "Carbon footprint vs virgin baseline", "Conflict-free verification", "Multi-provider chain-of-custody"].map((item, i) => (
@@ -449,7 +529,7 @@ const ForYouCustomer = () => {
       <section className="py-24 bg-[var(--c-fg)]/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
            <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Post-NDA Access</h2>
-           <h3 className="section-title text-[var(--c-fg)] mb-16">Restricted <span className="opacity-40">Intelligence.</span></h3>
+           <h3 className="section-title text-[var(--c-fg)] mb-16">Restricted <span className="text-[#839470]">Intelligence.</span></h3>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[

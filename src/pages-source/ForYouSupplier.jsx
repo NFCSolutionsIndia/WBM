@@ -79,7 +79,7 @@ const ForYouSupplier = () => {
         <div className="max-w-7xl mx-auto px-6">
            <div className="text-center mb-16">
               <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Acceptance Policy</h2>
-              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">What We <span className="opacity-40">Accept.</span></h3>
+              <h3 className="section-title font-black text-[var(--c-fg)] uppercase tracking-tight">What We <span className="text-[#839470]">Accept.</span></h3>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

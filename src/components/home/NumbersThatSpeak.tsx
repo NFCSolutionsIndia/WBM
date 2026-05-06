@@ -42,7 +42,7 @@ const highlights = [
   { value: "11", label: "Minerals" },
   { value: "30", label: "Energy Save %" },
   { value: "100", label: "Circular %" },
-  { value: "24/7", label: "Operation" },
+  { value: "24/7", label: "Operation", isStatic: true }
 ];
 
 export default function NumbersThatSpeak() {
@@ -92,7 +92,7 @@ export default function NumbersThatSpeak() {
               {highlights.map((h, i) => (
                 <div key={h.label} className="p-6 bg-black/40 backdrop-blur-md transition-colors hover:bg-black/60 group">
                   <div className="font-sans font-black text-4xl text-[var(--c-highlight)] tracking-tighter mb-1 group-hover:scale-110 transition-transform origin-left">
-                    <CountUp value={h.value} />
+                    {h.isStatic ? h.value : <CountUp value={h.value} />}
                   </div>
                   <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">
                     {h.label}

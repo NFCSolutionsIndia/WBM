@@ -30,5 +30,10 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "WBM_home_revert_backup_v2",
+    "WBM_mobile_responsive_backup_final_v1",
+    "WBM_mobile_responsive_backup_v1"
+  ]
 }

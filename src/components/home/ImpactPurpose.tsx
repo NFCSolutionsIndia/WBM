@@ -83,10 +83,10 @@ export default function ImpactPurpose() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] overflow-hidden py-10">
+    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] overflow-hidden py-6 md:py-20">
 
       {/* ── TOP: Heading ───────────────────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto px-6 mb-16 text-center">
+      <div className="max-w-5xl mx-auto px-6 mb-10 md:mb-16 text-center">
         <ScrollReveal>
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-[var(--c-border)] bg-[var(--c-bg2)] shadow-sm">
             <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
@@ -108,7 +108,7 @@ export default function ImpactPurpose() {
 
 
       {/* ── MIDDLE: Grid Cards ─────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 mb-20">
+      <div className="max-w-7xl mx-auto px-6 mb-10 md:mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {BLOCKS.map((block, i) => (
             <Block key={block.num} block={block} index={i} />

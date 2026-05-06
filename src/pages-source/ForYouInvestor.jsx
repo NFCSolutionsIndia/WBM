@@ -1,12 +1,38 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { TrendingUp, ShieldCheck, Globe, Lock, BarChart3, Recycle, Database, Zap, ArrowRight, DollarSign, Award, ChevronRight, Activity, LineChart as LineChartIcon, PieChart } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TrendingUp, ShieldCheck, Globe, Lock, BarChart3, Recycle, Database, Zap, ArrowRight, DollarSign, Award, ChevronRight, Activity, LineChart as LineChartIcon, PieChart, Cpu, Play, Pause, Maximize } from 'lucide-react';
 import Galaxy from '../components/ui/backgrounds/Galaxy';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import Button from '../components/ui/Button';
 
 const ForYouInvestor = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleFullScreen = (e) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitRequestFullscreen) {
+        videoRef.current.webkitRequestFullscreen();
+      } else if (videoRef.current.msRequestFullscreen) {
+        videoRef.current.msRequestFullscreen();
+      }
+    }
+  };
   const stats = [
     { label: "TAM by 2030", value: "$120", suffix: "B", icon: <TrendingUp size={20} /> },
     { label: "Countries Active", value: "4", suffix: "", icon: <Globe size={20} /> },
@@ -77,7 +103,7 @@ const ForYouInvestor = () => {
                className="space-y-8"
              >
                 <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase">Investor Thesis</h2>
-                <h3 className="section-title text-[var(--c-fg)]">90 Seconds <br /> <span className="opacity-40">on the moat.</span></h3>
+                <h3 className="section-title text-[var(--c-fg)]">90 Seconds <br /> <span className="text-[#839470]">on the moat.</span></h3>
                 <div className="space-y-6">
                    {[
                      "Four megatrends converging on critical minerals.",
@@ -92,17 +118,67 @@ const ForYouInvestor = () => {
                 </div>
              </motion.div>
              <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
+               initial={{ opacity: 0, scale: 0.95 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
-               className="relative rounded-[32px] overflow-hidden border border-[var(--c-border)] aspect-video bg-[var(--c-bg2)] flex items-center justify-center group"
+               className="relative rounded-[32px] overflow-hidden border border-[var(--c-border)] aspect-video bg-black group shadow-2xl cursor-pointer"
+               onClick={togglePlay}
              >
-                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--c-lime)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <LineChartIcon className="w-24 h-24 text-[var(--c-lime)]/20 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute bottom-8 left-8 text-left">
-                   <div className="text-[var(--c-lime)] font-black text-[10px] uppercase tracking-widest mb-2">Unit Economics</div>
-                   <div className="text-white font-black text-2xl uppercase">Defensible Moat</div>
+                <video 
+                  ref={videoRef}
+                  src="/WBM/media/90_Seconds_on_The_Moat.mp4" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                />
+                
+                {/* Play/Pause Overlay Icon */}
+                <AnimatePresence>
+                  {!isPlaying && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.5 }}
+                      className="absolute inset-0 flex items-center justify-center z-30 bg-black/20 backdrop-blur-[2px]"
+                    >
+                       <div className="w-20 h-20 bg-[var(--c-highlight)] rounded-full flex items-center justify-center shadow-[0_0_30px_var(--c-highlight)]">
+                          <Play size={40} className="text-black fill-black ml-1" />
+                       </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Overlay Accents */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                
+                <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1 bg-black/40 backdrop-blur-md rounded-full border border-white/10 z-20">
+                   <div className="w-1.5 h-1.5 rounded-full bg-[var(--c-lime)] animate-pulse" />
+                   <span className="text-[10px] font-black text-white uppercase tracking-widest">Moat Analysis</span>
                 </div>
+
+                {/* Full View Button */}
+                <button 
+                  onClick={handleFullScreen}
+                  className="absolute top-6 right-6 w-10 h-10 bg-black/40 backdrop-blur-md rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[var(--c-highlight)] hover:text-black transition-all z-20"
+                >
+                   <Maximize size={18} />
+                </button>
+                
+                {/* Bottom Label */}
+                <div className="absolute bottom-8 left-8 text-left z-20">
+                   <div className="text-[10px] font-black text-[var(--c-highlight)] uppercase tracking-widest mb-1">Executive Summary</div>
+                   <div className="text-2xl font-black text-white uppercase tracking-tighter">90 Seconds on the Moat</div>
+                </div>
+
+                {/* Interactive Pause Hint */}
+                {isPlaying && (
+                  <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-40 transition-opacity flex items-center gap-2 text-[var(--c-highlight)] z-20">
+                    <span className="text-[8px] font-black uppercase tracking-widest">Click to Pause</span>
+                    <Pause size={12} />
+                  </div>
+                )}
              </motion.div>
           </div>
         </div>
@@ -148,7 +224,7 @@ const ForYouInvestor = () => {
            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
               <div className="text-left">
                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[var(--c-lime)] mb-4">The Moat</h2>
-                 <h3 className="section-title text-[var(--c-fg)]">Five Revenue Streams. <br /><span className="opacity-40">One Floor Plan.</span></h3>
+                 <h3 className="section-title text-[var(--c-fg)]">Five Revenue Streams. <br /><span className="text-[#839470]">One Floor Plan.</span></h3>
               </div>
               <p className="text-lg text-[var(--c-fg2)] font-medium max-w-md">Every offering feeds multiple streams. The shared infrastructure is the moat.</p>
            </div>
@@ -335,7 +411,7 @@ const ForYouInvestor = () => {
       <section className="py-24 bg-[var(--c-fg)]/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
            <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-lime)] uppercase mb-4">Post-NDA Access</h2>
-           <h3 className="section-title text-[var(--c-fg)] mb-16">Restricted <span className="opacity-40">Intelligence.</span></h3>
+           <h3 className="section-title text-[var(--c-fg)] mb-16">Restricted <span className="text-[#839470]">Intelligence.</span></h3>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[

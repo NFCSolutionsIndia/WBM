@@ -105,7 +105,7 @@ const WhatWeDo = () => {
               { mineral: "Aluminium", sym: "Al", id: "13", desc: "Casings, busbars, structural — sold as crushed powder too.", icon: <Layers size={20} /> },
               { mineral: "Lead", sym: "Pb", id: "82", desc: "Solder reclaim, radiation shielding, legacy battery anodes.", icon: <Layers size={20} /> }
             ].map((m, idx) => (
-              <div key={idx} className="p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] hover:border-[var(--c-lime)]/30 transition-all group">
+              <div key={idx} className="p-6 md:p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] hover:border-[var(--c-lime)]/30 transition-all group">
                 <div className="flex justify-between items-start mb-6">
                   <div className="w-10 h-10 rounded-xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)]">
                     {m.icon}
@@ -177,11 +177,11 @@ const WhatWeDo = () => {
                    { mineral: "Cobalt", sym: "Co", id: "27", desc: "NMC/NCA cathodes — energy density and cycle life.", icon: <Battery size={24} /> },
                    { mineral: "Nickel", sym: "Ni", id: "28", desc: "High-nickel cathodes for long-range EVs.", icon: <Battery size={24} /> }
                  ].map((m, idx) => (
-                   <div key={idx} className="p-6 rounded-2xl bg-[var(--c-fg)]/5 border border-[var(--c-border)] flex items-center gap-6 group hover:border-[var(--c-lime)]/30 transition-all">
+                   <div key={idx} className="p-5 md:p-6 rounded-2xl bg-[var(--c-fg)]/5 border border-[var(--c-border)] flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 group hover:border-[var(--c-lime)]/30 transition-all">
                      <div className="w-12 h-12 rounded-xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shrink-0">
                        {m.icon}
                      </div>
-                     <div className="flex-1">
+                     <div className="flex-1 w-full">
                         <div className="flex justify-between items-center mb-1">
                           <h3 className="text-lg font-bold text-[var(--c-fg)] uppercase">{m.mineral}</h3>
                           <div className="text-right">
@@ -251,26 +251,26 @@ const WhatWeDo = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-             {[
-               { mineral: "Neodymium", sym: "Nd", id: "60", desc: "The core of high-strength permanent magnets.", icon: <Magnet size={24} /> },
-               { mineral: "Dysprosium", sym: "Dy", id: "66", desc: "Critical for maintaining magnetism at high temperatures.", icon: <Magnet size={24} /> }
-             ].map((m, idx) => (
-               <div key={idx} className="p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] flex items-center gap-8 group hover:border-[var(--c-lime)]/30 transition-all">
-                  <div className="w-16 h-16 rounded-2xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shrink-0">
-                    {m.icon}
-                  </div>
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-xl font-bold text-[var(--c-fg)] uppercase">{m.mineral}</h3>
-                      <div className="text-right">
-                        <span className="text-3xl font-black text-[var(--c-fg)] tracking-tighter mr-3">{m.sym}</span>
-                        <span className="text-xs font-bold text-[var(--c-fg3)] uppercase">#{m.id}</span>
-                      </div>
-                    </div>
-                    <p className="text-base text-[var(--c-fg3)] font-medium leading-relaxed">{m.desc}</p>
-                  </div>
-               </div>
-             ))}
+              {[
+                { mineral: "Neodymium", sym: "Nd", id: "60", desc: "The core of high-strength permanent magnets.", icon: <Magnet size={24} /> },
+                { mineral: "Dysprosium", sym: "Dy", id: "66", desc: "Critical for maintaining magnetism at high temperatures.", icon: <Magnet size={24} /> }
+              ].map((m, idx) => (
+                <div key={idx} className="p-6 md:p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 group hover:border-[var(--c-lime)]/30 transition-all">
+                   <div className="w-16 h-16 rounded-2xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] shrink-0">
+                     {m.icon}
+                   </div>
+                   <div className="flex-1 w-full">
+                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
+                       <h3 className="text-xl font-bold text-[var(--c-fg)] uppercase">{m.mineral}</h3>
+                       <div className="text-left sm:text-right">
+                         <span className="text-2xl sm:text-3xl font-black text-[var(--c-fg)] tracking-tighter mr-3">{m.sym}</span>
+                         <span className="text-xs font-bold text-[var(--c-fg3)] uppercase">#{m.id}</span>
+                       </div>
+                     </div>
+                     <p className="text-base text-[var(--c-fg3)] font-medium leading-relaxed">{m.desc}</p>
+                   </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>

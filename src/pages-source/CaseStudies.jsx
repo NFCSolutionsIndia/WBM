@@ -87,37 +87,38 @@ const CaseStudies = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="relative aspect-[16/10] rounded-[10px] overflow-hidden mb-8 shadow-md">
+                <div className="relative aspect-[16/10] rounded-[10px] overflow-hidden mb-6 shadow-md border border-[var(--c-border)] group-hover:border-[var(--c-lime)]/30 transition-colors">
                   <img 
                     src={item.image} 
                     alt={item.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute top-6 left-6 bg-[var(--c-bg)]/90 backdrop-blur-md px-4 py-2 rounded-lg flex items-center gap-3 shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+                  <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-2 shadow-lg">
                     {item.icon}
-                    <span className="font-bold text-[var(--c-fg)] text-sm uppercase tracking-wider">{item.category}</span>
+                    <span className="font-black text-white text-[10px] uppercase tracking-[0.2em]">{item.category}</span>
                   </div>
                 </div>
                 
-                <div className="flex flex-col md:flex-row justify-between gap-6">
+                <div className="flex flex-col md:flex-row justify-between gap-6 px-2">
                   <div className="flex-grow max-w-xl">
-                    <h3 className="section-title text-2xl  font-bold text-[var(--c-fg)] mb-4 leading-tight group-hover:text-[var(--c-lime)] transition-colors">
+                    <h3 className="text-[24px] md:text-[30px] font-black text-[var(--c-fg)] mb-3 leading-tight tracking-tighter uppercase group-hover:text-[var(--c-highlight)] transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-gray-500 font-medium leading-relaxed mb-6">
+                    <p className="text-[var(--c-fg2)] font-medium leading-relaxed mb-6 text-sm md:text-base opacity-80">
                       {item.description}
                     </p>
-                    <Button variant="ghost" className="flex items-center gap-2 group/btn p-0">
-                      View full case study
-                    </Button>
+                    <div className="flex items-center gap-2 group/btn text-[var(--c-highlight)] font-bold text-xs uppercase tracking-widest cursor-pointer">
+                      <span>View full case study</span>
+                      <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                   
-                  <div className="shrink-0 text-right">
-                    <div className="text-5xl font-bold text-[var(--c-lime)] leading-none mb-1 tracking-tighter">
+                  <div className="shrink-0 text-left md:text-right flex flex-col justify-start md:items-end">
+                    <div className="text-4xl md:text-5xl font-black text-[var(--c-highlight)] leading-none mb-1 tracking-tighter lime-glow-text">
                       {item.impact}
                     </div>
-                    <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    <div className="text-[10px] font-black text-[var(--c-fg3)] uppercase tracking-[0.2em] whitespace-nowrap">
                       {item.impactLabel}
                     </div>
                   </div>
@@ -156,46 +157,84 @@ const CaseStudies = () => {
               </div>
             </div>
             
-            <div className="relative w-full md:w-1/3 aspect-square flex items-center justify-center">
-              {/* Outer Pulsing Ring */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 border border-[var(--c-lime)] rounded-full"
-              />
-              
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="w-full h-full border border-white/10 rounded-full flex items-center justify-center relative"
-              >
-                {/* Orbiting particles */}
-                {[0, 120, 240].map((angle) => (
-                  <div 
-                    key={angle}
-                    className="absolute w-2 h-2 bg-[var(--c-lime)] rounded-full"
-                    style={{ 
-                      top: '50%', 
-                      left: '50%', 
-                      transform: `rotate(${angle}deg) translateX(50%)` 
-                    }}
-                  />
-                ))}
-
-                <div className="w-[80%] h-[80%] border border-white/20 rounded-full flex items-center justify-center">
-                   <div className="w-[60%] h-[60%] border border-white/40 rounded-full flex items-center justify-center">
+             <div className="relative w-full md:w-1/3 aspect-square flex items-center justify-center scale-90 md:scale-110">
+                {/* Background Tech Aura */}
+                <div className="absolute inset-0 bg-[var(--c-highlight)]/5 rounded-full blur-[100px]" />
+                
+                {/* The Recovery Vortex */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                   
+                   {/* Central Recovery Core */}
+                   <motion.div 
+                     animate={{ 
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 90, 180, 270, 360]
+                     }}
+                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                     className="relative z-30 w-32 h-32 border-2 border-[var(--c-highlight)]/30 rounded-2xl flex items-center justify-center shadow-[0_0_50px_rgba(131,148,112,0.3)]"
+                   >
+                      <div className="absolute inset-0 bg-[var(--c-highlight)]/5 backdrop-blur-sm rounded-[inherit]" />
+                      <Cpu size={48} className="text-[var(--c-highlight)] relative z-10" />
+                      
+                      {/* Scanning Effect */}
                       <motion.div 
-                        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-4 h-4 bg-[var(--c-lime)] rounded-full shadow-[0_0_15px_var(--c-highlight)]"
+                        animate={{ top: ['-20%', '120%'], opacity: [0, 1, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute left-0 right-0 h-1 bg-[var(--c-highlight)]/50 blur-sm z-20"
                       />
+                   </motion.div>
+
+                   {/* Orbiting Minerals */}
+                   {[
+                      { symbol: "Au", color: "#f59e0b", label: "Gold" },
+                      { symbol: "Li", color: "#06b6d4", label: "Lithium" },
+                      { symbol: "Co", color: "#8b5cf6", label: "Cobalt" },
+                      { symbol: "Ni", color: "#10b981", label: "Nickel" },
+                      { symbol: "Cu", color: "#ef4444", label: "Copper" },
+                      { symbol: "Pd", color: "#94a3b8", label: "Palladium" }
+                   ].map((mineral, i) => (
+                      <motion.div
+                        key={i}
+                        animate={{ 
+                           rotate: 360,
+                        }}
+                        transition={{ 
+                           duration: 8 + i * 2, 
+                           repeat: Infinity, 
+                           ease: "linear" 
+                        }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                         <motion.div 
+                           animate={{ scale: [1, 1.2, 1] }}
+                           transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
+                           className="flex flex-col items-center translate-x-28 md:translate-x-40"
+                           style={{ rotate: `-${(8 + i * 2) * 360}deg` }}
+                         >
+                            <div 
+                              className="w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-black text-black shadow-lg backdrop-blur-sm"
+                              style={{ backgroundColor: mineral.color }}
+                            >
+                               {mineral.symbol}
+                            </div>
+                            <div className="mt-1 text-[7px] font-black text-white/40 uppercase tracking-tighter">
+                               {mineral.label}
+                            </div>
+                         </motion.div>
+                      </motion.div>
+                   ))}
+
+                   {/* Telemetry Readouts */}
+                   <div className="absolute top-0 right-0 border-t border-r border-[var(--c-highlight)]/30 pr-4 pt-2 text-right">
+                      <div className="text-[8px] font-black text-[var(--c-highlight)] uppercase tracking-widest opacity-40">Recovery</div>
+                      <div className="text-sm font-black text-white">99.2%</div>
+                   </div>
+                   <div className="absolute bottom-0 left-0 border-b border-l border-[var(--c-highlight)]/30 pl-4 pb-2 text-left">
+                      <div className="text-[8px] font-black text-[var(--c-highlight)] uppercase tracking-widest opacity-40">Purity</div>
+                      <div className="text-sm font-black text-white">4N+ GOLD</div>
                    </div>
                 </div>
-              </motion.div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="text-6xl font-bold text-white/5 select-none">WBM</div>
-              </div>
-            </div>
+             </div>
           </div>
         </div>
         

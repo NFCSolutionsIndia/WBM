@@ -31,14 +31,22 @@ export default function AIAgentChat() {
     <>
       {/* Floating Button */}
       <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
+        initial={{ scale: 0, y: 20 }}
+        animate={{ 
+          scale: 1, 
+          y: 0,
+          transition: { type: "spring", stiffness: 260, damping: 20 }
+        }}
+        whileHover={{ 
+          scale: 1.15,
+          boxShadow: "0 0 40px rgba(217, 255, 0, 0.6)",
+        }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-8 right-8 z-[90] p-4 rounded-full shadow-[0_0_20px_rgba(193,255,0,0.3)] bg-[var(--c-lime)] text-black transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[90] p-5 rounded-full shadow-[0_0_30px_rgba(217,255,0,0.4)] bg-[#d9ff00] text-black transition-all duration-300 group ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
-        <MessageSquare size={28} />
+        <div className="absolute inset-0 rounded-full bg-[#d9ff00] animate-ping opacity-20 group-hover:opacity-40 transition-opacity" />
+        <MessageSquare size={28} className="relative z-10" />
       </motion.button>
 
       {/* Chat Window */}
@@ -49,7 +57,7 @@ export default function AIAgentChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-8 right-8 z-[100] w-[350px] sm:w-[400px] h-[500px] bg-[var(--c-bg2)] border border-[var(--c-border)] rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 sm:w-[400px] h-[500px] max-h-[85vh] z-[100] bg-[var(--c-bg2)] border border-[var(--c-border)] rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 bg-[var(--c-bg)] border-b border-[var(--c-border)]">

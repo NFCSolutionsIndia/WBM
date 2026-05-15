@@ -94,18 +94,18 @@ export default function Navbar() {
       className="fixed top-4 left-0 w-full z-[100] px-4 md:px-8 min-[970px]:px-5 min-[1150px]:px-8 flex justify-center pointer-events-none"
     >
       {/* Floating Dock */}
-      <div className="pointer-events-auto flex items-center justify-between w-full max-w-[85rem] bg-[var(--c-bg)]/80 backdrop-blur-2xl border border-[var(--c-border)] rounded-full px-3 md:px-6 min-[970px]:px-4 min-[1150px]:px-6 py-2 md:py-3 shadow-[0_8px_32px_var(--c-shadow)] transition-colors duration-500">
+      <div className="pointer-events-auto flex items-center justify-between w-full max-w-[85rem] bg-[var(--c-bg)]/80 backdrop-blur-2xl border border-[var(--c-border)] rounded-full px-2 md:px-6 min-[970px]:px-4 min-[1150px]:px-6 py-2 md:py-3 shadow-[0_8px_32px_var(--c-shadow)] transition-colors duration-500">
         
         {/* Logo */}
         <Link href="/" className="z-50 relative group flex items-center shrink-0 mr-2 md:mr-4">
           <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-            <div className="transition-all duration-500">
+            <div className="transition-all duration-500 flex items-center">
               <Image 
                 src={theme === 'dark' ? "/WBM/WBMLogoWhiteText.png" : "/WBM/WBMLogo.svg"} 
                 alt="Waste Be Minerals" 
-                width={140} 
-                height={35} 
-                className="h-[28px] md:h-[34px] w-auto object-contain transition-opacity" 
+                width={110} 
+                height={28} 
+                className="h-[20px] sm:h-[28px] md:h-[34px] w-auto object-contain transition-opacity" 
                 style={{ width: 'auto' }}
                 priority 
               />
@@ -175,16 +175,16 @@ export default function Navbar() {
         </div>
  
         {/* Mobile Toggle */}
-        <div className="min-[970px]:hidden flex items-center gap-1">
-          <button onClick={toggle} className="p-1.5 rounded-full text-[var(--c-fg)] hover:bg-[var(--c-fg)]/10 transition-colors">
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        <div className="min-[970px]:hidden flex items-center gap-0.5">
+          <button onClick={toggle} className="p-1 rounded-full text-[var(--c-fg)] hover:bg-[var(--c-fg)]/10 transition-colors">
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button 
-            className="z-50 text-[var(--c-fg)] hover:text-[var(--c-lime)] transition-colors p-1.5"
+            className="z-50 text-[var(--c-fg)] hover:text-[var(--c-lime)] transition-colors p-1"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <motion.div animate={{ rotate: mobileMenuOpen ? 90 : 0 }}>
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </motion.div>
           </button>
         </div>

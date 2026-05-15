@@ -25,9 +25,16 @@ const Contact = () => {
       email: "contact@wastebeminerals.com"
     },
     {
-      city: "Pune",
+      city: "Hyderabad",
       type: "APAC Regional Hub",
-      address: "EON Free Zone, Kharadi, Pune, Maharashtra 411014, India",
+      address: "21-5-18, Petla Burj, Hyderabad, Telangana 500064, India",
+      phone: "+91 40 1234 5678",
+      email: "contact@wastebeminerals.com"
+    },
+    {
+      city: "Bhubaneswar",
+      type: "Planned Recovery Center",
+      address: "Odisha Industrial Infrastructure Development Corp (IDCO), Bhubaneswar, Odisha, India",
       phone: "+91 20 1234 5678",
       email: "contact@wastebeminerals.com"
     },
@@ -113,7 +120,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest mb-1">General Inquiries</div>
-                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] whitespace-nowrap">contact@wastebeminerals.com</div>
+                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] break-all sm:break-normal">contact@wastebeminerals.com</div>
                     </div>
                   </div>
 
@@ -123,7 +130,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="text-[10px] font-bold text-[var(--c-fg)]/60 uppercase tracking-widest mb-1">Toll-Free Support</div>
-                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] whitespace-nowrap">+1 (800) WASTE-BE</div>
+                      <div className="text-[13px] sm:text-lg md:text-xl font-bold text-[var(--c-fg)] break-all sm:break-normal">+1 (800) WASTE-BE</div>
                     </div>
                   </div>
                 </div>
